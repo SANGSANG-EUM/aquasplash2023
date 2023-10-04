@@ -1,0 +1,19 @@
+#header {position: relative; height: 80px;}
+#hd_logo {position: absolute; top: 0; left: 0; z-index: 1; height: 80px; line-height: 80px;}
+#hd_gnb .depth1 {display: flex; flex-flow: row wrap; justify-content: center; align-items: flex-start; gap: 50px;}
+#hd_gnb .depth1 > li {position: relative;}
+#hd_gnb .depth1 > li > a {display: flex; height: 80px; align-items: center; font-size: 18px; font-weight: 500; color: #333;}
+#hd_gnb .depth2 > li > a {display: block; font-weight: 400;}
+#hd_gnb .depth2 {display: none; position: absolute; top: 60px; left: 0; width: 150px; background:wheat;}
+#hd_gnb .depth3 > li > a {display: block; font-size: 14px; padding-left: 10px;}
+
+#hd_gnb .depth1 > li:hover .depth2 {display: block;}
+
+.sb_top {height: 300px;}
+.sb_top.introduce_top {background:cornflowerblue;}
+.sb_top.cs_top {background: slateblue;}
+.sb_top .sb_title {font-size: 30px; font-weight: 700; color: #fff;}
+.sb_top .sb_2menus_wrap {display: flex; flex-flow: row wrap; align-items: center; gap: 10px;}
+.sb_top .sb_2menus_wrap > li {}
+.sb_top .sb_2menus_wrap > li > a {font-size: 16px; font-weight: 300; color: #ddd;}
+.sb_top .sb_2menus_wrap > li.act > a {font-weight: 500; color: #fff;}
