@@ -1,14 +1,14 @@
 * {margin:0; padding:0; box-sizing:border-box; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; word-break: keep-all;}
 html,body{max-width: 100%; min-height: 100%;}
 html{overflow-x: hidden; -webkit-text-size-adjust: none;}
-body{-webkit-print-color-adjust:exact; background: #fff; font-family: 'Pretendard', sans-serif; font-style: normal; font-size: 16px; font-weight: 300; color: #0f0f0f; line-height: 1.2; -ms-overflow-style:none; width: 100%; overflow-x: hidden;}
+body{-webkit-print-color-adjust:exact; background: #fff; font-family: 'Montserrat', 'Pretendard'; font-style: normal; font-size: 16px; font-weight: 300; color: #0f0f0f; line-height: 1.2; -ms-overflow-style:none; width: 100%; overflow-x: hidden;}
 body::-webkit-scrollbar { display:none; }
 ul, li, dl,dt,dd {margin:0; padding:0; list-style:none;}
 a{color:#0f0f0f; text-decoration:none;}
 img {border: 0; font-size: 0; max-width: 100%; vertical-align: middle;}
-h1, h2, h3, h4, h5, h6{font-size:1em; font-family: 'Pretendard', sans-serif;}
-textarea, select{font-family: 'Pretendard', sans-serif; font-size:1em}
-input, button{margin:0; padding:0; font-family: 'Pretendard', sans-serif; font-size:1em}
+h1, h2, h3, h4, h5, h6{font-size:1em; font-family: 'Montserrat', 'Pretendard';}
+textarea, select{font-family: 'Montserrat', 'Pretendard'; font-size:1em}
+input, button{margin:0; padding:0; font-family: 'Montserrat', 'Pretendard'; font-size:1em}
 input[type="submit"], button{cursor:pointer}
 table, tr, td {border-collapse: collapse;}
 p{word-break: keep-all;}
@@ -17,9 +17,8 @@ select{appearance: none; border-radius: 0; outline: none;}
 select::-ms-expand {display: none;}
 
 /* guide line */
-.container {width: 100%; padding-left: 40px; padding-right: 40px;}
-.wrapper {width: 1500px; max-width: 100%; margin: 0 auto;}
-.wrapper2 {width: 1280px; max-width: 100%; margin: 0 auto;}
+/* .container {width: 100%; padding-left: 40px; padding-right: 40px;} */
+.wrapper {padding: 0 3vw; width: calc(1400px + 6vw); max-width: 100%; margin: 0 auto;}
 
 /* text cut */
 .text_row1{white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}

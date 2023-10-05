@@ -29,38 +29,93 @@ if(defined('_INDEX_')) { // index에서만 실행
 ?>
 
 <!-- 헤더 시작 { -->
-<div id="header">
-  <h1 id="hd_logo">
-    <a href="/">LOGO</a>
-  </h1>
+<div id="header" class="header">
 
-  <nav id="hd_gnb">
-    <ul class="depth1">
-      <?php foreach ($sb_menus as $menu) { ?>
-      <li>
-        <a href="<?php echo $menu['link'];?>"><?php echo $menu['name'];?></a>
-        <?php if ( isset($menu['sb_2menus']) ) { ?>
-        <ul class="depth2">
-          <?php foreach ($menu['sb_2menus'] as $menu2) { ?>
-          <li>
-            <a href="<?php echo $menu2['link'];?>"><?php echo $menu2['name'];?></a>
-            <?php if ( isset($menu2['sb_3menus']) ) { ?>
-            <ul class="depth3">
-              <?php foreach ($menu2['sb_3menus'] as $menu3) { ?>
-              <li>
-                <a href="<?php echo $menu3['link'];?>"><?php echo $menu3['name'];?></a>
-              </li>
-              <?php } ?>
-            </ul>
-            <?php } ?>
-          </li>
+  <div class="hd-top">
+    <div id="hd_logo" class="hd_logo">
+      <a href="/">
+        <img src="/source/img/logo.png" alt="아쿠아스플래시">
+      </a>
+    </div>
+    <nav id="hd_gnb" class="hd_gnb">
+      <ul class="depth1-ul">
+        <li class="depth1-li">
+          <a href="">COLOUR LENSES</a>
+        </li>
+        <li class="depth1-li">
+          <a href="">CLEAR LENSES</a>
+        </li>
+        <li class="depth1-li">
+          <a href="">MPS</a>
+        </li>
+        <li class="depth1-li">
+          <a href="">COMMUNITY</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="hd-btm">
+
+    <div class="hd-snb">
+      <ul class="hd-snb-ul">
+        <li class="hd-snb-li">
+          <a href="/shop/mypage.php">
+            <img src="/source/img/icon-mypage_gray.png" alt="" class="icon-normal">
+            <img src="/source/img/icon-mypage_green.png" alt="" class="icon-hover">
+            <p>MY PAGE</p>
+          </a>
+        </li>
+        <li class="hd-snb-li">
+          <a href="/shop/cart.php">
+            <img src="/source/img/icon-cart_gray.png" alt="" class="icon-normal">
+            <img src="/source/img/icon-cart_green.png" alt="" class="icon-hover">
+            <p>CART</p>
+          </a>
+        </li>
+        <li class="hd-snb-li">
+          <?php if ($is_member) {?>
+          <a href="<?php echo G5_URL; ?>/bbs/logout.php">
+            <img src="/source/img/icon-logout_gray.png" alt="" class="icon-normal">
+            <img src="/source/img/icon-logout_green.png" alt="" class="icon-hover">
+            <p>LOGOUT</p>
+          </a>
+          <?php } else { ?>
+          <a href="<?php echo G5_URL; ?>/bbs/login.php">
+            <img src="/source/img/icon-login_gray.png" alt="" class="icon-normal">
+            <img src="/source/img/icon-login_green.png" alt="" class="icon-hover">
+            <p>LOGIN</p>
+          </a>
           <?php } ?>
-        </ul>
-        <?php } ?>
-      </li>
-      <?php } ?>
-    </ul>
-  </nav>
+        </li>
+        <li class="hd-snb-li">
+          <a href="">
+            <img src="/source/img/icon-lang_gray.png" alt="" class="icon-normal">
+            <img src="/source/img/icon-lang_green.png" alt="" class="icon-hover">
+            <p>KOR</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="hd-snb">
+      <ul class="hd-sns-ul">
+        <li class="hd-sns-li instagram">
+          <a href="" target="_blank">
+            <img src="/source/img/icon-instagram_gray" alt="인스타그램" class="icon-normal">
+            <img src="/source/img/icon-instagram_green" alt="인스타그램" class="icon-hover">
+          </a>
+        </li>
+        <li class="hd-sns-li youtube">
+          <a href="" target="_blank">
+            <img src="/source/img/icon-youtube_gray" alt="유튜브" class="icon-normal">
+            <img src="/source/img/icon-youtube_green" alt="유튜브" class="icon-hover">
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
 </div>
 <!-- } 헤더 끝 -->
 
