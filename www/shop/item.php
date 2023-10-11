@@ -129,7 +129,17 @@ if(defined('G5_THEME_USE_ITEM_CATEGORY') && G5_THEME_USE_ITEM_CATEGORY){
 if ($is_admin) {
     echo '<div class="sit_admin"><a href="'.G5_ADMIN_URL.'/shop_admin/itemform.php?w=u&amp;it_id='.$it_id.'" class="btn_admin btn" title="상품 관리"><span class="sound_only">상품 관리</span><i class="fa fa-cog fa-spin fa-fw"></i></a></div>';
 }
+
+include_once(G5_PATH.'/include/sub_visual.php');
 ?>
+
+<div class="container">
+
+    <!-- sub visual { -->
+        <?php sub_visual('colour1', 'back'); ?>
+    <!-- } sub visual -->
+
+    <div class="wrapper">
 
 <!-- 상품 상세보기 시작 { -->
 <?php
@@ -270,6 +280,9 @@ include_once(G5_SHOP_PATH.'/settle_naverpay.inc.php');
     include $info_skin;
     ?>
 
+</div>
+
+    </div>
 </div>
 
 <?php

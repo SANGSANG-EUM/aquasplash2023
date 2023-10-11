@@ -185,13 +185,13 @@ $(function() {
             case "증가":
                 this_qty = parseInt($el_qty.val().replace(/[^0-9]/, "")) + 1;
                 if(this_qty > stock) {
-                    alert("재고수량 보다 많은 수량을 구매할 수 없습니다.");
+                    alert("재고수량 보다 많은 수량을 구매할 수 없습니다.hosu");
                     this_qty = stock;
                 }
 
                 if(this_qty > max_qty) {
                     this_qty = max_qty;
-                    alert("최대 구매수량은 "+number_format(String(max_qty))+" 입니다.");
+                    alert("최대 구매수량은 "+number_format(String(max_qty))+" 입니다.hosu");
                 }
 
                 $el_qty.val(this_qty);
@@ -203,7 +203,8 @@ $(function() {
                 this_qty = parseInt($el_qty.val().replace(/[^0-9]/, "")) - 1;
                 if(this_qty < min_qty) {
                     this_qty = min_qty;
-                    alert("최소 구매수량은 "+number_format(String(min_qty))+" 입니다.");
+                    
+                    alert("최소 구매수량은 "+number_format(String(min_qty))+" 입니다.hosu");
                 }
                 $el_qty.val(this_qty);
                 $this.trigger("sit_sel_option_success", [$this, mode, this_qty]);
@@ -211,7 +212,7 @@ $(function() {
                 break;
 
             case "삭제":
-                if(confirm("선택하신 옵션항목을 삭제하시겠습니까?")) {
+                if(confirm("선택하신 옵션항목을 삭제하시겠습니까?hosu")) {
                     var $el = $(this).closest("li");
                     var del_exec = true;
 
@@ -388,9 +389,9 @@ function add_sel_option(type, id, option, price, stock)
 
     var opt_prc;
     if(parseInt(price) >= 0)
-        opt_prc = "(+"+number_format(String(price))+"원)";
+        opt_prc = "(+"+number_format(String(price))+" <span>원abc<span>)";
     else
-        opt_prc = "("+number_format(String(price))+"원)";
+        opt_prc = "("+number_format(String(price))+" <span>원abc<span>)";
 
     opt += "<li class=\""+li_class+"\">";
     opt += "<input type=\"hidden\" name=\"io_type["+item_code+"][]\" value=\""+type+"\">";

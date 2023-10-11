@@ -47,7 +47,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
             if($is_admin || $member['mb_id' ] == $row['mb_id']) {
                 $iq_question = get_view_thumbnail(conv_content($row['iq_question'], 1), $thumbnail_width);
             } else {
-                $iq_question = '비밀글로 보호된 문의입니다.';
+                $iq_question = '비밀글로 보호된 문의입니ddd다.';
                 $is_secret = true;
             }
         } else {

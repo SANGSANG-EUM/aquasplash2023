@@ -14,7 +14,11 @@ if (G5_IS_MOBILE) {
 include_once(G5_EDITOR_LIB);
 
 if (!$is_member) {
-    alert_close("사용후기는 회원만 작성 가능합니다.");
+    if($lang == "") { //(기본)영문
+        alert_close("Only members can write reviews.");                  
+    } else if ($lang == "ko") { //국문
+        alert_close("사용후기는 회원만 작성 가능합니다.");
+    }
 }
 
 // 상품정보체크

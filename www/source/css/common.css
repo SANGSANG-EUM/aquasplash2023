@@ -32,7 +32,7 @@ select::-ms-expand {display: none;}
 .cf:before,
 .cf:after{content: " "; display: table;}
 .cf:after{clear: both;}
-.cf{*zoom: 1;}
+.cf{zoom: 1;}
 
 /* column */
 .i-col-0{font-size: 0;}
@@ -82,10 +82,9 @@ select::-ms-expand {display: none;}
 .check_wrap input[type=checkbox]:checked + label:after{background: url("/source/img/check_icon_act.png") no-repeat center center;}
 
 /* select */
-.select_wrap select{width: 100%; height: 50px; border: 1px solid #ddd; border-radius: 10px; padding: 0 20px; font-size: 16px; font-weight: 300; color: #666; background: #fff url("/source/img/icon_arr_bt_01.png") no-repeat center right 20px;}
+.aq-select {padding: 0 15px; width: 100%;  height: 40px; border-radius: 5px; border: 1px solid #ddd; color: #333; background: #fff url("/source/img/icon-select.png") no-repeat center right 15px / 10px;}
 
 /* search */
-.sch_wrap{}
 .sch_wrap .sch_box{font-size: 0; border: 1px solid #ddd; border-radius: 10px;}
 .sch_wrap .sch_txt{display: inline-block; vertical-align: middle; width: calc(100% - 60px); height: 48px; font-size: 16px; border: none; border-radius: 10px 0 0 10px; padding-left: 22px;}
 .sch_wrap .sch_txt::placeholder{font-size: 16px; font-weight: 300; color: #999;}

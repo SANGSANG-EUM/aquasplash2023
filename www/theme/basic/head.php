@@ -40,7 +40,7 @@ if(defined('_INDEX_')) { // index에서만 실행
     <nav id="hd_gnb" class="hd_gnb">
       <ul class="depth1-ul">
         <li class="depth1-li">
-          <a href="">COLOUR LENSES</a>
+          <a href="/sub/colour">COLOUR LENSES</a>
         </li>
         <li class="depth1-li">
           <a href="">CLEAR LENSES</a>
@@ -60,11 +60,19 @@ if(defined('_INDEX_')) { // index에서만 실행
     <div class="hd-snb">
       <ul class="hd-snb-ul">
         <li class="hd-snb-li">
+        <?php if ($is_member) {?>
           <a href="/shop/mypage.php">
             <img src="/source/img/icon-mypage_gray.png" alt="" class="icon-normal">
             <img src="/source/img/icon-mypage_green.png" alt="" class="icon-hover">
             <p>MY PAGE</p>
           </a>
+          <?php } else { ?>
+          <a href="/bbs/register.php">
+            <img src="/source/img/icon-join_gray.png" alt="" class="icon-normal">
+            <img src="/source/img/icon-join_green.png" alt="" class="icon-hover">
+            <p>JOIN</p>
+          </a>
+          <?php } ?>
         </li>
         <li class="hd-snb-li">
           <a href="/shop/cart.php">
@@ -102,14 +110,14 @@ if(defined('_INDEX_')) { // index에서만 실행
       <ul class="hd-sns-ul">
         <li class="hd-sns-li instagram">
           <a href="" target="_blank">
-            <img src="/source/img/icon-instagram_gray" alt="인스타그램" class="icon-normal">
-            <img src="/source/img/icon-instagram_green" alt="인스타그램" class="icon-hover">
+            <img src="/source/img/icon-instagram_gray.png" alt="인스타그램" class="icon-normal">
+            <img src="/source/img/icon-instagram_color.png" alt="인스타그램" class="icon-hover">
           </a>
         </li>
         <li class="hd-sns-li youtube">
           <a href="" target="_blank">
-            <img src="/source/img/icon-youtube_gray" alt="유튜브" class="icon-normal">
-            <img src="/source/img/icon-youtube_green" alt="유튜브" class="icon-hover">
+            <img src="/source/img/icon-youtube_gray.png" alt="유튜브" class="icon-normal">
+            <img src="/source/img/icon-youtube_color.png" alt="유튜브" class="icon-hover">
           </a>
         </li>
       </ul>

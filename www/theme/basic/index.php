@@ -26,11 +26,29 @@ include_once(G5_THEME_PATH.'/head.php');
             <img src="/source/img/mainvs1.jpg" alt="">
             <div class="wrapper">
               <div class="mainvs-txt-wr">
-                <p class="mainvs-tit">BEYOND THE MOIST</p>
-                <p class="mainvs-txt mainvs-txt1">Make your lifecomfortable and colorful</p>
-                <p class="mainvs-txt mainvs-txt2">AQUASPLASH is the premium brand of contact lenses with exceptional
-                  quality andreasonal price for your patients’ ocular health. <br> AQUASPLASH has the full product lines
-                  to correct your vision and change your eye colorfor your comfortable and colorful life.</p>
+                <p class="mainvs-tit">
+                <?php if ($lang == "") { //(기본)영문
+                    echo "BEYOND THE MOIST";
+                } else if ($lang == "ko") { //국문
+                    echo "";
+                }?>
+                </p>
+                <p class="mainvs-txt mainvs-txt1">
+                <?php if ($lang == "") { //(기본)영문
+                    echo "Make your lifecomfortable and colorful";
+                } else if ($lang == "ko") { //국문
+                    echo "";
+                }?>
+                </p>
+                <p class="mainvs-txt mainvs-txt2">
+                <?php if ($lang == "") { //(기본)영문
+                    echo "AQUASPLASH is the premium brand of contact lenses with exceptional
+                    quality andreasonal price for your patients’ ocular health. <br> AQUASPLASH has the full product lines
+                    to correct your vision and change your eye colorfor your comfortable and colorful life.";
+                } else if ($lang == "ko") { //국문
+                    echo "";
+                }?>
+                </p>
               </div>
             </div>
           </div>
@@ -39,12 +57,30 @@ include_once(G5_THEME_PATH.'/head.php');
           <div class="swiper-slide mainvs-slide">
             <img src="/source/img/mainvs2.jpg" alt="">
             <div class="wrapper">
-              <div class="mainvs-txt-wr">
-                <p class="mainvs-tit">BEYOND THE MOIST</p>
-                <p class="mainvs-txt mainvs-txt1">Make your lifecomfortable and colorful</p>
-                <p class="mainvs-txt mainvs-txt2">AQUASPLASH is the premium brand of contact lenses with exceptional
-                  quality andreasonal price for your patients’ ocular health. <br> AQUASPLASH has the full product lines
-                  to correct your vision and change your eye colorfor your comfortable and colorful life.</p>
+            <div class="mainvs-txt-wr">
+                <p class="mainvs-tit">
+                <?php if ($lang == "") { //(기본)영문
+                    echo "BEYOND THE MOIST";
+                } else if ($lang == "ko") { //국문
+                    echo "";
+                }?>
+                </p>
+                <p class="mainvs-txt mainvs-txt1">
+                <?php if ($lang == "") { //(기본)영문
+                    echo "Make your lifecomfortable and colorful";
+                } else if ($lang == "ko") { //국문
+                    echo "";
+                }?>
+                </p>
+                <p class="mainvs-txt mainvs-txt2">
+                <?php if ($lang == "") { //(기본)영문
+                    echo "AQUASPLASH is the premium brand of contact lenses with exceptional
+                    quality andreasonal price for your patients’ ocular health. <br> AQUASPLASH has the full product lines
+                    to correct your vision and change your eye colorfor your comfortable and colorful life.";
+                } else if ($lang == "ko") { //국문
+                    echo "";
+                }?>
+                </p>
               </div>
             </div>
           </div>
@@ -87,11 +123,22 @@ include_once(G5_THEME_PATH.'/head.php');
               </button>
               <div class="mainsec2-info-wr">
                 <p class="mainsec2-info-tit main-info-tit">1 Colour</p>
-                <p class="mainsec2-info-txt main-info-txt">Experience the romantic and glamorous beauty. AQUASPLASH 1
-                  COLOUR makes
-                  your eyes look more profound and luxurious with a naturally touched pupil design and glamorous colors.
+                <p class="mainsec2-info-txt main-info-txt">
+                <?php if ($lang == "") { //(기본)영문
+                  echo "Simply have your new and natural eye colors. AQUASPLASH 1 COLOUR makes your eye color new with new and bold colors.";
+                } else if ($lang == "ko") { //국문
+                  echo "";
+                }?>
                 </p>
-                <a href="" class="main-link"><span>Learn More</span><span>+</span></a>
+                <a href="" class="main-link">
+                <span>
+                <?php if ($lang == "") { //(기본)영문
+                  echo "Learn More";
+                } else if ($lang == "ko") { //국문
+                  echo "더보기";
+                }?>
+                </span>
+                <span>+</span></a>
               </div>
             </li>
             <li class="mainsec2-li mainsec2-li--2">
@@ -107,11 +154,20 @@ include_once(G5_THEME_PATH.'/head.php');
               </button>
               <div class="mainsec2-info-wr">
                 <p class="mainsec2-info-tit main-info-tit">2 Colour</p>
-                <p class="mainsec2-info-txt main-info-txt">Experience the romantic and glamorous beauty. AQUASPLASH 2
-                  COLOUR makes
-                  your eyes look more profound and luxurious with a naturally touched pupil design and glamorous colors.
+                <p class="mainsec2-info-txt main-info-txt">
+                <?php if ($lang == "") { //(기본)영문
+                    echo "Upgrade your lovely and charming eyes with AQUASPLASH 2 COLOUR. Enhance your natural eye color with AQUASPLASH 2 COLOUR.";
+                } else if ($lang == "ko") { //국문
+                    echo "";
+                }?>
                 </p>
-                <a href="" class="main-link"><span>Learn More</span><span>+</span></a>
+                <a href="" class="main-link"><span>
+                <?php if ($lang == "") { //(기본)영문
+                  echo "Learn More";
+                } else if ($lang == "ko") { //국문
+                  echo "더보기";
+                }?>
+                </span><span>+</span></a>
               </div>
             </li>
             <li class="mainsec2-li mainsec2-li--3">
@@ -127,11 +183,20 @@ include_once(G5_THEME_PATH.'/head.php');
               </button>
               <div class="mainsec2-info-wr">
                 <p class="mainsec2-info-tit main-info-tit">3 Colour</p>
-                <p class="mainsec2-info-txt main-info-txt">Experience the romantic and glamorous beauty. AQUASPLASH 3
-                  COLOUR makes
-                  your eyes look more profound and luxurious with a naturally touched pupil design and glamorous colors.
+                <p class="mainsec2-info-txt main-info-txt">
+                  <?php if ($lang == "") { //(기본)영문
+                    echo "Experience the romantic and glamorous beauty. AQUASPLASH 3 COLOUR makes your eyes look more profound and luxurious with a naturally touched pupil design and glamorous colors.";
+                  } else if ($lang == "ko") { //국문
+                    echo "";
+                  }?>
                 </p>
-                <a href="" class="main-link"><span>Learn More</span><span>+</span></a>
+                <a href="" class="main-link"><span>
+                <?php if ($lang == "") { //(기본)영문
+                  echo "Learn More";
+                } else if ($lang == "ko") { //국문
+                  echo "더보기";
+                }?>
+                </span><span>+</span></a>
               </div>
             </li>
             <li class="mainsec2-li mainsec2-li--4">
@@ -147,11 +212,20 @@ include_once(G5_THEME_PATH.'/head.php');
               </button>
               <div class="mainsec2-info-wr">
                 <p class="mainsec2-info-tit main-info-tit">4 Colour</p>
-                <p class="mainsec2-info-txt main-info-txt">Experience the romantic and glamorous beauty. AQUASPLASH 4
-                  COLOUR makes
-                  your eyes look more profound and luxurious with a naturally touched pupil design and glamorous colors.
+                <p class="mainsec2-info-txt main-info-txt">
+                <?php if ($lang == "") { //(기본)영문
+                  echo "Create romantic eyes for the perfection of your beauty. AQUASPLASH 4 COLOUR makes your eyes romantic and elegant with sophiscated and natural pupil colors.";
+                } else if ($lang == "ko") { //국문
+                  echo "";
+                }?>
                 </p>
-                <a href="" class="main-link"><span>Learn More</span><span>+</span></a>
+                <a href="" class="main-link"><span>
+                <?php if ($lang == "") { //(기본)영문
+                  echo "Learn More";
+                } else if ($lang == "ko") { //국문
+                  echo "더보기";
+                }?>
+                </span><span>+</span></a>
               </div>
             </li>
           </ul>
@@ -167,7 +241,7 @@ include_once(G5_THEME_PATH.'/head.php');
         </div>
         <div class="mainsec3-box">
           <div class="mainsec3-top">
-            <ul class="mainsec3-cate-ul">
+            <!-- <ul class="mainsec3-cate-ul">
               <li class="mainsec3-cate-li on" data-link="colorAll">
                 <button type="button">All Colour</button>
               </li>
@@ -183,6 +257,8 @@ include_once(G5_THEME_PATH.'/head.php');
               <li class="mainsec3-cate-li" data-link="color4">
                 <button type="button">4 Colour</button>
               </li>
+            </ul> -->
+            <ul class="mainsec3-cate-ul">
             </ul>
             <div class="mainsec3-btn-wr">
               <button type="button" class="mainsec3-btn prev">
@@ -195,1851 +271,1186 @@ include_once(G5_THEME_PATH.'/head.php');
               </button>
             </div>
           </div>
-          <!-- 첫번째 슬라이드 { -->
-          <div id="colorAll" class="mainsec3-slider mainsec3-slider--1 swiper on">
+
+          <div class="mainsec3-slider">
             <div class="swiper-wrapper">
-              <!-- loop { -->
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
+
+              <!-- All Colour { -->
+              <div class="mainsec3-slide swiper-slide">
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--1">
+                      1 Colour
                     </div>
                   </div>
-                  <!-- } 마우스 오버시 -->
-                  <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
-                  <div class="mainsec3-item-color list-item-color item-color--1">
-                    1 Colour
-                  </div>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
+                    </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
                 </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
+                
               </div>
-              <!-- } loop -->
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
+              <!-- } All Colour -->
+
+              <!-- 1 Colour { -->
+              <div class="mainsec3-slide swiper-slide">
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--1">
+                      1 Colour
                     </div>
                   </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--2">
-                    2 Colour
-                  </div>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
+                    </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
                 </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--1">
+                      1 Colour
                     </div>
                   </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
                     </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--3">
-                    3 Colour
-                  </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
                 </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--1">
+                      1 Colour
                     </div>
                   </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
                     </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--4">
-                    4 Colour
-                  </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
                 </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--1">
+                      1 Colour
                     </div>
                   </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
                     </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--1">
-                    1 Colour
-                  </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
                 </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--1">
+                      1 Colour
                     </div>
                   </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
                     </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--2">
-                    2 Colour
-                  </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
                 </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--1">
+                      1 Colour
                     </div>
                   </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
                     </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--3">
-                    3 Colour
-                  </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
                 </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--1">
+                      1 Colour
                     </div>
                   </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
                     </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--4">
-                    4 Colour
-                  </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
                 </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--1">
+                      1 Colour
                     </div>
                   </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
                     </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--1">
-                    1 Colour
-                  </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
                 </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--1">
+                      1 Colour
                     </div>
                   </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
                     </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--1">
-                    1 Colour
-                  </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
                 </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--1">
+                      1 Colour
                     </div>
                   </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
                     </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--1">
-                    1 Colour
-                  </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
                 </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
               </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
+              <!-- } 1 Colour -->
+
+              <!-- 2 Colour { -->
+              <div class="mainsec3-slide swiper-slide">
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--2">
+                      2 Colour
                     </div>
                   </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--1">
-                    1 Colour
-                  </div>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
+                    </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
                 </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--2">
+                      2 Colour
                     </div>
                   </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
+                    </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--2">
+                      2 Colour
+                    </div>
                   </div>
-                </a>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
+                    </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--2">
+                      2 Colour
+                    </div>
+                  </div>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
+                    </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--2">
+                      2 Colour
+                    </div>
+                  </div>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
+                    </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--2">
+                      2 Colour
+                    </div>
+                  </div>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
+                    </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--2">
+                      2 Colour
+                    </div>
+                  </div>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
+                    </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--2">
+                      2 Colour
+                    </div>
+                  </div>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
+                    </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--2">
+                      2 Colour
+                    </div>
+                  </div>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
+                    </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--2">
+                      2 Colour
+                    </div>
+                  </div>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
+                    </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
+                </div>
               </div>
+              <!-- } 2 Colour -->
+
+              <!-- 3 Colour { -->
+              <div class="mainsec3-slide swiper-slide">
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--3">
+                      3 Colour
+                    </div>
+                  </div>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
+                    </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--3">
+                      3 Colour
+                    </div>
+                  </div>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
+                    </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--3">
+                      3 Colour
+                    </div>
+                  </div>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
+                    </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--3">
+                      3 Colour
+                    </div>
+                  </div>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
+                    </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--3">
+                      3 Colour
+                    </div>
+                  </div>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
+                    </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--3">
+                      3 Colour
+                    </div>
+                  </div>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
+                    </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--3">
+                      3 Colour
+                    </div>
+                  </div>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
+                    </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--3">
+                      3 Colour
+                    </div>
+                  </div>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
+                    </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--3">
+                      3 Colour
+                    </div>
+                  </div>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
+                    </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--3">
+                      3 Colour
+                    </div>
+                  </div>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
+                    </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <!-- } 3 Colour -->
+
+              <!-- 3 Colour { -->
+              <div class="mainsec3-slide swiper-slide">
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--4">
+                      4 Colour
+                    </div>
+                  </div>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
+                    </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--4">
+                      4 Colour
+                    </div>
+                  </div>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
+                    </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--4">
+                      4 Colour
+                    </div>
+                  </div>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
+                    </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--4">
+                      4 Colour
+                    </div>
+                  </div>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
+                    </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--4">
+                      4 Colour
+                    </div>
+                  </div>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
+                    </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--4">
+                      4 Colour
+                    </div>
+                  </div>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
+                    </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--4">
+                      4 Colour
+                    </div>
+                  </div>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
+                    </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--4">
+                      4 Colour
+                    </div>
+                  </div>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
+                    </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--4">
+                      4 Colour
+                    </div>
+                  </div>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
+                    </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="list-item-box">
+                  <div class="mainsec3-item-img list-item-img">
+                    <img src="/source/img/sample-thumb.png" alt="">
+                    <!-- 마우스 오버시 { -->
+                    <a href="" class="mainsec3-item-hover list-item-hover">
+                      <div class="list-item-hover-wr">
+                        <span>MORE</span><img src="/source/img/icon-arrow_list_item.png" alt="">
+                      </div>
+                    </a>
+                    <!-- } 마우스 오버시 -->
+                    <!-- 찜하면 on 클래스 추가 -->
+                    <a href="" class="list-item-wish on" title="찜하기"></a>
+                    <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
+                    <div class="mainsec3-item-color list-item-color item-color--4">
+                      4 Colour
+                    </div>
+                  </div>
+                  <a href="" class="mainsec3-item-info list-item-info">
+                    <div class="mainsec3-item-txtwr list-item-txtwr">
+                      <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
+                      <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
+                      </div>
+                    </div>
+                    <div class="mainsec3-item-price list-item-price">
+                      <span>&#8361;30,000</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <!-- } 3 Colour -->
             </div>
           </div>
-          <!-- } 첫번째 슬라이드 -->
-          <!-- 두번째 슬라이드 { -->
-          <div id="color1" class="mainsec3-slider mainsec3-slider--2 swiper">
-            <div class="swiper-wrapper">
-              <!-- loop { -->
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
-                  <div class="mainsec3-item-color list-item-color item-color--1">
-                    1 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <!-- } loop -->
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--1">
-                    1 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--1">
-                    1 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--1">
-                    1 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--1">
-                    1 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--1">
-                    1 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--1">
-                    1 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--1">
-                    1 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--1">
-                    1 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--1">
-                    1 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--1">
-                    1 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--1">
-                    1 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- } 두번째 슬라이드 -->
-          <!-- 세번째 슬라이드 { -->
-          <div id="color2" class="mainsec3-slider mainsec3-slider--3 swiper">
-            <div class="swiper-wrapper">
-              <!-- loop { -->
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
-                  <div class="mainsec3-item-color list-item-color item-color--2">
-                    2 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <!-- } loop -->
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--2">
-                    2 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--2">
-                    2 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--2">
-                    2 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--2">
-                    2 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--2">
-                    2 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--2">
-                    2 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--2">
-                    2 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--2">
-                    2 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--2">
-                    2 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--2">
-                    2 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--2">
-                    2 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- } 세번째 슬라이드 -->
-          <!-- 네번째 슬라이드 { -->
-          <div id="color3" class="mainsec3-slider mainsec3-slider--4 swiper">
-            <div class="swiper-wrapper">
-              <!-- loop { -->
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
-                  <div class="mainsec3-item-color list-item-color item-color--3">
-                    3 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <!-- } loop -->
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--3">
-                    3 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--3">
-                    3 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--3">
-                    3 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--3">
-                    3 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--3">
-                    3 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--3">
-                    3 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--3">
-                    3 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--3">
-                    3 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--3">
-                    3 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--3">
-                    3 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--3">
-                    3 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- } 네번째 슬라이드 -->
-          <!-- 다섯번째 슬라이드 { -->
-          <div id="color4" class="mainsec3-slider mainsec3-slider--5 swiper">
-            <div class="swiper-wrapper">
-              <!-- loop { -->
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <!-- 컬러 카테고리에 따라 클래스 숫자 바뀜 : item-color--1 -->
-                  <div class="mainsec3-item-color list-item-color item-color--4">
-                    4 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <!-- } loop -->
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--4">
-                    4 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--4">
-                    4 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--4">
-                    4 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--4">
-                    4 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--4">
-                    4 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--4">
-                    4 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--4">
-                    4 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--4">
-                    4 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--4">
-                    4 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--4">
-                    4 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-              <div class="mainsec3-item swiper-slide list-item-box">
-                <div class="mainsec3-item-img list-item-img">
-                  <img src="/source/img/sample-thumb.png" alt="">
-                  <!-- 마우스 오버시 { -->
-                  <div class="mainsec3-item-hover list-item-hover">
-                    <div class="list-item-hover-wr">
-                      <a href="" class="list-item-hover-btn cart">
-                        <img src="/source/img/icon-cart_white.png" alt="장바구니 담기">
-                      </a>
-                      <a href="" class="list-item-hover-btn wish">
-                        <img src="/source/img/icon-wish_white.png" alt="찜하기">
-                      </a>
-                    </div>
-                  </div>
-                  <!-- } 마우스 오버시 -->
-                  <div class="mainsec3-item-color list-item-color item-color--4">
-                    4 Colour
-                  </div>
-                </div>
-                <a href="" class="mainsec3-item-info list-item-info">
-                  <div class="mainsec3-item-txtwr list-item-txtwr">
-                    <div class="mainsec3-item-name list-item-name">PURE HAZEL</div>
-                    <div class="mainsec3-item-txt list-item-txt"> Product Info Product Info Product Info Product Info
-                    </div>
-                  </div>
-                  <div class="mainsec3-item-price list-item-price">
-                    <span>&#8361;30,000</span>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- } 다섯번째 슬라이드 -->
+
         </div>
       </div>
     </div>
@@ -2059,11 +1470,22 @@ include_once(G5_THEME_PATH.'/head.php');
             </li>
             <li class="mainsec4-li mainsec4-txtwr">
               <p class="mainsec4-info-tit main-info-tit">Clear Lenses</p>
-              <p class="mainsec4-info-txt main-info-txt">AQUASPLASH 1-DAY SPHERE BENEFITSWORLD BEST SELLING HYDROGEL
-                MATERIAL, ETAFICON A WITH 55% WATER. HA(HYALURONICA ACIDE), THE BEST MOSITURIZING AGENT. ASPHERIC LENS
-                DESIGN FOR SUPERB VISION CORRECTION(HIGN DEFINITION). UV A&B PROTECTION.
+              <p class="mainsec4-info-txt main-info-txt">
+              <?php if ($lang == "") { //(기본)영문
+                    echo "AQUASPLASH 1-DAY SPHERE BENEFITSWORLD BEST SELLING HYDROGEL
+                    MATERIAL, ETAFICON A WITH 55% WATER. HA(HYALURONICA ACIDE), THE BEST MOSITURIZING AGENT. ASPHERIC LENS
+                    DESIGN FOR SUPERB VISION CORRECTION(HIGN DEFINITION). UV A&B PROTECTION.";
+                } else if ($lang == "ko") { //국문
+                    echo "";
+                }?>
               </p>
-              <a href="" class="main-link"><span>Learn More</span><span>+</span></a>
+              <a href="" class="main-link"><span>
+                <?php if ($lang == "") { //(기본)영문
+                  echo "Learn More";
+                } else if ($lang == "ko") { //국문
+                  echo "더보기";
+                }?>
+                </span><span>+</span></a>
             </li>
           </ul>
           <ul class="mainsec4-ul">
@@ -2077,12 +1499,23 @@ include_once(G5_THEME_PATH.'/head.php');
             </li>
             <li class="mainsec4-li mainsec4-txtwr">
               <p class="mainsec4-info-tit main-info-tit">MPS</p>
-              <p class="mainsec4-info-txt main-info-txt">MULTIPURPOSE CONTACT LENS CARE SOLUTION WITH SODIUM HYALURONATE
-                AQUASPLASH REFRESH MULTI-PURPOSE SOLUTION HELPS TO CLEAN, RINSE, DISINFECT, REMOVE IRRITATING PROTEIN
-                DEPOSITS AND REMOVE PROTEIN DAILY FROM YOUR SOFT CONTACT LENSES (HYDROGELS, SILICONE HYDROGELS AND RGP)
-                FOR YOUR FRESH LENS FEELING EVERY DAY.
+              <p class="mainsec4-info-txt main-info-txt">
+              <?php if ($lang == "") { //(기본)영문
+                    echo "MULTIPURPOSE CONTACT LENS CARE SOLUTION WITH SODIUM HYALURONATE
+                    AQUASPLASH REFRESH MULTI-PURPOSE SOLUTION HELPS TO CLEAN, RINSE, DISINFECT, REMOVE IRRITATING PROTEIN
+                    DEPOSITS AND REMOVE PROTEIN DAILY FROM YOUR SOFT CONTACT LENSES (HYDROGELS, SILICONE HYDROGELS AND RGP)
+                    FOR YOUR FRESH LENS FEELING EVERY DAY.";
+                } else if ($lang == "ko") { //국문
+                    echo "";
+                }?>
               </p>
-              <a href="" class="main-link"><span>Learn More</span><span>+</span></a>
+              <a href="" class="main-link"><span>
+                <?php if ($lang == "") { //(기본)영문
+                  echo "Learn More";
+                } else if ($lang == "ko") { //국문
+                  echo "더보기";
+                }?>
+                </span><span>+</span></a>
             </li>
           </ul>
         </div>

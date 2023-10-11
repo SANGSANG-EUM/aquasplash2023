@@ -23,7 +23,15 @@ if(G5_COMMUNITY_USE === false) {
       <ul class="foot-wr">
         <li class="foot-in foot-l">
           <div class="foot-info-wr">
-            <p class="foot-info"><span class="foot-info_l">Add.</span> <span class="foot-info_r">18F, 136, Cheongsa-ro, Seo-gu, Daejeon, Republic of Korea</span></p>
+            <p class="foot-info"><span class="foot-info_l">Add.</span> 
+              <span class="foot-info_r">
+              <?php if ($lang == "") { //(기본)영문
+                echo "18F, 136, Cheongsa-ro, Seo-gu, Daejeon, Republic of Korea";
+              } else if ($lang == "ko") { //국문
+                echo "";
+              }?>
+              </span>
+            </p>
             <p class="foot-info"><span class="foot-info_l">E-mail.</span> <span class="foot-info_r">info@vpoptics.com</span></p>
             <p class="foot-info"><span class="foot-info_l">Tel.</span> <span class="foot-info_r">070-4178-1026</span></p>
           </div>
@@ -33,8 +41,20 @@ if(G5_COMMUNITY_USE === false) {
         </li>
         <li class="foot-in foot-r">
           <div class="foot-link-wr">
-            <a href="" class="foot-link">Legal Notice</a>
-            <a href="" class="foot-link">Privacy Policy</a>
+            <a href="" class="foot-link">
+            <?php if ($lang == "") { //(기본)영문
+              echo "Legal Notice";
+            } else if ($lang == "ko") { //국문
+              echo "";
+            }?>
+            </a>
+            <a href="" class="foot-link">
+            <?php if ($lang == "") { //(기본)영문
+              echo "Privacy Policy";
+            } else if ($lang == "ko") { //국문
+              echo "";
+            }?>
+            </a>
             <a href="https://www.vpoptics.com/" class="foot-link color" target="_blank">VP optics</a>
           </div>
         </li>

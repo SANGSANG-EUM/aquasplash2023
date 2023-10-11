@@ -9,11 +9,10 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 
 <!-- 상품문의 목록 시작 { -->
 <section id="sit_qa_list">
-    <h3>등록된 상품문의</h3>
+    <!-- <h3>등록된 상품문의</h3> -->
 
-    <div id="sit_qa_wbtn">
-        <a href="<?php echo $itemqa_form; ?>" class="btn02 itemqa_form">상품문의 쓰기<span class="sound_only">새 창</span></a>
-        <a href="<?php echo $itemqa_list; ?>" id="itemqa_list" class="btn01">더보기</a>
+    <div class="sit_use_top2">
+        <div class="sit_use_total">Total <span><?php echo $item_qa_count; ?></span></div>
     </div>
 
     <?php
@@ -32,7 +31,13 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
             if($is_admin || $member['mb_id' ] == $row['mb_id']) {
                 $iq_question = get_view_thumbnail(conv_content($row['iq_question'], 1), $thumbnail_width);
             } else {
-                $iq_question = '비밀글로 보호된 문의입니다.';
+
+                if($lang == "") { //(기본)영문
+                    $iq_question = 'This is a confidential inquiry.';     
+                } else if ($lang == "ko") { //국문
+                    $iq_question = '비밀글로 보호된 문의입니다.';
+                }
+                
                 $is_secret = true;
             }
         } else {
@@ -49,13 +54,25 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
         if ($row['iq_answer'])
         {
             $iq_answer = get_view_thumbnail(conv_content($row['iq_answer'], 1), $thumbnail_width);
-            $iq_stats = '답변완료';
+            if($lang == "") { //(기본)영문
+                $iq_stats = 'Replied';   
+            } else if ($lang == "ko") { //국문
+                $iq_stats = '답변완료';
+            }
             $iq_style = 'sit_qaa_done';
             $is_answer = true;
         } else {
-            $iq_stats = '답변대기';
+            if($lang == "") { //(기본)영문
+                $iq_stats = 'Waiting';   
+            } else if ($lang == "ko") { //국문
+                $iq_stats = '답변대기';
+            }
             $iq_style = 'sit_qaa_yet';
-            $iq_answer = '답변이 등록되지 않았습니다.';
+            if($lang == "") { //(기본)영문
+                $iq_answer = 'No reply has been registered.';
+            } else if ($lang == "ko") { //국문
+                $iq_answer = '답변이 등록되지 않았습니다.';
+            }
             $is_answer = false;
         }
 
@@ -73,13 +90,20 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
                 <div class="sit_qa_p">
                     <div class="sit_qa_qaq">
                         <strong class="sound_only">문의내용</strong>
-                        <span class="qa_alp">Q</span>
+                        <!-- <span class="qa_alp">Q</span> -->
                         <?php echo $iq_question; // 상품 문의 내용 ?>
                     </div>
                     <?php if(!$is_secret) { ?>
                     <div class="sit_qa_qaa">
+                        <span class="sit_qa_qaa_icon">
+                        <?php if ($lang == "") { //(기본)영문
+                            echo "Reply";
+                        } else if ($lang == "ko") { //국문
+                            echo "답변";
+                        }?>
+                        </span>
                         <strong class="sound_only">답변</strong>
-                        <span class="qa_alp">A</span>
+                        <!-- <span class="qa_alp">A</span> -->
                         <?php echo $iq_answer; ?>
                     </div>
                     <?php } ?>
@@ -100,9 +124,29 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 
     if ($i > 0) echo '</ol>';
 
-    if (!$i) echo '<p class="sit_empty">상품문의가 없습니다.</p>';
+    if (!$i && $lang == "") echo '<p class="sit_empty">There are no inquiries.</p>';
+
+    if (!$i && $lang == "ko") echo '<p class="sit_empty">상품문의가 없습니다.</p>';
     ?>
 </section>
+
+<div id="sit_qa_wbtn">
+        <a href="<?php echo $itemqa_form; ?>" class="btn02 itemqa_form">
+        <?php if ($lang == "") { //(기본)영문
+            echo "Write";
+        } else if ($lang == "ko") { //국문
+            echo "상품문의";
+        }?>
+        <span class="sound_only">
+            <?php if ($lang == "") { //(기본)영문
+                echo "Opens in new window";
+            } else if ($lang == "ko") { //국문
+                echo "새 창";
+            }?>
+        </span>
+    </a>
+        <!-- <a href="<?php //echo $itemqa_list; ?>" id="itemqa_list" class="btn01">더보기</a> -->
+    </div>
 
 <?php
 echo itemqa_page($config['cf_write_pages'], $page, $total_page, G5_SHOP_URL."/itemqa.php?it_id=$it_id&amp;page=", "");
@@ -111,7 +155,7 @@ echo itemqa_page($config['cf_write_pages'], $page, $total_page, G5_SHOP_URL."/it
 <script>
 $(function(){
     $(".itemqa_form").click(function(){
-        window.open(this.href, "itemqa_form", "width=810,height=680,scrollbars=1");
+        window.open(this.href, "itemqa_form", "width=810,height=700,scrollbars=1");
         return false;
     });
 
@@ -123,14 +167,17 @@ $(function(){
         var $con = $(this).siblings(".sit_qa_con");
         if($con.is(":visible")) {
             $con.slideUp();
+            $(this).closest('.sit_qa_li').removeClass('on');
         } else {
-            $(".sit_qa_con:visible").hide();
+            $(".sit_qa_con:visible").slideUp();
             $con.slideDown(
                 function() {
                     // 이미지 리사이즈
                     $con.viewimageresize2();
                 }
             );
+            $('.sit_qa_li').removeClass('on');
+            $(this).closest('.sit_qa_li').addClass('on');
         }
     });
 

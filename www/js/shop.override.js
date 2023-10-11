@@ -67,9 +67,9 @@ jQuery(function($){
 
                     var opt_prc;
                     if(parseInt(price) >= 0)
-                        opt_prc = "+"+number_format(String(price))+"원";
+                        opt_prc = "+"+number_format(String(price))+" <span>원hosu<span>";
                     else
-                        opt_prc = number_format(String(price))+"원";
+                        opt_prc = number_format(String(price))+" <span>원hosu<span>";
 
                     opt += "<li class=\""+li_class+"\">";
                     opt += "<input type=\"hidden\" name=\"io_type["+item_code+"][]\" value=\""+type+"\">";
@@ -81,11 +81,11 @@ jQuery(function($){
                     opt += "<span class=\"sit_opt_subj\">"+option+"</span>";
                     opt += "</div>";
                     opt += "<div class=\"opt_count\">";
-                    opt += "<button type=\"button\" class=\"sit_qty_minus\"><i class=\"fa fa-minus\" aria-hidden=\"true\"></i><span class=\"sound_only\">감소</span></button>";
+                    opt += "<button type=\"button\" class=\"sit_qty_minus\"><img src=\"/source/img/icon-minus.png\" alt=\"\"><span class=\"sound_only\">감소</span></button>";
                     opt += "<input type=\"text\" name=\"ct_qty["+item_code+"][]\" value=\"1\" class=\"num_input\" size=\"5\">";
-                    opt += "<button type=\"button\" class=\"sit_qty_plus\"><i class=\"fa fa-plus\" aria-hidden=\"true\"></i><span class=\"sound_only\">증가</span></button>";
+                    opt += "<button type=\"button\" class=\"sit_qty_plus\"><img src=\"/source/img/icon-plus.png\" alt=\"\"><span class=\"sound_only\">증가</span></button>";
                     opt += "<span class=\"sit_opt_prc\">"+opt_prc+"</span>";
-                    opt += "<button type=\"button\" class=\"sit_opt_del\"><i class=\"fa fa-times\" aria-hidden=\"true\"></i><span class=\"sound_only\">삭제</span></button></div>";
+                    opt += "<button type=\"button\" class=\"sit_opt_del\"><span class=\"sound_only\">삭제</span></button></div>";
                     opt += "</li>";
 
                     if($("#sit_sel_option > ul").length < 1) {
@@ -159,7 +159,7 @@ jQuery(function($){
                         }
                     });
 
-                    $("#sit_tot_price").empty().html("<span>총 금액 :</span><strong>"+number_format(String(total))+"</strong> 원");
+                    $("#sit_tot_price").empty().html("<div><span>총 금액hosu </span><span><strong>"+number_format(String(total))+"</strong> 원</span></div>");
                     
                     $("#sit_tot_price").trigger("price_calculate", [total]);
                 } else {

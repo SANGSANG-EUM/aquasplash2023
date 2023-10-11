@@ -11,6 +11,34 @@
     });
   }
 
+  // 메뉴에 active 표시
+  const menuActive = () => {
+    // 현재 페이지의 URL을 가져옵니다.
+    var currentURL = window.location.href;
+
+    // URL에서 "/shop/list-1234" 부분을 추출합니다.
+    var path = currentURL.split('/').pop();
+
+    // "-"로 분리하여 배열로 만듭니다.
+    var parts = path.split('-');
+
+    // 마지막 숫자를 가져옵니다.
+    var lastNumber = parts.pop();
+
+    // 마지막 숫자의 처음 두 자리를 추출합니다.
+    var firstTwoDigits = lastNumber.substring(0, 2);
+
+    // 결과를 출력합니다.
+    // console.log("처음 두 자리 숫자: " + firstTwoDigits);
+
+    if (firstTwoDigits == 10) {
+      $('.depth1-li').eq(0).addClass('on');
+    } else if (firstTwoDigits == 20) {
+      $('.depth1-li').eq(1).addClass('on');
+    }
+  }
+
+
   // [plugin-Swiper] main visual
   const mainVisualTimebar = (state) => {
     if (state == 'init') {
@@ -118,21 +146,30 @@
 
   // 메인 섹션2 렌즈 상품 슬라이드 및 카테고리
   const mainPrdSlider = () => {
-
+    var keys = ['All Colour', '1 Colour', '2 Colour', '3 Colour', '4 Colour'];
     var mpSwiper = new Swiper(".mainsec3-slider", {
-      slidesPerView: 5,
-      grid: {
-        rows: 2,
-      },
-      observer: true,
-      observeParents: true,
-      // loop: true,
-      slidesPerColumnFill: 'row',
+      slidesPerView: 1,
+      autoHeight: true,
+      // grid: {
+      //   rows: 2,
+      // },
+      // observer: true,
+      // observeParents: true,
+      loop: true,
+      // slidesPerColumnFill: 'row',
       spaceBetween: 30,
       navigation: {
         nextEl: ".mainsec3-btn.next",
         prevEl: ".mainsec3-btn.prev",
       },
+      pagination: {
+        el: '.mainsec3-cate-ul',
+        clickable: true,
+        renderBullet: function (index, className) {
+          return '<li class="mainsec3-cate-li ' + className + ' "><button type="button">' + (keys[index]) +
+            '</button></li>';
+        },
+      }
     });
 
     $('.mainsec3-cate-li button').on('click', function () {
@@ -154,12 +191,39 @@
 
   }
 
+  // 컬러렌즈 카테고리 페이지
+  const colorCate = () => {
+    $('.prd-cate-li').on('mouseenter', function () {
+      $('.prd-cate-li').addClass('grayscale');
+      $(this).removeClass('grayscale');
+    });
+    $('.prd-cate-li').on('mouseleave', function () {
+      $('.prd-cate-li').removeClass('grayscale');
+    });
+  }
+
+  // 상품 상세페이지 썸네일 슬라이드
+  const prdThumbSlide = () => {
+    var prdThumbSl = new Swiper("#sit_pvi_thumb", {
+      slidesPerView: 3,
+      // loop: true,
+      spaceBetween: 15,
+      navigation: {
+        nextEl: ".sit_pvi_btn.next",
+        prevEl: ".sit_pvi_btn.prev",
+      },
+    });
+  }
+
 
   // document ready
   $(document).ready(function () {
     mobileHeight();
+    menuActive();
     mainVisualSlide();
     mainWheel();
     mainCardBtn();
     mainPrdSlider();
+    colorCate();
+    prdThumbSlide();
   }); // document ready end

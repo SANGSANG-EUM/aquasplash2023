@@ -50,7 +50,12 @@ if ($w == "")
     $iq_id = sql_insert_id();
     run_event('shop_item_qa_created', $iq_id, $it_id);
 
-    $alert_msg = '상품문의가 등록 되었습니다.';
+    if($lang == "") { //(기본)영문
+        $alert_msg = 'Product inquiry has been registered.';
+    } else if ($lang == "ko") { //국문
+        $alert_msg = '상품문의가 등록 되었습니다.';
+    }
+
 }
 else if ($w == "u")
 {

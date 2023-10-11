@@ -398,7 +398,8 @@ function get_image($img, $width=0, $height=0, $img_id='')
 
 
 // 상품 이미지를 얻는다
-function get_it_image($it_id, $width, $height=0, $anchor=false, $img_id='', $img_alt='', $is_crop=false)
+// 20231006 is_crop true로 변경
+function get_it_image($it_id, $width, $height=0, $anchor=false, $img_id='', $img_alt='', $is_crop=true)
 {
     global $g5;
 
@@ -459,7 +460,8 @@ function get_it_image($it_id, $width, $height=0, $anchor=false, $img_id='', $img
 }
 
 // 상품이미지 썸네일 생성
-function get_it_thumbnail($img, $width, $height=0, $id='', $is_crop=false)
+// 20231006 is_crop ture 로 변경
+function get_it_thumbnail($img, $width, $height=0, $id='', $is_crop=true)
 {
     $str = '';
 
@@ -606,7 +608,7 @@ function display_price($price, $tel_inq=false)
     if ($tel_inq)
         $price = '전화문의';
     else
-        $price = number_format($price, 0).'원';
+        $price = number_format($price, 0).'';
 
     return $price;
 }
@@ -995,14 +997,14 @@ function get_item_options($it_id, $subject, $is_div='', $is_first_option_title='
                     $disabled = ' disabled="disabled"';
 
                 if($is_div === 'div') {
-                    $str .= '<div class="get_item_options">'.PHP_EOL;
+                    $str .= '<li class="get_item_options sit_ov_tbl_li">'.PHP_EOL;
                     $str .= '<label for="it_option_'.$seq.'" class="label-title">'.$subj[$i].'</label>'.PHP_EOL;
                 } else {
                     $str .= '<tr>'.PHP_EOL;
                     $str .= '<th><label for="it_option_'.$seq.'" class="label-title">'.$subj[$i].'</label></th>'.PHP_EOL;
                 }
 
-                $select = '<select id="it_option_'.$seq.'" class="it_option"'.$disabled.'>'.PHP_EOL;
+                $select = '<select id="it_option_'.$seq.'" class="it_option aq-select"'.$disabled.'>'.PHP_EOL;
 
                 $first_option_title = $is_first_option_title ? $subj[$i] : '선택';
 
@@ -1016,8 +1018,8 @@ function get_item_options($it_id, $subject, $is_div='', $is_first_option_title='
                 $select .= '</select>'.PHP_EOL;
 
                 if($is_div === 'div') {
-                    $str .= '<span>'.$select.'</span>'.PHP_EOL;
-                    $str .= '</div>'.PHP_EOL;
+                    $str .= '<span class="sit_ov_tbl_li__r">'.$select.'</span>'.PHP_EOL;
+                    $str .= '</li>'.PHP_EOL;
                 } else {
                     $str .= '<td>'.$select.'</td>'.PHP_EOL;
                     $str .= '</tr>'.PHP_EOL;
@@ -1026,20 +1028,27 @@ function get_item_options($it_id, $subject, $is_div='', $is_first_option_title='
         }
     } else {
         if($is_div === 'div') {
-            $str .= '<div class="get_item_options">'.PHP_EOL;
-            $str .= '<label for="it_option_1">'.$subj[0].'</label>'.PHP_EOL;
+            $str .= '<li class="get_item_options sit_ov_tbl_li">'.PHP_EOL;
+            $str .= '<label for="it_option_1" class="sit_ov_tbl_li__l">'.$subj[0].'</label>'.PHP_EOL;
         } else {
             $str .= '<tr>'.PHP_EOL;
-            $str .= '<th><label for="it_option_1">'.$subj[0].'</label></th>'.PHP_EOL;
+            $str .= '<th><label for="it_option_1" class="sit_ov_tbl_li__l">'.$subj[0].'</label></th>'.PHP_EOL;
         }
 
-        $select = '<select id="it_option_1" class="it_option">'.PHP_EOL;
-        $select .= '<option value="">선택</option>'.PHP_EOL;
+        $select = '<select id="it_option_1" class="it_option aq-select">'.PHP_EOL;
+
+
+        if($lang == "") { //(기본)영문
+            $select .= '<option value="">Select</option>'.PHP_EOL;      
+        } else if ($lang == "ko") { //국문
+            $select .= '<option value="">선택</option>'.PHP_EOL;
+        }
+
         for($i=0; $row=sql_fetch_array($result); $i++) {
-            if($row['io_price'] >= 0)
-                $price = '&nbsp;&nbsp;+ '.number_format($row['io_price']).'원';
-            else
-                $price = '&nbsp;&nbsp; '.number_format($row['io_price']).'원';
+            // if($row['io_price'] >= 0)
+            //     $price = '&nbsp;&nbsp;+ '.number_format($row['io_price']).'';
+            // else
+            //     $price = '&nbsp;&nbsp; '.number_format($row['io_price']).'';
 
             if($row['io_stock_qty'] < 1)
                 $soldout = '&nbsp;&nbsp;[품절]';
@@ -1051,8 +1060,8 @@ function get_item_options($it_id, $subject, $is_div='', $is_first_option_title='
         $select .= '</select>'.PHP_EOL;
         
         if($is_div === 'div') {
-            $str .= '<span>'.$select.'</span>'.PHP_EOL;
-            $str .= '</div>'.PHP_EOL;
+            $str .= '<span class="sit_ov_tbl_li__r">'.$select.'</span>'.PHP_EOL;
+            $str .= '</li>'.PHP_EOL;
         } else {
             $str .= '<td>'.$select.'</td>'.PHP_EOL;
             $str .= '</tr>'.PHP_EOL;
@@ -1091,9 +1100,9 @@ function get_item_supply($it_id, $subject, $is_div='', $is_first_option_title=''
 
         if(strlen($opt_id[1])) {
             if($row['io_price'] >= 0)
-                $price = '&nbsp;&nbsp;+ '.number_format($row['io_price']).'원';
+                $price = '&nbsp;&nbsp;+ '.number_format($row['io_price']).'';
             else
-                $price = '&nbsp;&nbsp; '.number_format($row['io_price']).'원';
+                $price = '&nbsp;&nbsp; '.number_format($row['io_price']).'';
             $io_stock_qty = get_option_stock_qty($it_id, $row['io_id'], $row['io_type']);
 
             if($io_stock_qty < 1)
@@ -1394,7 +1403,7 @@ function set_cart_id($direct)
             set_session('ss_cart_direct', $tmp_cart_id);
         }
     } else {
-        // 비회원장바구니 cart id 쿠키설정
+        // 비회장바구니 cart id 쿠키설정
         if($default['de_guest_cart_use']) {
             $tmp_cart_id = preg_replace('/[^a-z0-9_\-]/i', '', get_cookie('ck_guest_cart_id'));
             if($tmp_cart_id) {
@@ -1413,7 +1422,7 @@ function set_cart_id($direct)
             }
         }
 
-        // 보관된 회원장바구니 자료 cart id 변경
+        // 보관된 회장바구니 자료 cart id 변경
         if($member['mb_id'] && $tmp_cart_id) {
             $sql = " update {$g5['g5_shop_cart_table']}
                         set od_id = '$tmp_cart_id'
@@ -2046,9 +2055,9 @@ function shop_member_cert_check($id, $type)
                 // 본인확인체크
                 if($row['ca_cert_use'] && !$member['mb_certify']) {
                     if($member['mb_id'])
-                        $msg = '회원정보 수정에서 본인확인 후 이용해 주십시오.';
+                        $msg = '회정보 수정에서 본인확인 후 이용해 주십시오.';
                     else
-                        $msg = '본인확인된 로그인 회원만 이용할 수 있습니다.';
+                        $msg = '본인확인된 로그인 회만 이용할 수 있습니다.';
 
                     break;
                 }
@@ -2056,9 +2065,9 @@ function shop_member_cert_check($id, $type)
                 // 성인인증체크
                 if($row['ca_adult_use'] && !$member['mb_adult']) {
                     if($member['mb_id'])
-                        $msg = '본인확인으로 성인인증된 회원만 이용할 수 있습니다.\\n회원정보 수정에서 본인확인을 해주십시오.';
+                        $msg = '본인확인으로 성인인증된 회만 이용할 수 있습니다.\\n회정보 수정에서 본인확인을 해주십시오.';
                     else
-                        $msg = '본인확인으로 성인인증된 회원만 이용할 수 있습니다.';
+                        $msg = '본인확인으로 성인인증된 회만 이용할 수 있습니다.';
 
                     break;
                 }
@@ -2081,17 +2090,17 @@ function shop_member_cert_check($id, $type)
             // 본인확인체크
             if($ca['ca_cert_use'] && !$member['mb_certify']) {
                 if($member['mb_id'])
-                    $msg = '회원정보 수정에서 본인확인 후 이용해 주십시오.';
+                    $msg = '회정보 수정에서 본인확인 후 이용해 주십시오.';
                 else
-                    $msg = '본인확인된 로그인 회원만 이용할 수 있습니다.';
+                    $msg = '본인확인된 로그인 회만 이용할 수 있습니다.';
             }
 
             // 성인인증체크
             if($ca['ca_adult_use'] && !$member['mb_adult']) {
                 if($member['mb_id'])
-                    $msg = '본인확인으로 성인인증된 회원만 이용할 수 있습니다.\\n회원정보 수정에서 본인확인을 해주십시오.';
+                    $msg = '본인확인으로 성인인증된 회만 이용할 수 있습니다.\\n회정보 수정에서 본인확인을 해주십시오.';
                 else
-                    $msg = '본인확인으로 성인인증된 회원만 이용할 수 있습니다.';
+                    $msg = '본인확인으로 성인인증된 회만 이용할 수 있습니다.';
             }
 
             break;
@@ -2369,9 +2378,9 @@ function save_order_point($ct_status="완료")
     $sql = " select * from {$g5['g5_shop_cart_table']} where ct_status = '$ct_status' and ct_point_use = '0' and ct_time <= '$beforedays' ";
     $result = sql_query($sql);
     for ($i=0; $row=sql_fetch_array($result); $i++) {
-        // 회원 ID 를 얻는다.
+        // 회 ID 를 얻는다.
         $od_row = sql_fetch("select od_id, mb_id from {$g5['g5_shop_order_table']} where od_id = '{$row['od_id']}' ");
-        if ($od_row['mb_id'] && $row['ct_point'] > 0) { // 회원이면서 포인트가 0보다 크다면
+        if ($od_row['mb_id'] && $row['ct_point'] > 0) { // 회이면서 포인트가 0보다 크다면
             $po_point = $row['ct_point'] * $row['ct_qty'];
             $po_content = "주문번호 {$od_row['od_id']} ({$row['ct_id']}) 배송완료";
             insert_point($od_row['mb_id'], $po_point, $po_content, "@delivery", $od_row['mb_id'], "{$od_row['od_id']},{$row['ct_id']}");

@@ -63,9 +63,19 @@ if ($w == "")
     run_event('shop_item_use_created', $is_id, $it_id);
 
     if ($default['de_item_use_use']) {
-        $alert_msg = "평가하신 글은 관리자가 확인한 후에 출력됩니다.";
+
+        if($lang == "") { //(기본)영문
+            $alert_msg = "The evaluated article will be printed after it has been confirmed by the administrator.";       
+        } else if ($lang == "ko") { //국문
+            $alert_msg = "평가하신 글은 관리자가 확인한 후에 출력됩니다.";
+        }
     }  else {
-        $alert_msg = "사용후기가 등록 되었습니다.";
+        if($lang == "") { //(기본)영문
+            $alert_msg = "The evaluated article will be printed after it has been confirmed by the administrator.";       
+        } else if ($lang == "ko") { //국문
+            $alert_msg = "A review has been registered.";
+        }
+
     }
 }
 else if ($w == "u")

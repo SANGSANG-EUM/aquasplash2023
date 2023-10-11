@@ -27,25 +27,75 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 
 <section id="sit_info">
 	<div id="sit_tab">
-	    <ul class="tab_tit">
+	    <!-- <ul class="tab_tit">
 	        <li><button type="button" id="btn_sit_inf" rel="#sit_inf" class="selected">상품정보</button></li>
 	        <li><button type="button" id="btn_sit_use" rel="#sit_use">사용후기 <span class="item_use_count"><?php echo $item_use_count; ?></span></button></li>
 	        <li><button type="button" id="btn_sit_qa" rel="#sit_qa">상품문의  <span class="item_qa_count"><?php echo $item_qa_count; ?></span></button></li>
 	        <li><button type="button" id="btn_sit_dvex" rel="#sit_dex">배송/교환</button></li>
-	    </ul>
+	    </ul> -->
 	    <ul class="tab_con">
+
+			<!-- 상세설명 시작 { -->	
+			<li id="sit_detail">
+				<ul class="sit_in_tab_ul">
+					<li class="sit_in_tab_li active">
+						<a href="#sit_detail">
+						<?php if ($lang == "") { //(기본)영문
+    					    echo "Detailed information";
+    					} else if ($lang == "ko") { //국문
+    					    echo "상품정보";
+    					}?>
+						</a>
+					</li>
+					<li class="sit_in_tab_li">
+						<a href="#sit_exc">
+						<?php if ($lang == "") { //(기본)영문
+    					    echo "Exchange / Return";
+    					} else if ($lang == "ko") { //국문
+    					    echo "교환/반품안내";
+    					}?>
+						</a>
+					</li>
+					<li class="sit_in_tab_li">
+						<a href="#sit_del">
+						<?php if ($lang == "") { //(기본)영문
+    					    echo "Delivery";
+    					} else if ($lang == "ko") { //국문
+    					    echo "배송안내";
+    					}?>
+						</a>
+					</li>
+					<li class="sit_in_tab_li">
+						<a href="#sit_use">
+						<?php if ($lang == "") { //(기본)영문
+    					    echo "Review";
+    					} else if ($lang == "ko") { //국문
+    					    echo "사용후기";
+    					}?>
+						</a>
+					</li>
+					<li class="sit_in_tab_li">
+						<a href="#sit_qa">
+						<?php if ($lang == "") { //(기본)영문
+    					    echo "Q&A";
+    					} else if ($lang == "ko") { //국문
+    					    echo "상품문의";
+    					}?>
+						</a>
+					</li>
+				</ul>
+				<div class="tab_con_in">
+					<?php if ($it['it_explan']) { // 상품 상세설명 ?>
+					<div id="sit_inf_explan">
+						<?php echo conv_content($it['it_explan'], 1); ?>
+					</div>
+					<?php } ?>
+				</div>
+			</li>
+			<!-- } 상세설명 끝 -->
 	
-	        <!-- 상품 정보 시작 { -->
-	        <li id="sit_inf">
-	            <h2 class="contents_tit"><span>상품 정보</span></h2>
-	
-	            <?php if ($it['it_explan']) { // 상품 상세설명 ?>
-	            <h3>상품 상세설명</h3>
-	            <div id="sit_inf_explan">
-	                <?php echo conv_content($it['it_explan'], 1); ?>
-	            </div>
-	            <?php } ?>
-	
+	        <!-- 상품 정보 시작 (사용안함){ -->
+	        <li id="sit_inf">	
 	            <?php
 	            if ($it['it_info_value']) { // 상품 정보 고시
 	                $info_data = unserialize(stripslashes($it['it_info_value']));
@@ -79,21 +129,310 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	            ?>
 	
 	        </li>
+
+			<!-- 교환/환불 시작 { -->
+			<li id="sit_exc">
+				<ul class="sit_in_tab_ul">
+					<li class="sit_in_tab_li">
+						<a href="#sit_detail">
+						<?php if ($lang == "") { //(기본)영문
+    					    echo "Detailed information";
+    					} else if ($lang == "ko") { //국문
+    					    echo "상품정보";
+    					}?>
+						</a>
+					</li>
+					<li class="sit_in_tab_li active">
+						<a href="#sit_exc">
+						<?php if ($lang == "") { //(기본)영문
+    					    echo "Exchange / Return";
+    					} else if ($lang == "ko") { //국문
+    					    echo "교환/반품안내";
+    					}?>
+						</a>
+					</li>
+					<li class="sit_in_tab_li">
+						<a href="#sit_del">
+						<?php if ($lang == "") { //(기본)영문
+    					    echo "Delivery";
+    					} else if ($lang == "ko") { //국문
+    					    echo "배송안내";
+    					}?>
+						</a>
+					</li>
+					<li class="sit_in_tab_li">
+						<a href="#sit_use">
+						<?php if ($lang == "") { //(기본)영문
+    					    echo "Review";
+    					} else if ($lang == "ko") { //국문
+    					    echo "사용후기";
+    					}?>
+						</a>
+					</li>
+					<li class="sit_in_tab_li">
+						<a href="#sit_qa">
+						<?php if ($lang == "") { //(기본)영문
+    					    echo "Q&A";
+    					} else if ($lang == "ko") { //국문
+    					    echo "상품문의";
+    					}?>
+						</a>
+					</li>
+				</ul>
+				<div class="tab_con_in">
+					<div class="prd-txt-box">
+						<p class="prd-txt1">
+						<?php if ($lang == "") { //(기본)영문
+                    		echo "Exchange and return available";
+                		} else if ($lang == "ko") { //국문
+                    		echo "";
+                		}?>
+						</p>
+						<p class="prd-txt2">
+						<?php if ($lang == "- Seven days from the date of receipt of the document on the details of the contract: Provided, That where the supply of goods, etc. is made later than the time the document was received, within seven days from the date of receipt of goods, etc. or the supply of goods, etc. began") { //(기본)영문
+                    		echo "";
+                		} else if ($lang == "ko") { //국문
+                    		echo "";
+                		}?>
+						</p>
+						<p class="prd-txt2">
+						<?php if ($lang == "") { //(기본)영문
+                    		echo "- Indicate the contents of the goods and services supplied. Where the contents of the advertisement are different or different from the contents of the contract, within three months from the date of receipt of the relevant goods, etc., or within 30 days from the date on which the facts were known or could be known";
+                		} else if ($lang == "ko") { //국문
+                    		echo "";
+                		}?>
+						</p>
+					</div>
+					<div class="prd-txt-box">
+						<p class="prd-txt1">
+						<?php if ($lang == "") { //(기본)영문
+                    		echo "If exchange or return is not possible";
+                		} else if ($lang == "ko") { //국문
+                    		echo "";
+                		}?>
+						</p>
+						<p class="prd-txt2">
+						<?php if ($lang == "") { //(기본)영문
+                    		echo "- Where goods, etc. are lost or damaged due to a reason liable to the user (however, if the packaging, etc. is damaged to confirm the contents of the goods, etc., the subscription may be withdrawn) ";
+                		} else if ($lang == "ko") { //국문
+                    		echo "";
+                		}?>
+						</p>
+						<p class="prd-txt2">
+						<?php if ($lang == "") { //(기본)영문
+                    		echo "- Where the value of goods, etc. is significantly reduced due to the user's use or partial consumption - where the value of goods, etc. is significantly reduced to the extent that it is difficult to resell over time";
+                		} else if ($lang == "ko") { //국문
+                    		echo "";
+                		}?>
+						</p>
+						<p class="prd-txt2">
+						<?php if ($lang == "") { //(기본)영문
+                    		echo "- In the case of damage to the packaging of goods, etc. that can be reproduced - In the case of irreparable damage to the seller when the subscription withdrawal, such as goods produced by individual orders, is expected and the prior consent of the consumer is obtained";
+                		} else if ($lang == "ko") { //국문
+                    		echo "";
+                		}?>
+						</p>
+						<p class="prd-txt2">
+						<?php if ($lang == "") { //(기본)영문
+                    		echo "- If the provision of digital content is initiated (but not limited to, In the case of a contract consisting of provisional services or provisional digital content, the subscription may be withdrawn if the provision has not been initiated.)";
+                		} else if ($lang == "ko") { //국문
+                    		echo "";
+                		}?>
+						</p>
+						<br>
+						<p class="prd-txt2">
+						<?php if ($lang == "") { //(기본)영문
+                    		echo "※ If you change your mind and exchange or return it, you will have to pay for the return of the product. (Includes color exchange, size exchange, etc.)";
+                		} else if ($lang == "ko") { //국문
+                    		echo "";
+                		}?>
+						</p>
+					</div>
+				</div>
+	        </li>
+	        <!-- } 교환/환불 끝 -->
+
+			<!-- 배송안내 시작 { -->
+			<li id="sit_del">
+				<ul class="sit_in_tab_ul">
+					<li class="sit_in_tab_li">
+						<a href="#sit_detail">
+						<?php if ($lang == "") { //(기본)영문
+    					    echo "Detailed information";
+    					} else if ($lang == "ko") { //국문
+    					    echo "상품정보";
+    					}?>
+						</a>
+					</li>
+					<li class="sit_in_tab_li">
+						<a href="#sit_exc">
+						<?php if ($lang == "") { //(기본)영문
+    					    echo "Exchange / Return";
+    					} else if ($lang == "ko") { //국문
+    					    echo "교환/반품안내";
+    					}?>
+						</a>
+					</li>
+					<li class="sit_in_tab_li active">
+						<a href="#sit_del">
+						<?php if ($lang == "") { //(기본)영문
+    					    echo "Delivery";
+    					} else if ($lang == "ko") { //국문
+    					    echo "배송안내";
+    					}?>
+						</a>
+					</li>
+					<li class="sit_in_tab_li">
+						<a href="#sit_use">
+						<?php if ($lang == "") { //(기본)영문
+    					    echo "Review";
+    					} else if ($lang == "ko") { //국문
+    					    echo "사용후기";
+    					}?>
+						</a>
+					</li>
+					<li class="sit_in_tab_li">
+						<a href="#sit_qa">
+						<?php if ($lang == "") { //(기본)영문
+    					    echo "Q&A";
+    					} else if ($lang == "ko") { //국문
+    					    echo "상품문의";
+    					}?>
+						</a>
+					</li>
+				</ul>
+				<div class="tab_con_in">
+					<div class="prd-txt-box">
+						<p class="prd-txt2">
+						<?php if ($lang == "") { //(기본)영문
+                    		echo "- In the case of mountainous or island areas, you may have to pay an additional amount. ";
+                		} else if ($lang == "ko") { //국문
+                    		echo "";
+                		}?>
+						</p>
+						<p class="prd-txt2">
+						<?php if ($lang == "") { //(기본)영문
+                    		echo "- The product you ordered will be delivered after payment is confirmed. However, the delivery of the product may be delayed depending on the type of product.";
+                		} else if ($lang == "ko") { //국문
+                    		echo "";
+                		}?>
+						</p>
+					</div>
+				</div>
+	        </li>
+	        <!-- } 배송안내 끝 -->
+
 	        <!-- 사용후기 시작 { -->
 	        <li id="sit_use">
-	            <h2>사용후기</h2>
-	            <div id="itemuse"><?php include_once(G5_SHOP_PATH.'/itemuse.php'); ?></div>
+				<ul class="sit_in_tab_ul">
+					<li class="sit_in_tab_li">
+						<a href="#sit_detail">
+						<?php if ($lang == "") { //(기본)영문
+    					    echo "Detailed information";
+    					} else if ($lang == "ko") { //국문
+    					    echo "상품정보";
+    					}?>
+						</a>
+					</li>
+					<li class="sit_in_tab_li">
+						<a href="#sit_exc">
+						<?php if ($lang == "") { //(기본)영문
+    					    echo "Exchange / Return";
+    					} else if ($lang == "ko") { //국문
+    					    echo "교환/반품안내";
+    					}?>
+						</a>
+					</li>
+					<li class="sit_in_tab_li">
+						<a href="#sit_del">
+						<?php if ($lang == "") { //(기본)영문
+    					    echo "Delivery";
+    					} else if ($lang == "ko") { //국문
+    					    echo "배송안내";
+    					}?>
+						</a>
+					</li>
+					<li class="sit_in_tab_li active">
+						<a href="#sit_use">
+						<?php if ($lang == "") { //(기본)영문
+    					    echo "Review";
+    					} else if ($lang == "ko") { //국문
+    					    echo "사용후기";
+    					}?>
+						</a>
+					</li>
+					<li class="sit_in_tab_li">
+						<a href="#sit_qa">
+						<?php if ($lang == "") { //(기본)영문
+    					    echo "Q&A";
+    					} else if ($lang == "ko") { //국문
+    					    echo "상품문의";
+    					}?>
+						</a>
+					</li>
+				</ul>
+				<div class="tab_con_in">
+					<div id="itemuse"><?php include_once(G5_SHOP_PATH.'/itemuse.php'); ?></div>
+				</div>
 	        </li>
 	        <!-- } 사용후기 끝 -->
 	
 	        <!-- 상품문의 시작 { -->
 	        <li id="sit_qa">
-	            <h2>상품문의</h2>
-	            <div id="itemqa"><?php include_once(G5_SHOP_PATH.'/itemqa.php'); ?></div>
+				<ul class="sit_in_tab_ul">
+					<li class="sit_in_tab_li">
+						<a href="#sit_detail">
+						<?php if ($lang == "") { //(기본)영문
+    					    echo "Detailed information";
+    					} else if ($lang == "ko") { //국문
+    					    echo "상품정보";
+    					}?>
+						</a>
+					</li>
+					<li class="sit_in_tab_li">
+						<a href="#sit_exc">
+						<?php if ($lang == "") { //(기본)영문
+    					    echo "Exchange / Return";
+    					} else if ($lang == "ko") { //국문
+    					    echo "교환/반품안내";
+    					}?>
+						</a>
+					</li>
+					<li class="sit_in_tab_li">
+						<a href="#sit_del">
+						<?php if ($lang == "") { //(기본)영문
+    					    echo "Delivery";
+    					} else if ($lang == "ko") { //국문
+    					    echo "배송안내";
+    					}?>
+						</a>
+					</li>
+					<li class="sit_in_tab_li">
+						<a href="#sit_use">
+						<?php if ($lang == "") { //(기본)영문
+    					    echo "Review";
+    					} else if ($lang == "ko") { //국문
+    					    echo "사용후기";
+    					}?>
+						</a>
+					</li>
+					<li class="sit_in_tab_li active">
+						<a href="#sit_qa">
+						<?php if ($lang == "") { //(기본)영문
+    					    echo "Q&A";
+    					} else if ($lang == "ko") { //국문
+    					    echo "상품문의";
+    					}?>
+						</a>
+					</li>
+				</ul>
+				<div class="tab_con_in">
+					<div id="itemqa"><?php include_once(G5_SHOP_PATH.'/itemqa.php'); ?></div>
+				</div>
 	        </li>
 	        <!-- } 상품문의 끝 -->
 	        
-	        <!-- 배송/교환 시작 { -->
+	        <!-- 배송/교환 시작 (사용안함) { -->
 	        <li id="sit_dex">
 	            <h2>배송/교환정보</h2>
 	            
@@ -120,16 +459,16 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	    </ul>
 	</div>
 	<script>
-	$(function (){
-	    $(".tab_con>li").hide();
-	    $(".tab_con>li:first").show();   
-	    $(".tab_tit li button").click(function(){
-	        $(".tab_tit li button").removeClass("selected");
-	        $(this).addClass("selected");
-	        $(".tab_con>li").hide();
-	        $($(this).attr("rel")).show();
-	    });
-	});
+	// $(function (){
+	//     $(".tab_con>li").hide();
+	//     $(".tab_con>li:first").show();   
+	//     $(".tab_tit li button").click(function(){
+	//         $(".tab_tit li button").removeClass("selected");
+	//         $(this).addClass("selected");
+	//         $(".tab_con>li").hide();
+	//         $($(this).attr("rel")).show();
+	//     });
+	// });
 	</script>
 	<div id="sit_buy" class="fix">
 		<div class="sit_buy_inner">
@@ -138,7 +477,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	        <section class="sit_side_option">
 	            <h3>선택옵션</h3>
 	            <?php // 선택옵션
-	            echo str_replace(array('class="get_item_options"', 'id="it_option_', 'class="it_option"'), array('class="get_side_item_options"', 'id="it_side_option_', 'class="it_side_option"'), $option_item);
+	            echo str_replace(array('class="get_item_options"', 'id="it_option_', 'class="it_option aq-select"'), array('class="get_side_item_options"', 'id="it_side_option_', 'class="it_side_option"'), $option_item);
 	            ?>
 	        </section>
 	        <!-- } 선택옵션 끝 -->
@@ -182,8 +521,8 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 		        <div class="sit_tot_price"></div>
 				
 				<div class="sit_order_btn">
-					<button type="submit" onclick="document.pressed=this.value;" value="장바구니" class="sit_btn_cart">장바구니</button>
-		            <button type="submit" onclick="document.pressed=this.value;" value="바로구매" class="sit_btn_buy">바로구매</button> 
+					<button type="submit" onclick="document.pressed=this.value;" value="장바구니" class="sit_btn_cart sit_btn">장바구니</button>
+		            <button type="submit" onclick="document.pressed=this.value;" value="바로구매" class="sit_btn_buy sit_btn">바로구매</button> 
 		       </div>
 			</div>
             <?php } ?>
