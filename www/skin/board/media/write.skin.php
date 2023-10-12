@@ -1,21 +1,25 @@
 <?php
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 include_once(G5_PATH.'/include/sub_visual.php');
+include_once(G5_PATH.'/include/community_menu.php');
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0);
 ?>
 
-<div id="faq_write" class="sub faq">
+<div id="gallery_write" class="sub gallery">
 
   <!-- sub contents { -->
   <div class="container sub_contents">
 
     <!-- sub visual { -->
-    <?php sub_visual('community', 'back'); ?>
+      <?php sub_visual('community', 'back'); ?>
     <!-- } sub visual -->
 
     <div class="wrapper">
+    <!-- <p class="prd-list-tit community-tit">Community</p> -->
+      
+      <?php //ComuMenu(0); ?>
 
       <!-- 게시물 작성/수정 시작 { -->
       <section id="bo_w">
@@ -33,6 +37,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
           <input type="hidden" name="sst" value="<?php echo $sst ?>">
           <input type="hidden" name="sod" value="<?php echo $sod ?>">
           <input type="hidden" name="page" value="<?php echo $page ?>">
+          <input type="hidden" name="wr_content" value="홍보영상">
           <?php
           $option = '';
           $option_hidden = '';
@@ -95,7 +100,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
           </div>
 
           <?php if ($option) { ?>
-          <div class="write_div write_opt_div">
+          <div class="write_div">
             <span class="sound_only">옵션</span>
             <ul class="bo_v_option">
               <?php echo $option ?>
@@ -121,30 +126,32 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             </div>
           </div>
 
-          <div class="write_div">
+          <!-- <div class="write_div">
             <label for="wr_content" class="sound_only">내용<strong>필수</strong></label>
             <div class="wr_content <?php echo $is_dhtml_editor ? $config['cf_editor'] : ''; ?>">
               <?php if($write_min || $write_max) { ?>
-              <!-- 최소/최대 글자 수 사용 시 -->
               <p id="char_count_desc">이 게시판은 최소 <strong><?php echo $write_min; ?></strong>글자 이상, 최대 <strong><?php echo $write_max; ?></strong>글자 이하까지 글을 쓰실 수 있습니다.</p>
               <?php } ?>
               <?php echo $editor_html; // 에디터 사용시는 에디터로, 아니면 textarea 로 노출 ?>
               <?php if($write_min || $write_max) { ?>
-              <!-- 최소/최대 글자 수 사용 시 -->
               <div id="char_count_wrap"><span id="char_count"></span>글자</div>
               <?php } ?>
             </div>
+          </div> -->
+
+          <div class="write_div">
+            <input type="text" name="wr_1" value="<?php echo $write['wr_1'] ?>" placeholder="유튜브 URL 마지막 부분" class="frm_input full_input required" size="50" maxlength="255">
           </div>
 
-          <?php for ($i=1; $is_link && $i<=0; $i++) { ?>
-          <div class="bo_w_link write_div">
+          <?php for ($i=1; $is_link && $i<=G5_LINK_COUNT; $i++) { ?>
+          <!-- <div class="bo_w_link write_div">
             <label for="wr_link<?php echo $i ?>"><i class="fa fa-link" aria-hidden="true"></i><span class="sound_only"> 링크  #<?php echo $i ?></span></label>
             <input type="text" name="wr_link<?php echo $i ?>" value="<?php if($w=="u"){ echo $write['wr_link'.$i]; } ?>" id="wr_link<?php echo $i ?>" class="frm_input full_input" size="50">
-          </div>
+          </div> -->
           <?php } ?>
 
-          <?php for ($i=0; $is_file && $i<0; $i++) { ?>
-          <div class="bo_w_flie write_div">
+          <?php for ($i=0; $is_file && $i<$file_count; $i++) { ?>
+          <!-- <div class="bo_w_flie write_div">
             <div class="file_wr write_div">
               <label for="bf_file_<?php echo $i+1 ?>" class="lb_icon"><i class="fa fa-folder-open" aria-hidden="true"></i><span class="sound_only"> 파일 #<?php echo $i+1 ?></span></label>
               <input type="file" name="bf_file[]" id="bf_file_<?php echo $i+1 ?>" title="파일첨부 <?php echo $i+1 ?> : 용량 <?php echo $upload_max_filesize ?> 이하만 업로드 가능" class="frm_file ">
@@ -158,7 +165,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
               <input type="checkbox" id="bf_file_del<?php echo $i ?>" name="bf_file_del[<?php echo $i;  ?>]" value="1"> <label for="bf_file_del<?php echo $i ?>"><?php echo $file[$i]['source'].'('.$file[$i]['size'].')';  ?> 파일 삭제</label>
             </span>
             <?php } ?>
-          </div>
+          </div> -->
           <?php } ?>
 
           <?php if ($is_use_captcha) { //자동등록방지  ?>

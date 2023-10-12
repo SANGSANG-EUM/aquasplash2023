@@ -515,6 +515,7 @@
 #sit_ov_wrap {display: flex; gap: 78px; padding-top: 20px;}
 /* #sit_pvi {float:left;position:relative} */
 /* #sit_pvi_big {float:right;text-align:center} */
+#sit_pvi_big {margin-bottom: 15px;}
 #sit_pvi {width: 570px;}
 #sit_pvi_big {position: relative; height: 328px; border-radius: 5px; overflow: hidden;}
 #sit_pvi_big a {display:none}

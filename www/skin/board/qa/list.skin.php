@@ -1,6 +1,7 @@
 <?php
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
-include_once(EUM_INCLUDE_PATH.'/sub_top.php');
+include_once(G5_PATH.'/include/sub_visual.php');
+include_once(G5_PATH.'/include/community_menu.php');
 
 // 선택옵션으로 인해 셀합치기가 가변적으로 변함
 $colspan = 5;
@@ -14,11 +15,18 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 ?>
 
 <div id="qa_list" class="sub qa">
-  <?php sub_top($sb_menus, 'cs', 'qa'); ?>
 
   <!-- sub contents { -->
   <div class="container sub_contents">
+
+    <!-- sub visual { -->
+      <?php sub_visual('community'); ?>
+    <!-- } sub visual -->
+
     <div class="wrapper">
+      <p class="prd-list-tit community-tit">Community</p>
+      
+      <?php ComuMenu(2); ?>
 
       <!-- 게시판 목록 시작 { -->
       <div id="bo_list" style="width:<?php echo $width; ?>">
@@ -36,9 +44,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         
         <div class="bo_top_info">
           <!-- 게시판 페이지 정보 { -->
-          <div id="bo_list_total">
-            <span>Total <?php echo number_format($total_count) ?>건</span>
-            <?php echo $page ?> 페이지
+          <div id="bo_list_total" class="sit_use_total">
+            Total <span><?php echo number_format($total_count) ?></span>
+            <!-- <?php //echo $page ?> 페이지 -->
           </div>
           <!-- } 게시판 페이지 정보 -->
 
@@ -53,16 +61,38 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                 <label for="sfl" class="sound_only">검색대상</label>
                 <div class="bo_sch_ct">
                   <select name="sfl" id="sfl">
-                    <option value="wr_subject||wr_content" selected="selected">전체</option>
-                    <option value="wr_subject">제목</option>
-                    <option value="wr_content">내용</option>
+                    <option value="wr_subject||wr_content" selected="selected">
+                    <?php if ($lang == "") { //(기본)영문
+                        echo "All";
+                    } else if ($lang == "ko") { //국문
+                        echo "전체";
+                    }?>
+                    </option>
+                    <option value="wr_subject">
+                    <?php if ($lang == "") { //(기본)영문
+                        echo "Subject";
+                    } else if ($lang == "ko") { //국문
+                        echo "제목";
+                    }?>
+                    </option>
+                    <option value="wr_content">
+                    <?php if ($lang == "") { //(기본)영문
+                        echo "Content";
+                    } else if ($lang == "ko") { //국문
+                        echo "내용";
+                    }?>
+                    </option>
                   </select>
                   
                   <div class="sch_bar">
                     <label for="stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
-                    <input type="text" name="stx" value="<?php echo stripslashes($stx) ?>" required id="stx" class="sch_input" size="25" maxlength="20" placeholder=" 검색어를 입력해주세요">
+                    <input type="text" name="stx" value="<?php echo stripslashes($stx) ?>" required id="stx" class="sch_input" size="25" maxlength="20" placeholder=" <?php if ($lang == "") { //(기본)영문
+                        echo "Search";
+                    } else if ($lang == "ko") { //국문
+                        echo "검색어를 입력해주세요";
+                    }?>">
                     <button type="submit" value="검색" class="sch_btn">
-                      <i class="fa fa-search" aria-hidden="true"></i>
+                      <img src="/source/img/icon-search.png" alt="">
                       <span class="sound_only">검색</span>
                     </button>
                   </div>
@@ -92,7 +122,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
           <div class="tbl_head01 tbl_wrap">
             <table>
               <caption><?php echo $board['bo_subject'] ?> 목록</caption>
-              <thead>
+              <!-- <thead>
                 <tr>
                   <?php if ($is_checkbox) { ?>
                   <th scope="col" class="all_chk chk_box">
@@ -109,7 +139,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                   <th scope="col"><?php echo subject_sort_link('wr_hit', $qstr2, 1) ?>조회 </a></th>
                   <th scope="col"><?php echo subject_sort_link('wr_datetime', $qstr2, 1) ?>날짜  </a></th>
                 </tr>
-              </thead>
+              </thead> -->
               <tbody>
                 <?php for ($i=0; $i<count($list); $i++) { ?>
                 <tr class="<?php if ($list[$i]['is_notice']) echo "bo_notice"; ?>">
@@ -126,28 +156,29 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                   <td class="td_num2">
                   <?php
                   if ($list[$i]['is_notice']) // 공지사항
-                    echo '<strong class="notice_icon">공지</strong>';
+                    echo '<strong class="notice_icon">Notice</strong>';
                   else if ($wr_id == $list[$i]['wr_id'])
                     echo "<span class=\"bo_current\">열람중</span>";
                   else
-                    echo $list[$i]['num'];
+                    echo '<div class="list-num-wr"><span class="list-num">'.$list[$i]['num'].'</span></div>';
                   ?>
                   </td>
 
-                  <td class="td_subject mo_td_view">
+                  <td class="td_subject">
+                    <a href="<?php echo $list[$i]['href'] ?>" class="td_subject_link">
                     <?php if ($is_category && $list[$i]['ca_name']) { //게시글 카테고리 사용+카테고리 등록되었을 경우 ?>
                     <span class="bo_cate_link">
                       <?php echo $list[$i]['ca_name'] ?>
                     </span>
                     <?php } ?>
 
-                    <a href="<?php echo $list[$i]['href'] ?>" class="bo_tit">
+                    <p class="bo_tit">
                       <?php if ($list[$i]['is_notice'] || $is_category && $list[$i]['ca_name']){ ?>
                       <ul class="i-col-0 mo_view mo_category">
                         <?php if ($list[$i]['is_notice']){ // 공지사항 ?>
-                        <li>
+                        <!-- <li>
                           <span class="notice_icon">공지</span>
-                        </li>
+                        </li> -->
                         <?php } ?>
                         <?php if ($is_category && $list[$i]['ca_name']) { //게시글 카테고리 사용+카테고리 등록되었을 경우 ?>
                         <li>
@@ -158,29 +189,34 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                         <?php } ?>
                       </ul>
                       <?php } ?>
-                      <?php echo $list[$i]['subject']; //글 제목 ?>
+                      <?php// echo $list[$i]['subject']; //글 제목 ?>
+                      <?php if ($lang == "") { //(기본)영문
+                          echo 'This is an inquiry from '.mb_substr($list[$i]['wr_name'], 0, -2).'**';
+                      } else if ($lang == "ko") { //국문
+                          echo mb_substr($list[$i]['wr_name'], 0, -2).'**'.'님의 상담문의입니다.';
+                      }?>
+                      <?php  ?>
 
                       <?php
                       echo $list[$i]['icon_reply']; //댓글 아이콘
                       if (isset($list[$i]['icon_secret'])) echo rtrim($list[$i]['icon_secret']); //비밀글 아이콘
                       if ($list[$i]['icon_new']) echo "<span class=\"new_icon\">N<span class=\"sound_only\">새글</span></span>"; //비밀글 아이콘
-                      if (isset($list[$i]['icon_file'])) echo rtrim($list[$i]['icon_file']); //첨부파일 아이콘
+                      //if (isset($list[$i]['icon_file'])) echo rtrim($list[$i]['icon_file']); //첨부파일 아이콘
                       if (isset($list[$i]['icon_link'])) echo rtrim($list[$i]['icon_link']); //관련링크 아이콘
                       ?>
                       <?php if ($list[$i]['comment_cnt']) { ?><span class="sound_only">댓글</span><span class="cnt_cmt"><?php echo $list[$i]['wr_comment']; ?></span><span class="sound_only">개</span><?php } ?>
-                    </a>
+                    </p>
 
-                    <div class="mo_view mo_contents">
+                    <div class="">
                       <ul class="i-col-0 bo_info">
-                        <li><i class="fa fa-user-o" aria-hidden="true"></i><?php echo $list[$i]['name'] ?></li>
-                        <li><i class="fa fa-eye" aria-hidden="true"></i><?php echo $list[$i]['wr_hit'] ?></li>
-                        <li><i class="fa fa-clock-o" aria-hidden="true"></i><?php echo date("Y.m.d", strtotime($list[$i]['wr_datetime'])) ?></li>
+                        <li><span><?php echo mb_substr($list[$i]['wr_name'], 0, -2).'**' ?></span></li>
+                        <li><span><?php echo date("Y.m.d", strtotime($list[$i]['wr_datetime'])) ?></span></li>
+                        <li><div class="icon-list hits"><img src="/source/img/icon-hits.png" alt=""></div><span><?php echo $list[$i]['wr_hit'] ?></span></li>
+                        <li><div class="icon-list comment"><img src="/source/img/icon-comment.png" alt=""></div><span><?php echo $list[$i]['wr_comment']; ?></span></li>
                       </ul>
                     </div>
+                    </a>
                   </td>
-                  <td class="td_name"><?php echo $list[$i]['name'] ?></td>
-                  <td class="td_num"><?php echo $list[$i]['wr_hit'] ?></td>
-                  <td class="td_datetime"><?php echo date("Y.m.d", strtotime($list[$i]['wr_datetime'])) ?></td>
                 </tr>
                 <?php } ?>
                 <?php if (count($list) == 0) { echo '<tr><td colspan="'.$colspan.'" class="empty_table">게시물이 없습니다.</td></tr>'; } ?>
@@ -197,6 +233,16 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             <div class="bo_fx_wrap">
               <?php if ($list_href || $write_href) { ?>
               <ul class="btn_bo_user">
+                <?php if ($write_href) { ?>
+                <li>
+                  <a href="<?php echo $write_href ?>" class="bo_btn1">
+                  <?php if ($lang == "") { //(기본)영문
+                      echo "Write";
+                  } else if ($lang == "ko") { //국문
+                      echo "글쓰기";
+                  }?></a>
+                </li>
+                <?php } ?>
                 <?php if ($is_checkbox) { ?>
                 <li>
                   <button type="submit" name="btn_submit" class="bo_btn2" value="선택삭제" onclick="document.pressed=this.value">선택삭제</button>
@@ -206,11 +252,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                 </li>
                 <li>
                   <button type="submit" name="btn_submit" class="bo_btn2" value="선택이동" onclick="document.pressed=this.value">선택이동</button>
-                </li>
-                <?php } ?>
-                <?php if ($write_href) { ?>
-                <li>
-                  <a href="<?php echo $write_href ?>" class="bo_btn1">글쓰기</a>
                 </li>
                 <?php } ?>
               </ul>	

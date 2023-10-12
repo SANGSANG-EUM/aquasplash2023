@@ -9,6 +9,7 @@ var char_max = parseInt(<?php echo $comment_max ?>); // 최대
 </script>
 
 <div id="bo_v_cmt">
+  <div class="bo_v_cmt_wr">
   <!-- 댓글 쓰기 시작 { -->
   <?php if ($is_comment_write) {
     if($w == '')
@@ -30,6 +31,12 @@ var char_max = parseInt(<?php echo $comment_max ?>); // 최대
 
       <div class="bo_vc_w_wr">
         <ul class="i-col-0 bo_vc_w_info">
+          <li class="secret_cm_li">
+            <span class="secret_cm chk_box">
+              <input type="checkbox" name="wr_secret" value="secret" id="wr_secret" class="selec_chk">
+              <label for="wr_secret"><span></span>비밀글</label>
+            </span>
+          </li>
           <?php if ($is_guest) { ?>
           <li>
             <label for="wr_name" class="sound_only">이름<strong> 필수</strong></label>
@@ -40,20 +47,33 @@ var char_max = parseInt(<?php echo $comment_max ?>); // 최대
             <input type="password" name="wr_password" id="wr_password" required class="frm_input required" size="25" placeholder="비밀번호">
           </li>
           <?php } ?>
-          <li>
-            <span class="secret_cm chk_box">
-              <input type="checkbox" name="wr_secret" value="secret" id="wr_secret" class="selec_chk">
-              <label for="wr_secret"><span></span>비밀글</label>
-            </span>
-          </li>
+          
         </ul>
       </div>
 
       <span class="sound_only">내용</span>
-      <?php if ($comment_min || $comment_max) { ?><strong id="char_cnt"><span id="char_count"></span>글자</strong><?php } ?>
-      <textarea id="wr_content" name="wr_content" maxlength="10000" required class="required" title="내용" placeholder="댓글내용을 입력해주세요" 
-      <?php if ($comment_min || $comment_max) { ?>onkeyup="check_byte('wr_content', 'char_count');"<?php } ?>><?php echo $c_wr_content; ?></textarea>
-      <?php if ($comment_min || $comment_max) { ?><script> check_byte('wr_content', 'char_count'); </script><?php } ?>
+      <div class="bo_vc_content_wr">
+        <?php if ($comment_min || $comment_max) { ?><strong id="char_cnt"><span id="char_count"></span>글자</strong><?php } ?>
+        <textarea id="wr_content" name="wr_content" maxlength="10000" required class="required" title="내용" placeholder="<?php if ($lang == "") { //(기본)영문
+                      echo "Enter the comments.";
+                  } else if ($lang == "ko") { //국문
+                      echo "댓글내용을 입력해주세요.";
+                  }?>"
+        <?php if ($comment_min || $comment_max) { ?>onkeyup="check_byte('wr_content', 'char_count');"<?php } ?>><?php echo $c_wr_content; ?></textarea>
+        <?php if ($comment_min || $comment_max) { ?><script> check_byte('wr_content', 'char_count'); </script><?php } ?>
+        <div class="cf btn_confirm">
+          <div class="bo_v_cmt_captcha">
+            <?php if ($is_guest) { echo $captcha_html; } ?>
+          </div>
+          <button type="submit" id="btn_submit" class="bo_btn1">
+            <?php if ($lang == "") { //(기본)영문
+              echo "Registration";
+            } else if ($lang == "ko") { //국문
+              echo "댓글등록";
+            }?>
+          </button>
+      </div>
+      </div>
       <script>
       $(document).on("keyup change", "textarea#wr_content[maxlength]", function() {
         var str = $(this).val()
@@ -64,12 +84,6 @@ var char_max = parseInt(<?php echo $comment_max ?>); // 최대
         }
       });
       </script>
-      <div class="cf btn_confirm">
-        <div class="bo_v_cmt_captcha">
-          <?php if ($is_guest) { echo $captcha_html; } ?>
-        </div>
-        <button type="submit" id="btn_submit" class="bo_btn1">댓글등록</button>
-      </div>
     </form>
   </aside>
 
@@ -246,8 +260,8 @@ var char_max = parseInt(<?php echo $comment_max ?>); // 최대
   <!-- } 댓글 쓰기 끝 -->
 
   <!-- 댓글 시작 { -->
+  <div class="bo_vc_total">Total <span><?php echo $view['wr_comment']; ?></span></div>
   <section id="bo_vc">
-    <h2>댓글목록 <span><?php echo $view['wr_comment']; ?>개</span></h2>
     <?php
     $cmt_amt = count($list);
     for ($i=0; $i<$cmt_amt; $i++) {
@@ -273,16 +287,16 @@ var char_max = parseInt(<?php echo $comment_max ?>); // 최대
           <div class="bo_vc_winfo">
             <h2><?php echo get_text($list[$i]['wr_name']); ?>님의 <?php if ($cmt_depth) { ?><span class="sound_only">댓글의</span><?php } ?> 댓글</h2>
             <span class="bo_vc_name"><?php echo $list[$i]['wr_name'] ?></span>
-            <span class="bo_vc_time"><?php echo $list[$i]['datetime'] ?></span>
+            <span class="bo_vc_time"><?php echo date("Y.m.d", strtotime($list[$i]['datetime'])) ?></span>
           </div>
 
           <?php if($is_comment_reply_edit) { ?>
           <div class="bo_vl_opt">
             <ul class="i-col-0  bo_vc_act">
               <?php if ($list[$i]['is_reply']) { ?>
-              <li>
+              <!-- <li>
                 <a href="<?php echo $c_reply_href; ?>" class="bo_btn1" onclick="comment_box('<?php echo $comment_id ?>', 'c'); return false;">답변</a>
-              </li>
+              </li> -->
               <?php } ?>
               <?php if ($list[$i]['is_edit']) { ?>
               <li>
@@ -324,7 +338,36 @@ var char_max = parseInt(<?php echo $comment_max ?>); // 최대
       </div>
     </article>
     <?php } ?>
-    <?php if ($i == 0) { //댓글이 없다면 ?><p id="bo_vc_empty">등록된 댓글이 없습니다.</p><?php } ?>
+    <?php if ($i == 0) { //댓글이 없다면 ?><p id="bo_vc_empty">
+      <?php if ($lang == "") { //(기본)영문
+        echo "There are no registered comments.";
+      } else if ($lang == "ko") { //국문
+        echo "등록된 댓글이 없습니다.";
+      }?>
+    </p>
+    <?php } else { ?>
+      <button type="button" class="reply-more">Learn More +</button>
+    <?php } ?>
   </section>
   <!-- } 댓글 끝 -->
+    </div>
 </div>
+
+<script>
+  // learn more 버튼
+$(document).ready(function () {
+    var commentList = $('#bo_vc');
+    var showMoreButton = $('.reply-more');
+    var commentsToShow = 5; // 한 번에 표시할 댓글 수
+    var totalComments = <?php echo $cmt_amt; ?>; // 전체 댓글 수
+
+    // 처음에 댓글을 숨기기
+    commentList.find('article:gt(' + (commentsToShow - 1) + ')').hide();
+
+    // "Learn More" 버튼 클릭 시 댓글 추가 표시
+    showMoreButton.click(function () {
+        commentList.find('article').fadeIn();
+        showMoreButton.remove();
+    });
+});
+</script>

@@ -1,6 +1,6 @@
 <?php
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
-include_once(EUM_INCLUDE_PATH.'/sub_top.php');
+include_once(G5_PATH.'/include/sub_visual.php');
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0);
@@ -14,11 +14,31 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 ?>
 
 <div id="qa_write" class="sub qa">
-  <?php sub_top($sb_menus, 'cs', 'qa'); ?>
+
 
   <!-- sub contents { -->
   <div class="container sub_contents">
+
+    <!-- sub visual { -->
+    <?php sub_visual('community', 'back'); ?>
+    <!-- } sub visual -->
+
     <div class="wrapper">
+      <!-- 회원 유형에 따라 Business Inquiry / General inquiry 나뉨 -->
+      <p class="prd-list-tit community-tit">
+        <?php if ($lang == "") { //(기본)영문
+            echo "Inquiry";
+        } else if ($lang == "ko") { //국문
+            echo "문의";
+        }?>
+      </p>
+      <p class="prd-list-subtit">
+        <?php if ($lang == "") { //(기본)영문
+            echo "If you have any questions, please fill out the following and press the Ask button.";
+        } else if ($lang == "ko") { //국문
+            echo "";
+        }?>
+        </p>
 
       <!-- 게시물 작성/수정 시작 { -->
       <section id="bo_w">
@@ -36,7 +56,12 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
           <input type="hidden" name="sst" value="<?php echo $sst ?>">
           <input type="hidden" name="sod" value="<?php echo $sod ?>">
           <input type="hidden" name="page" value="<?php echo $page ?>">
-          <input type="hidden" name="wr_email" value="">
+          <input type="hidden" name="wr_3" value="<?php echo $write['wr_3'] ?>">
+          <input type="hidden" name="wr_subject" value="<?php if ($lang == "") { //(기본)영문
+            echo "Inquiry";
+        } else if ($lang == "ko") { //국문
+            echo "상담문의";
+        }?>">
 
           <?php
           $option = '';
@@ -69,35 +94,82 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 
 
           <div class="inquiry_ct">
-            <div class="inquiry_top">
+            <!-- <div class="inquiry_top">
               <p class="inquiry_title1">기본정보 입력</p>
               <p class="inquiry_title2">(<span class="red">*</span>은 필수 입력사항입니다.)</p>
-            </div>
+            </div> -->
             <table class="inquiry_tb">
               <tbody>
                 <tr>
                   <td>
-                    <p class="inquiry_requiretxt">이름</p>
+                    <p class="inquiry_requiretxt">
+                    <?php if ($lang == "") { //(기본)영문
+                        echo "Inquiry type";
+                    } else if ($lang == "ko") { //국문
+                        echo "문의 유형";
+                    }?>
+                    </p>
                   </td>
                   <td>
                     <div class="inquiry_content">
-                      <input type="text" name="wr_name" value="<?php echo $name ?>" id="wr_name" required class="frm_input half_input">
+                      <div class="inq-input-wr inq-input-wr--type">
+                        <div class="radio_wrap">
+                          <input type="radio" name="wr_1" id="genInqType1" value="type1"<?php echo ($write['wr_1'] === "type1") ? " checked" : ""; ?>>
+                          <label for="genInqType1">type1</label>
+                        </div>
+                        <div class="radio_wrap">
+                          <input type="radio" name="wr_1" id="genInqType2" value="type2"<?php echo ($write['wr_1'] === "type2") ? " checked" : ""; ?>>
+                          <label for="genInqType2">type2</label>
+                        </div>
+                        <div class="radio_wrap">
+                          <input type="radio" name="wr_1" id="genInqType3" value="type3"<?php echo ($write['wr_1'] === "type3") ? " checked" : ""; ?>>
+                          <label for="genInqType3">type3</label>
+                        </div>
+                      </div>
                     </div>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <p class="inquiry_requiretxt">연락처</p>
+                    <p class="inquiry_requiretxt">
+                    <?php if ($lang == "") { //(기본)영문
+                        echo "Name";
+                    } else if ($lang == "ko") { //국문
+                        echo "이름";
+                    }?>
+                    </p>
                   </td>
                   <td>
                     <div class="inquiry_content">
-                      <input type="text" name="wr_homepage" id="wr_homepage" required>
+                      <input type="text" name="wr_name" value="<?php echo $name ?>" id="wr_name" required class="frm_input full_input">
                     </div>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <p class="inquiry_requiretxt">이메일</p>
+                    <p class="inquiry_requiretxt">
+                      <?php if ($lang == "") { //(기본)영문
+                          echo "Phone number";
+                      } else if ($lang == "ko") { //국문
+                          echo "연락처";
+                      }?>
+                    </p>
+                  </td>
+                  <td>
+                    <div class="inquiry_content">
+                      <input type="text" name="wr_2" id="wr_2" value="<?=$write['wr_2']?>" required class="frm_input half_input">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p class="inquiry_requiretxt">
+                      <?php if ($lang == "") { //(기본)영문
+                          echo "E-mail";
+                      } else if ($lang == "ko") { //국문
+                          echo "이메일";
+                      }?>
+                      </p>
                   </td>
                   <td>
                     <div class="inquiry_content">
@@ -111,88 +183,42 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                         <li>
                           <input type="text" name="wr_email2" id="wr_email2" required>
                         </li>
-                        <li>
-                          <select name="wr_email_sel" id="wr_email_sel">
-                            <option value="">직접입력</option>
-                            <option value="naver.com">naver.com</option>
-                            <option value="gmail.com">gmail.com</option>
-                            <option value="nate.com">nate.com</option>
-                            <option value="yahoo.co.kr">yahoo.co.kr</option>
-                            <option value="hanmail.net">hanmail.net</option>
-                            <option value="daum.net">daum.net</option>
-                            <option value="dreamwiz.com">dreamwiz.com</option>
-                            <option value="lycos.co.kr">lycos.co.kr</option>
-                            <option value="empas.com">empas.com</option>
-                            <option value="korea.com">korea.com</option>
-                            <option value="paran.com">paran.com</option>
-                            <option value="freechal.com">freechal.com</option>
-                            <option value="hanmir.com">hanmir.com</option>
-                            <option value="hotmail.com">hotmail.com</option>
-                          </select>
-                        </li>
                       </ul>
-                      <script>
-                        //이메일 txt변환
-                        $(document).ready(function() {
-                          var Index;
-
-                          $('#wr_email_sel').on('change', function() {
-                            selVal = $('#wr_email_sel option:checked').val();
-                            
-                            if(selVal == ''){
-                              $('#wr_email2').val('').attr("readonly", false).css("background","#ffffff").focus();
-                            }else{
-                              $('#wr_email2').val(selVal).attr("readonly", true).css("background","#f9f9f9");
-                            }
-                          });
-                        });
-                      </script>
                     </div>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <p class="inquiry_requiretxt">문의제목</p>
+                    <p>
+                      <?php if ($lang == "") { //(기본)영문
+                          echo "The attached file";
+                      } else if ($lang == "ko") { //국문
+                          echo "파일첨부";
+                      }?>
+                      </p>
                   </td>
                   <td>
                     <div class="inquiry_content">
-                      <input type="text" name="wr_subject" value="<?php echo $subject ?>" id="wr_subject" required class="full_input" maxlength="255">
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p class="inquiry_requiretxt">문의내용</p>
-                  </td>
-                  <td>
-                    <div class="inquiry_content">
-                      <textarea name="wr_content" id="wr_content" cols="30" rows="10" required></textarea>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p>관련링크</p>
-                  </td>
-                  <td>
-                    <div class="inquiry_content">
-                      <?php for ($i=1; $is_link && $i<=G5_LINK_COUNT; $i++) { ?>
-                      <div class="bo_w_link">
-                        <label for="wr_link<?php echo $i ?>"><i class="fa fa-link" aria-hidden="true"></i><span class="sound_only"> 링크  #<?php echo $i ?></span></label>
-                        <input type="text" name="wr_link<?php echo $i ?>" value="<?php if($w=="u"){ echo $write['wr_link'.$i]; } ?>" id="wr_link<?php echo $i ?>" class="frm_input full_input" size="50">
+                      <div class="file-box">
+                        <!-- 파일 인풋 추가 -->
+                        <div class="upload_box_wr">
+                          <input class="upload_box frm_input full_input">
+                          <div class="file_cancel">
+                            <span></span>
+                            <span></span>
+                          </div>
+                        </div>
+                        <label for="bf_file_1" class="btn_file">
+                        <?php if ($lang == "") { //(기본)영문
+                          echo "File Attachment";
+                        } else if ($lang == "ko") { //국문
+                            echo "파일첨부";
+                        }?>
+                      </label>
+                        <input type="file" name="bf_file[]" id="bf_file_1" onchange="checkSize(this)" class="inq_file">
                       </div>
-                      <?php } ?>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p>파일첨부</p>
-                  </td>
-                  <td>
-                    <div class="inquiry_content">
-                      <?php for ($i=0; $is_file && $i<$file_count; $i++) { ?>
-                      <div class="bo_w_flie">
+                      <?php //for ($i=0; $is_file && $i<$file_count; $i++) { ?>
+                      <!-- <div class="bo_w_flie">
                         <div class="file_wr">
                           <label for="bf_file_<?php echo $i+1 ?>" class="lb_icon"><i class="fa fa-folder-open" aria-hidden="true"></i><span class="sound_only"> 파일 #<?php echo $i+1 ?></span></label>
                           <input type="file" name="bf_file[]" id="bf_file_<?php echo $i+1 ?>" title="파일첨부 <?php echo $i+1 ?> : 용량 <?php echo $upload_max_filesize ?> 이하만 업로드 가능" class="frm_file ">
@@ -206,15 +232,68 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                           <input type="checkbox" id="bf_file_del<?php echo $i ?>" name="bf_file_del[<?php echo $i;  ?>]" value="1"> <label for="bf_file_del<?php echo $i ?>"><?php echo $file[$i]['source'].'('.$file[$i]['size'].')';  ?> 파일 삭제</label>
                         </span>
                         <?php } ?>
+                      </div> -->
+                      <?php// } ?>
+                    </div>
+                    <script>
+                      // 견적문의 - 파일첨부 커스텀
+                      $("input.inq_file").on('change',function(){
+                        var fileName = $(this).val().split('/').pop().split('\\').pop();
+                        var fileLength = fileName.length;
+                        $(this).siblings($(".upload_box_wr")).children('.upload_box').val(fileName);
+                        $('.upload_box').attr('size', fileLength + 5);
+                        $('.file_cancel').css('display','block');
+                      });
+
+                      $('.file_cancel').click(function(){
+                        $("input.inq_file").val('')
+                        $('.upload_box').val('');
+                        $(this).css('display','none')
+                      });
+                    </script>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="txt-top">
+                    <p class="inquiry_requiretxt">
+                      <?php if ($lang == "") { //(기본)영문
+                          echo "Inquiry details";
+                      } else if ($lang == "ko") { //국문
+                          echo "문의내용";
+                      }?>
+                    </p>
+                  </td>
+                  <td>
+                    <div class="inquiry_content">
+                      <textarea name="wr_content" id="wr_content" value="<?php echo $wr_content ?>" cols="30" rows="10" required></textarea>
+                    </div>
+                  </td>
+                </tr>
+                <!-- <tr>
+                  <td>
+                    <p>관련링크</p>
+                  </td>
+                  <td>
+                    <div class="inquiry_content">
+                      <?php for ($i=1; $is_link && $i<=G5_LINK_COUNT; $i++) { ?>
+                      <div class="bo_w_link">
+                        <label for="wr_link<?php echo $i ?>"><i class="fa fa-link" aria-hidden="true"></i><span class="sound_only"> 링크  #<?php echo $i ?></span></label>
+                        <input type="text" name="wr_link<?php echo $i ?>" value="<?php if($w=="u"){ echo $write['wr_link'.$i]; } ?>" id="wr_link<?php echo $i ?>" class="frm_input full_input" size="50">
                       </div>
                       <?php } ?>
                     </div>
                   </td>
-                </tr>
+                </tr> -->
                 <?php if ($is_use_captcha) { //자동등록방지  ?>
                 <tr>
                   <td>
-                    <p class="inquiry_requiretxt">자동등록방지</p>
+                    <p class="inquiry_requiretxt">
+                    <?php if ($lang == "") { //(기본)영문
+                        echo "Captcha";
+                    } else if ($lang == "ko") { //국문
+                        echo "자동등록방지";
+                    }?>
+                    </p>
                   </td>
                   <td>
                     <div class="inquiry_content">
@@ -227,7 +306,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             </table>
           </div>
 
-          <div class="inquiry_privacy_ct">
+          <!-- <div class="inquiry_privacy_ct">
             <p class="inquiry_title1">개인정보 수집 및 활용 동의</p>
             <div class="policybox">
               <div class="policy_wrap">
@@ -248,7 +327,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
               <input type="checkbox" id="po_ck1" class="required" required="">
               <label for="po_ck1">위 개인정보 수집 및 활용에 동의합니다</label>
             </div>
-          </div>
+          </div> -->
 
           <?php if ($is_category) { ?>
           <div class="bo_w_select write_div">
@@ -266,11 +345,17 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             <ul class="i-col-0 btn_confirm_ul">
               <?php if($is_admin){ ?>
               <li>
-                <a href="<?php echo get_pretty_url($bo_table); ?>" class="btn_cancel bo_btn2">목록보기</a>
+                <a href="<?php echo get_pretty_url($bo_table); ?>" class="btn_cancel bo_btn2">목록</a>
               </li>
               <?php } ?>
               <li>
-                <button type="submit" id="btn_submit" accesskey="s" class="btn_submit bo_btn1">문의하기</button>
+                <button type="submit" id="btn_submit" accesskey="s" class="btn_submit bo_btn1">
+                <?php if ($lang == "") { //(기본)영문
+                    echo "Send";
+                } else if ($lang == "ko") { //국문
+                    echo "문의하기";
+                }?>
+                </button>
               </li>
             </ul>
           </div>
@@ -356,10 +441,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                     }
                 }
             }
+
             email1 = $("#wr_email1").val(),
             email2 = $("#wr_email2").val();
 
-            $("input[name='wr_email']").val(email1+"@"+email2);
+            $("input[name='wr_3']").val(email1+"@"+email2);
 
             <?php echo $captcha_js; // 캡챠 사용시 자바스크립트에서 입력된 캡챠를 검사함  ?>
 

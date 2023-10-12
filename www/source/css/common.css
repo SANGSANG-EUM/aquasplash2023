@@ -68,10 +68,10 @@ select::-ms-expand {display: none;}
 
 /* input radio */
 .radio_wrap input[type=radio]{display: none;}
-.radio_wrap input[type=radio] + label{display: inline-block; cursor: pointer; position: relative; padding-left: 28px; font-size: 16px; font-weight: 400; color: #666;}
-.radio_wrap input[type=radio] + label:before{content: ""; display: inline-block; width: 20px; height: 20px; position: absolute; left: 0; bottom: 0; z-index: 1; border: 1px solid #bbbbbb; border-radius: 50%; background-color: #fff;}
-.radio_wrap input[type=radio]:checked + label:before{border-color: #0078f5;}
-.radio_wrap input[type=radio]:checked + label:after{content: ""; display: inline-block; position: absolute; left: 5px; bottom: 5px; width: 10px; height: 10px; border-radius: 50%; background-color: #0078f5; z-index: 2;}
+.radio_wrap input[type=radio] + label{display: inline-block; cursor: pointer; position: relative; padding-left: 34px; font-size: 16px; font-weight: 400; color: #333;}
+.radio_wrap input[type=radio] + label:before{content: ""; display: inline-block; width: 25px; height: 25px; position: absolute; left: 0; bottom: -3px; z-index: 1; border: 1px solid #ddd; border-radius: 50%; background-color: #fff;}
+.radio_wrap input[type=radio]:checked + label:before{border-color: #35AE9D;}
+.radio_wrap input[type=radio]:checked + label:after{content: ""; display: inline-block; position: absolute; left: 7px; bottom: 4px; width: 11px; height: 11px; border-radius: 50%; background-color: #35AE9D; z-index: 2;}
 
 /* input checkbox */
 .check_wrap input[type=checkbox]{display: none;}
@@ -83,6 +83,10 @@ select::-ms-expand {display: none;}
 
 /* select */
 .aq-select {padding: 0 15px; width: 100%;  height: 40px; border-radius: 5px; border: 1px solid #ddd; color: #333; background: #fff url("/source/img/icon-select.png") no-repeat center right 15px / 10px;}
+
+/* input text */
+.aq-input {padding: 0 15px; width: 100%; height: 48px; border-radius: 5px; border: 1px solid #ddd; color: #333; background-color: #fff; box-shadow: none; margin: 0;}
+.aq-input::placeholder {color: #999;}
 
 /* search */
 .sch_wrap .sch_box{font-size: 0; border: 1px solid #ddd; border-radius: 10px;}

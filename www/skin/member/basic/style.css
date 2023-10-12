@@ -1,15 +1,16 @@
 @charset "utf-8";
 
 /* ### 기본 스타일 커스터마이징 시작 ### */
+.member-tit {padding-bottom: 40px; font-size: 3.5rem; font-weight: 700; color: #0f0f0f;}
 /* 기본박스 */
-.mbskin {position:relative;margin:100px auto 0;width:360px;text-align:center}
+.mbskin {position:relative;text-align:center; display: flex; align-items: center; justify-content: center; min-height: calc(100vh - 90px); background-color: #fcfcfc;}
 .mbskin:after {right:10px;left:auto;
   -webkit-transform:skew(8deg) rotate(3deg);
     -moz-transform:skew(8deg) rotate(3deg);
     -ms-transform:skew(8deg) rotate(3deg);
      -o-transform:skew(8deg) rotate(3deg);
       transform:skew(8deg) rotate(3deg)}
-.mbskin .mbskin_box{border:1px solid #dde7e9;background:#fff}
+.mbskin .mbskin_box{margin: auto; width: min(100%, 570px);}
 .mbskin .frm_input {width:100%}
 .mbskin .btn_submit {width:100%;margin:10px 0 0;height:45px;font-weight:bold;font-size:1.25em}
 .mbskin h1 {margin:60px 0 30px;font-size:2em}
@@ -40,7 +41,7 @@
 
 .fregister_agree {position:absolute;top:0;right:0}
 .fregister_agree input[type="checkbox"] + label {color:#676e70}
-.fregister_agree input[type="checkbox"] + label:hover {color:#2172f8}
+/* .fregister_agree input[type="checkbox"] + label:hover {color:#2172f8} */
 .fregister_agree input[type="checkbox"] + label span {position:absolute;top:20px;right:15px;width:17px;height:17px;display:block;background:#fff;border:1px solid #999;border-radius:3px}
 .fregister_agree input[type="checkbox"]:checked + label {color:#000}
 .fregister_agree input[type="checkbox"]:checked + label span {background:url('./img/chk.png') no-repeat 50% 50% #3a8afd;border-color:#1471f6;border-radius:3px}
@@ -92,7 +93,7 @@
 .mb_log_cate:after {display:block;visibility:hidden;clear:both;content:""}
 
 .tooltip_icon {display:inline-block;vertical-align:baseline;color:#b3b5b8;border:0;font-size:1.4em;background:transparent;cursor:pointer}
-.tooltip_icon:hover {color:#448bf5}
+/* .tooltip_icon:hover {color:#448bf5} */
 .tooltip {position:relative;width:auto;color:#fff;background:#000;padding:10px;font-size:small;line-height:18px;display:none;position:absolute;z-index:9;font-weight:normal;margin-left:15px;margin-top:10px}
 .tooltip:before {content:"";position:absolute;top:0;left:-10px;width:0;height:0;border-style:solid;border-top:0px solid transparent;border-bottom:10px solid transparent;border-left:0;border-right:10px solid #000}
 
@@ -128,7 +129,7 @@
 
 .member_cert_refresh_agree {position:absolute;top:0;right:0}
 .member_cert_refresh_agree input[type="checkbox"] + label {color:#676e70}
-.member_cert_refresh_agree input[type="checkbox"] + label:hover {color:#2172f8}
+/* .member_cert_refresh_agree input[type="checkbox"] + label:hover {color:#2172f8} */
 .member_cert_refresh_agree input[type="checkbox"] + label span {position:absolute;top:20px;right:15px;width:17px;height:17px;display:block;background:#fff;border:1px solid #999;border-radius:3px}
 .member_cert_refresh_agree input[type="checkbox"]:checked + label {color:#000}
 .member_cert_refresh_agree input[type="checkbox"]:checked + label span {background:url('./img/chk.png') no-repeat 50% 50% #3a8afd;border-color:#1471f6;border-radius:3px}
@@ -141,16 +142,16 @@
 /* 로그인 */
 #mb_login {}
 #mb_login h1 {position:absolute;font-size:0;line-height:0;overflow:hidden}
-#login_fs {padding:35px}
-#mb_login #login_fs .frm_input {margin:0 0 10px}
+#login_fs {padding:30px; border-radius: 5px; box-shadow: 0 0 10px 5px rgba(0, 0, 0, .05); background-color: #fff;}
+/* #mb_login #login_fs .frm_input {margin:0 0 10px} */
 #mb_login #login_fs .btn_submit {margin:0 0 15px}
 
-#login_info {}
-#login_info:after {display:block;visibility:hidden;clear:both;content:""}
-#login_info .login_if_auto {float:left}
-#login_info .login_if_auto label {vertical-align:baseline;padding-left:5px}
-#login_info .login_if_lpl {float:right}
-#login_password_lost {display:inline-block;border:1px solid #d5d9dd;color:#3a8afd;border-radius:2px;padding:2px 5px;line-height:20px}
+#login_info {display: flex; align-items: center; justify-content: space-between;}
+/* #login_info:after {display:block;visibility:hidden;clear:both;content:""} */
+/* #login_info .login_if_auto {float:left} */
+/* #login_info .login_if_auto label {vertical-align:baseline;padding-left:5px} */
+/* #login_info .login_if_lpl {float:right} */
+/* #login_password_lost {display:inline-block;border:1px solid #d5d9dd;color:#3a8afd;border-radius:2px;padding:2px 5px;line-height:20px} */
 
 #mb_login_notmb {margin:30px auto;padding:20px 30px}
 #mb_login_notmb h2 {font-size:1.25em;margin:20px 0 10px}
@@ -169,6 +170,11 @@
 #mb_login #sns_login .sns-icon {width:49% !important;float:left !important}
 #mb_login #sns_login .sns-icon:nth-child(odd) {margin-right:2%}
 #mb_login #sns_login .txt {font-size:0.95em;padding-left:5px !important;border-left:0 !important}
+
+.login-input-ul {display: flex; flex-direction: column; gap: 12px;}
+.login-input-li {text-align: left;}
+.login-input-li .login-txt {font-weight: 500; color: #0f0f0f;}
+.login-input-li input {margin-top: 8px;}
 
 /* 쪽지 */
 .memo_list {border-top:1px solid #ececec}

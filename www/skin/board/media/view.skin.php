@@ -30,20 +30,13 @@ if (!$is_admin && $view['mb_id'] != 'admin') {
       <?php //ComuMenu(0); ?>
 
       <!-- 게시물 읽기 시작 { -->
-        <article id="bo_v" style="width:<?php echo $width; ?>">
-        <header>
+      <article id="bo_v" style="width:<?php echo $width; ?>">
+        <header class="view-header">
           <div id="bo_v_title">
             <?php if ($category_name) { ?>
             <span class="bo_v_cate"><?php echo $view['ca_name']; // 분류 출력 끝 ?></span> 
             <?php } ?>
-            <span class="bo_v_tit">
-              <?php if ($lang == "") { //(기본)영문
-                  echo 'This is an inquiry from '.$view['wr_name'];
-              } else if ($lang == "ko") { //국문
-                  echo $view['wr_name'].'님의 상담문의입니다.';
-              }?>
-              <?php //echo cut_str(get_text($view['wr_subject']), 70); // 글제목 출력 ?>
-            </span>
+            <span class="bo_v_tit"><?php echo cut_str(get_text($view['wr_subject']), 70); // 글제목 출력 ?></span>
           </div>
 
           <div class="profile_info">
@@ -100,10 +93,8 @@ if (!$is_admin && $view['mb_id'] != 'admin') {
               for ($i=0; $i<count($view['file']); $i++) {
                 if (isset($view['file'][$i]['source']) && $view['file'][$i]['source']) {
               ?>
-              <li class="file-li">
-                <div class="icon-file">
-                  <img src="/source/img/icon-download.png" alt="">
-                </div>
+              <li>
+                <i class="fa fa-file-o" aria-hidden="true"></i>
                 <a href="<?php echo $view['file'][$i]['href'];  ?>" class="view_file_download">
                   <strong><?php echo $view['file'][$i]['source'] ?></strong>
                   <span class="bo_v_file_size"><?php echo $view['file'][$i]['content'] ?> (<?php echo $view['file'][$i]['size'] ?>)</span>
@@ -150,41 +141,10 @@ if (!$is_admin && $view['mb_id'] != 'admin') {
           <h2 id="bo_v_atc_title">본문</h2>
           <!-- 본문 내용 시작 { -->
           <div id="bo_v_con">
-            <p>
-            <?php if ($lang == "") { //(기본)영문
-                echo "Inquiry type";
-            } else if ($lang == "ko") { //국문
-                echo "문의유형";
-            }?>
-              : <?php echo $view['wr_1'];?></p>
-            <p>
-            <?php if ($lang == "") { //(기본)영문
-                echo "Name";
-            } else if ($lang == "ko") { //국문
-                echo "이름";
-            }?>
-              : <?php echo $view['wr_name'];?></p>
-            <p>
-            <?php if ($lang == "") { //(기본)영문
-                echo "Phone number";
-            } else if ($lang == "ko") { //국문
-                echo "연락처";
-            }?>
-              : <?php echo $view['wr_2'];?></p>
-            <p>
-            <?php if ($lang == "") { //(기본)영문
-                echo "E-mail";
-            } else if ($lang == "ko") { //국문
-                echo "이메일";
-            }?>
-              : <?php echo $view['wr_3'];?></p>
-            <p>
-            <?php if ($lang == "") { //(기본)영문
-                echo "Inquiry details";
-            } else if ($lang == "ko") { //국문
-                echo "문의내용";
-            }?>
-              : <?php echo get_view_thumbnail($view['content']); ?></p>
+            <div class="yt_box">
+              <iframe src="https://www.youtube.com/embed/<?php echo $view['wr_1']?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <?php //echo get_view_thumbnail($view['content']); ?>
           </div>
           <!-- } 본문 내용 끝 -->
         </section>
@@ -194,26 +154,29 @@ if (!$is_admin && $view['mb_id'] != 'admin') {
           <?php ob_start(); ?>
 
           <ul class="btn_bo_user bo_v_com">
+            <?php if ($reply_href) { ?>
+            <li>
+              <a href="<?php echo $reply_href ?>" class="bo_btn2">답변</a>
+            </li>
+            <?php } ?>
+            <?php if ($copy_href) { ?>
+            <li>
+              <a href="<?php echo $copy_href ?>" class="bo_btn2" onclick="board_move(this.href); return false;">복사</a>
+            </li>
+            <?php } ?>
+            <?php if ($move_href) { ?>
+            <li>
+              <a href="<?php echo $move_href ?>" class="bo_btn2" onclick="board_move(this.href); return false;">이동</a>
+            </li>
+            <?php } ?>
             <?php if ($update_href) { ?>
             <li>
-              <a href="<?php echo $update_href ?>" class="bo_btn2">
-              <?php if ($lang == "") { //(기본)영문
-                  echo "Edit";
-              } else if ($lang == "ko") { //국문
-                  echo "수정";
-              }?>
-              </a>
+              <a href="<?php echo $update_href ?>" class="bo_btn2">수정</a>
             </li>
             <?php } ?>
             <?php if ($delete_href) { ?>
             <li>
-              <a href="<?php echo $delete_href ?>" class="bo_btn3" onclick="del(this.href); return false;">
-              <?php if ($lang == "") { //(기본)영문
-                  echo "Delete";
-              } else if ($lang == "ko") { //국문
-                  echo "삭제";
-              }?>
-              </a>
+              <a href="<?php echo $delete_href ?>" class="bo_btn3" onclick="del(this.href); return false;">삭제</a>
             </li>
             <?php } ?>
           </ul>
@@ -229,7 +192,7 @@ if (!$is_admin && $view['mb_id'] != 'admin') {
         <!-- } 댓글 영역 -->
         
         <!-- 게시글 이동 버튼 { -->
-          <div id="bo_v_oth">
+        <div id="bo_v_oth">
           <?php if ($prev_href || $next_href) { ?>
           <ul class="i-col-0 bo_v_nb">
             <li class="btn_prv">
@@ -279,6 +242,7 @@ if (!$is_admin && $view['mb_id'] != 'admin') {
           <?php } ?>
         </div>
         <!-- } 게시글 이동 버튼 -->
+
       </article>
       <!-- } 게시판 읽기 끝 -->
 

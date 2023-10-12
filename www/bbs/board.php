@@ -137,10 +137,20 @@ if ((isset($wr_id) && $wr_id) || (isset($wr_seo_title) && $wr_seo_title)) {
     $g5['title'] = strip_tags(conv_subject($write['wr_subject'], 255))." > ".$g5['board_title'];
 } else {
     if ($member['mb_level'] < $board['bo_list_level']) {
-        if ($member['mb_id'])
-            alert('목록을 볼 권한이 없습니다.', G5_URL);
-        else
-            alert('목록을 볼 권한이 없습니다.\\n\\n회원이시라면 로그인 후 이용해 보십시오.', G5_BBS_URL.'/login.php?'.$qstr.'&url='.urlencode(G5_BBS_URL.'/board.php?bo_table='.$bo_table.($qstr?'&amp;':'')));
+        if ($member['mb_id']){
+            if($lang == "") { //(기본)영문
+                alert('You do not have permission to view the list.', G5_URL);
+            } else if ($lang == "ko") { //국문
+                alert('목록을 볼 권한이 없습니다.', G5_URL);
+            }
+        }
+        else {
+            if($lang == "") { //(기본)영문
+                alert('You do not have permission to view the list.\\n\\nIf you are a member, please log in and use it.', G5_BBS_URL.'/login.php?'.$qstr.'&url='.urlencode(G5_BBS_URL.'/board.php?bo_table='.$bo_table.($qstr?'&amp;':'')));
+            } else if ($lang == "ko") { //국문
+                alert('목록을 볼 권한이 없습니다.\\n\\n회원이시라면 로그인 후 이용해 보십시오.', G5_BBS_URL.'/login.php?'.$qstr.'&url='.urlencode(G5_BBS_URL.'/board.php?bo_table='.$bo_table.($qstr?'&amp;':'')));
+            }
+        }
     }
 
     // 본인확인을 사용한다면

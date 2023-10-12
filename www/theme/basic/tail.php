@@ -23,23 +23,24 @@ if(G5_COMMUNITY_USE === false) {
       <ul class="foot-wr">
         <li class="foot-in foot-l">
           <div class="foot-info-wr">
-            <p class="foot-info"><span class="foot-info_l">Add.</span> 
+            <p class="foot-info"><span class="foot-info_l">T.</span> <span class="foot-info_r">070.4178.1026</span></p>
+            <p class="foot-info"><span class="foot-info_l">F.</span> <span class="foot-info_r">050.4038.4246</span></p>
+            <p class="foot-info"><span class="foot-info_l">Email.</span> <span class="foot-info_r">vpsoft@naver.com, vpsoftkorea@gmail.com</span></p>
+            <p class="foot-info"><span class="foot-info_l">Addr.</span> 
               <span class="foot-info_r">
               <?php if ($lang == "") { //(기본)영문
-                echo "18F, 136, Cheongsa-ro, Seo-gu, Daejeon, Republic of Korea";
+                echo "A-2F, 20, Daedeok-daero 512beon-gil, Yuseong-gu, Daejeon, Republic of Korea (34126)";
               } else if ($lang == "ko") { //국문
-                echo "";
+                echo "대전광역시 유성구 대덕대로 512번길 20, A-2F (34126)";
               }?>
               </span>
             </p>
-            <p class="foot-info"><span class="foot-info_l">E-mail.</span> <span class="foot-info_r">info@vpoptics.com</span></p>
-            <p class="foot-info"><span class="foot-info_l">Tel.</span> <span class="foot-info_r">070-4178-1026</span></p>
-          </div>
-          <div class="foot-copyright">
-            Copyright © VP OPTICS. All Rights Reserved.
           </div>
         </li>
         <li class="foot-in foot-r">
+          <div class="foot-copyright">
+            Copyright © VP OPTICS. All Rights Reserved.
+          </div>
           <div class="foot-link-wr">
             <a href="" class="foot-link">
             <?php if ($lang == "") { //(기본)영문
