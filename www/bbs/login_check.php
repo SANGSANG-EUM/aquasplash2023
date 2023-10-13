@@ -92,6 +92,13 @@ if (isset($auto_login) && $auto_login) {
     set_cookie('ck_auto', '', 0);
 }
 
+// 아이디 자동저장 
+if($id_save) { 
+    set_cookie('ck_id_save', $mb['mb_id'], time()+2592000); 
+}else{ 
+    set_cookie('ck_id_save', '', 0); 
+} 
+
 if ($url) {
     // url 체크
     check_url_host($url, '', G5_URL, true);

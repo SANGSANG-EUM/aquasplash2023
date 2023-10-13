@@ -44,7 +44,10 @@ function wrestRequired(fld)
     if (wrestTrim(fld) == "") {
         if (wrestFld == null) {
             // 셀렉트박스일 경우에도 필수 선택 검사합니다.
-            wrestMsg = wrestItemname(fld) + " : 필수 "+(fld.type=="select-one"?"선택":"입력")+"입니다.\n";
+
+                wrestMsg = wrestItemname(fld) + " : You are required to fill out this form. \n"; 
+                // wrestMsg = wrestItemname(fld) + " : 필수 "+(fld.type=="select-one"?"선택":"입력")+"입니다. hosu\n";
+            
             wrestFld = fld;
         }
     }
@@ -74,7 +77,8 @@ function wrestEmail(fld)
     var pattern = /([0-9a-zA-Z_-]+)@([0-9a-zA-Z_-]+)\.([0-9a-zA-Z_-]+)/;
     if (!pattern.test(fld.value)) {
         if (wrestFld == null) {
-            wrestMsg = wrestItemname(fld) + " : 이메일주소 형식이 아닙니다.\n";
+            wrestMsg = wrestItemname(fld) + " : This is not an email address format.\n";
+            // wrestMsg = wrestItemname(fld) + " : 이메일주소 형식이 아닙니다. hosu\n";
             wrestFld = fld;
         }
     }

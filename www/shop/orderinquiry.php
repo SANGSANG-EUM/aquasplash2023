@@ -49,7 +49,14 @@ $total_count = $row['cnt'];
 if ($total_count == 0)
 {
     if ($is_member) // 회원일 경우는 메인으로 이동
-        alert('주문이 존재하지 않습니다.', G5_SHOP_URL);
+
+    if ($lang == "") { //(기본)영문
+        alert('The order does not exist.', '/shop/mypage.php');
+    } else if ($lang == "ko") { //국문
+        alert('주문이 존재하지 않습니다.', '/shop/mypage.php');
+    }
+
+
     else // 비회원일 경우는 이전 페이지로 이동
         alert('주문이 존재하지 않습니다.');
 }

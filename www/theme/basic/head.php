@@ -43,13 +43,26 @@ if(defined('_INDEX_')) { // index에서만 실행
           <a href="/sub/colour">COLOUR LENSES</a>
         </li>
         <li class="depth1-li">
-          <a href="">CLEAR LENSES</a>
+          <a href="<?php if ($lang == "") { //(기본)영문
+              echo "/shop/list-20";
+          } else if ($lang == "ko") { //국문
+              echo "";
+          }?>
+          ">CLEAR LENSES</a>
         </li>
         <li class="depth1-li">
-          <a href="">MPS</a>
+          <a href="<?php if ($lang == "") { //(기본)영문
+              echo "";
+          } else if ($lang == "ko") { //국문
+              echo "";
+          }?>">MPS</a>
         </li>
         <li class="depth1-li">
-          <a href="">COMMUNITY</a>
+          <a href="<?php if ($lang == "") { //(기본)영문
+              echo "/media_en";
+          } else if ($lang == "ko") { //국문
+              echo "media_ko";
+          }?>">COMMUNITY</a>
         </li>
       </ul>
     </nav>

@@ -24,45 +24,6 @@ for($k=0; $cp=sql_fetch_array($res); $k++) {
     <div id="smb_my">
     
         <div class="wrapper">
-
-            <div class="mypage-top-wr">
-                <div class="mypage-top mypage-info">
-                    <div class="mypage-info-in">
-                    <p class="mypage-info-txt1"><?php echo $member['mb_name']; ?>,</p>
-                    <p class="mypage-info-txt2">
-                        <?php if ($lang == "") { //(기본)영문
-                            echo "Thank you for visiting.";
-                        } else if ($lang == "ko") { //국문
-                            echo "";
-                        }?>
-                    </p>
-                    </div>
-                    <div class="mypage-info-in">
-                        <p class="mypage-info-txt3">
-                        <?php if ($lang == "") { //(기본)영문
-                            echo "Mileage";
-                        } else if ($lang == "ko") { //국문
-                            echo "마일리지";
-                        }?>
-                        </p>
-                        <p class="mypage-info-txt4"><b><?php echo number_format($member['mb_point']); ?></b>P</p>
-                    </div>
-                    <div class="mypage-info-in">
-                        <p class="mypage-info-txt3">
-                        <?php if ($lang == "") { //(기본)영문
-                            echo "Coupon";
-                        } else if ($lang == "ko") { //국문
-                            echo "쿠폰";
-                        }?>
-                        </p>
-                        <p class="mypage-info-txt4"><b><?php echo number_format($cp_count); ?></b></p>
-                    </div>
-                </div>
-                <div class="mypage-top mypage-status">
-                    ul.
-                </div>
-            </div>
-
             <!-- 회원정보 개요 시작 { -->
             <section id="smb_my_ov">
                 <h2>회원정보 개요</h2>
@@ -73,13 +34,13 @@ for($k=0; $cp=sql_fetch_array($res); $k++) {
                 </div>
                 <ul id="smb_private">
                     <li>
-                        <a href="<?php echo G5_BBS_URL ?>/point.php" class="">
+                        <a href="<?php echo G5_BBS_URL ?>/point.php" target="_blank" class="win_point">
                             <i class="fa fa-database" aria-hidden="true"></i>포인트
                             <strong><?php echo number_format($member['mb_point']); ?></strong>
                         </a>
                     </li>
                     <li>
-                        <a href="<?php echo G5_SHOP_URL ?>/coupon.php" class="">
+                        <a href="<?php echo G5_SHOP_URL ?>/coupon.php" target="_blank" class="win_coupon">
                             <i class="fa fa-ticket" aria-hidden="true"></i>쿠폰
                             <strong><?php echo number_format($cp_count); ?></strong>
                         </a>
@@ -116,13 +77,7 @@ for($k=0; $cp=sql_fetch_array($res); $k++) {
             <div id="smb_my_list">
                 <!-- 최근 주문내역 시작 { -->
                 <section id="smb_my_od">
-                    <h2>
-                    <?php if ($lang == "") { //(기본)영문
-                        echo "Order details";
-                    } else if ($lang == "ko") { //국문
-                        echo "주문내역조회";
-                    }?>
-                    </h2>
+                    <h2>주문내역조회</h2>
                     <?php
                     // 최근 주문내역
                     define("_ORDERINQUIRY_", true);
@@ -136,13 +91,7 @@ for($k=0; $cp=sql_fetch_array($res); $k++) {
                 <!-- } 최근 주문내역 끝 -->
                 <!-- 최근 위시리스트 시작 { -->
                 <section id="smb_my_wish">
-                    <h2>
-                    <?php if ($lang == "") { //(기본)영문
-                        echo "Wish";
-                    } else if ($lang == "ko") { //국문
-                        echo "최근 위시리스트";
-                    }?>
-                    </h2>
+                    <h2>최근 위시리스트</h2>
                     <form name="fwishlist" method="post" action="./cartupdate.php">
                     <input type="hidden" name="act" value="multi">
                     <input type="hidden" name="sw_direct" value="">
@@ -187,14 +136,8 @@ for($k=0; $cp=sql_fetch_array($res); $k++) {
                         </li>
                         <?php
                         }
-                        if ($i == 0) {
-                            if ($lang == "") { //(기본)영문
-                                echo '<li class="empty_li">There is no storage history.</li>';
-                            } else if ($lang == "ko") { //국문
-                                echo '<li class="empty_li">보관 내역이 없습니다.</li>';
-                            }   
-                        }
-                            
+                        if ($i == 0)
+                            echo '<li class="empty_li">보관 내역이 없습니다.</li>';
                         ?>
                         </ul>
                         <div class="smb_my_more">

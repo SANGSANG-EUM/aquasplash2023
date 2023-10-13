@@ -3,7 +3,15 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 0);
+
+// 아이디 자동저장 
+$ck_id_save = get_cookie("ck_id_save"); 
+
+if ($ck_id_save) { 
+$ch_id_save_chk = "checked"; 
+} 
 ?>
+
 
 <!-- 로그인 시작 { -->
 <div class="container">
@@ -11,13 +19,15 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
         <div class="wrapper">
             <div class="mbskin_box">
                 <h1><?php echo $g5['title'] ?></h1>
-                <p class="member-tit">
-                <?php if ($lang == "") { //(기본)영문
-                    echo "Login";
-                } else if ($lang == "ko") { //국문
-                    echo "로그인";
-                }?>
-                </p>
+                <div class="member-tit-wr">
+                    <p class="member-tit">
+                    <?php if ($lang == "") { //(기본)영문
+                        echo "Login";
+                    } else if ($lang == "ko") { //국문
+                        echo "로그인";
+                    }?>
+                    </p>
+                </div>
                 <!-- <div class="mb_log_cate">
                     <h2><span class="sound_only">회원</span>로그인</h2>
                     <a href="<?php echo G5_BBS_URL ?>/register.php" class="join">회원가입</a>
@@ -40,7 +50,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                                 echo "Please enter your ID.";
                             } else if ($lang == "ko") { //국문
                                 echo "아이디를 입력해 주세요.";
-                            }?>">
+                            }?>" onMouseOver='chkReset(this.form);' onFocus='chkReset(this.form);' value='<?=$ck_id_save?>'>
                         </li>
                         <li class="login-input-li">
                             <label for="login_pw" class="login-txt">
@@ -62,8 +72,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                             <!-- <input type="checkbox" name="auto_login" id="login_auto_login" class="selec_chk">
                             <label for="login_auto_login"><span></span> 자동로그인</label> -->
                             <div class="check_wrap">
-                                <input type="checkbox" name="" id="" class="">
-                                <label for="">
+                                <input type='checkbox' id='id_save' name='id_save' <?=$ch_id_save_chk?>>
+                                <label for="id_save">
                                 <?php if ($lang == "") { //(기본)영문
                                     echo "Save ID";
                                 } else if ($lang == "ko") { //국문
@@ -92,6 +102,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                         </button></li>    
                         <li class="login-btn-li">
                             <a href="<?php echo G5_BBS_URL ?>/register.php" class="join">
+                            <!-- <a href="<?php //echo G5_BBS_URL ?>/register.php" class="join"> -->
                             <?php if ($lang == "") { //(기본)영문
                                 echo "Join";
                             } else if ($lang == "ko") { //국문

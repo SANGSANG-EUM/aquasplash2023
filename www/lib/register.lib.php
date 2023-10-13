@@ -4,7 +4,11 @@ if (!defined('_GNUBOARD_')) exit;
 function empty_mb_id($reg_mb_id)
 {
     if (trim($reg_mb_id)=='')
-        return "회원아이디를 입력해 주십시오.";
+        if($lang == "") { //(기본)영문
+            return "Please enter your member ID.";     
+        } else if ($lang == "ko") { //국문
+            return "회원아이디를 입력해 주십시오.";
+        }
     else
         return "";
 }
@@ -12,7 +16,13 @@ function empty_mb_id($reg_mb_id)
 function valid_mb_id($reg_mb_id)
 {
     if (preg_match("/[^0-9a-z_]+/i", $reg_mb_id))
-        return "회원아이디는 영문자, 숫자, _ 만 입력하세요.";
+
+        if($lang == "") { //(기본)영문
+            return "Please enter only English letters, numbers, and _ for your member ID.";               
+        } else if ($lang == "ko") { //국문
+            return "회원아이디는 영문자, 숫자, _ 만 입력하세요.";
+        }
+
     else
         return "";
 }

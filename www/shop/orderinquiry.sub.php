@@ -79,8 +79,13 @@ if(defined('G5_THEME_SHOP_PATH')) {
     <?php
     }
 
-    if ($i == 0)
-        echo '<tr><td colspan="7" class="empty_table">주문 내역이 없습니다.</td></tr>';
+    if ($i == 0) {
+        if ($lang == "") { //(기본)영문
+            echo '<tr><td colspan="7" class="empty_table">There is no order history.</td></tr>';
+        } else if ($lang == "ko") { //국문
+            echo '<tr><td colspan="7" class="empty_table">주문 내역이 없습니다.</td></tr>';
+        }
+    }
     ?>
     </tbody>
     </table>
