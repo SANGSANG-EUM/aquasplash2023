@@ -219,7 +219,13 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                   </td>
                 </tr>
                 <?php } ?>
-                <?php if (count($list) == 0) { echo '<tr><td colspan="'.$colspan.'" class="empty_table">게시물이 없습니다.</td></tr>'; } ?>
+                <?php if (count($list) == 0) { 
+                  if($lang == "") { //(기본)영문
+                    echo '<tr><td colspan="'.$colspan.'" class="empty_table">There are no posts.</td></tr>'; 
+                  } else if ($lang == "ko") { //국문
+                    echo '<tr><td colspan="'.$colspan.'" class="empty_table">게시물이 없습니다.</td></tr>'; 
+                  }
+                } ?>
               </tbody>
             </table>
           </div>

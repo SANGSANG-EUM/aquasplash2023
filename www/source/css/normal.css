@@ -29,7 +29,7 @@ html, body {scroll-behavior: smooth;}
 .hd-sns-li.youtube img {height: 20px;}
 
 /* footer */
-.footer {padding: 25px 0; background-color: #F9F9F9; font-family: 'Pretendard'; font-size: 0.875rem; font-weight: 200;}
+.footer {position: relative; padding: 25px 0; background-color: #F9F9F9; font-family: 'Pretendard'; font-size: 0.875rem; font-weight: 200;}
 .foot-wr {display: flex; flex-direction: column;}
 .foot-info-wr {display: flex; gap: 5px 40px; flex-wrap: wrap; padding-bottom: 7px;}
 .foot-info {color: #666;}
@@ -40,6 +40,11 @@ html, body {scroll-behavior: smooth;}
 .foot-link {position: relative; color: #666; font-weight: 300;}
 .foot-link.color {color: #35AE9D;}
 .foot-link:not(:last-child)::after {content: ''; position: absolute; top: 50%; right: -14.5px; transform: translateY(-50%); width: 1px; height: 15px; background-color: #ccc;}
+.btn-top {display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 1px; position: fixed; right: 15px; bottom: 30px; width: 50px; height: 50px; border-radius: 50%; border: 0; background-color: #fff; box-shadow: 0 0 10px 5px rgba(0, 0, 0 ,.05); transition: .2s;}
+.btn-top.off {opacity: 0; visibility: hidden; cursor: default;}
+.btn-top.ground {position: absolute; top: 0; transform: translateY(-50%);}
+.btn-top-img {width: 10px;}
+.btn-top-txt {padding-bottom: 5px; font-size: 12px; font-weight: 500; color: #999;}
 
 /* main */
 /* .mainsec-tit-wr {padding-bottom: 25px;} */
@@ -201,6 +206,7 @@ html, body {scroll-behavior: smooth;}
 .sit_ov_tbl_li__l {width: 173px;}
 .sit_ov_tbl_li__r {width: calc(100% - 173px - 63px);}
 .sit_opt_list {display: flex; gap: 80px; align-items: center; position: relative;}
+.sit_opt_list.ori {justify-content: space-between;}
 .opt_name {width: 170px;}
 #sit_inf, #sit_dex, #sit_siblings {display: none;}
 #sit_title {display: flex; align-items: center; gap: 15px;}

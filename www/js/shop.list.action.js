@@ -31,7 +31,10 @@ jQuery(function ($) {
                 }
                 
                 mainCart.update_wish_side();
-                alert("상품을 위시리스트에 담았습니다.");
+
+                alert("You have added the product to your wishlist.");
+                // alert("상품을 위시리스트에 담았습니다.hosu");
+                
                 return;
             }
         );

@@ -1162,13 +1162,28 @@ function print_item_options($it_id, $cart_id)
     $result = sql_query($sql);
 
     $str = '';
+
+    // 20231013 장바구니 옵션 개수 수정
+    // for($i=0; $row=sql_fetch_array($result); $i++) {
+    //     if($i == 0)
+    //         $str .= '<ul>'.PHP_EOL;
+    //     $price_plus = '';
+    //     if($row['io_price'] >= 0)
+    //         $price_plus = '+';
+    //     $str .= '<li>'.get_text($row['ct_option']).' '.$row['ct_qty'].'개 ('.$price_plus.display_price($row['io_price']).')</li>'.PHP_EOL;
+    // }
     for($i=0; $row=sql_fetch_array($result); $i++) {
         if($i == 0)
             $str .= '<ul>'.PHP_EOL;
         $price_plus = '';
-        if($row['io_price'] >= 0)
+        if($row['io_price'] > 0) {
             $price_plus = '+';
-        $str .= '<li>'.get_text($row['ct_option']).' '.$row['ct_qty'].'개 ('.$price_plus.display_price($row['io_price']).')</li>'.PHP_EOL;
+            $str .= '<li>'.get_text($row['ct_option']).' ('.$row['ct_qty'].') ('.$price_plus.display_price($row['io_price']).')</li>'.PHP_EOL;
+        } else {
+            $str .= '<li>'.get_text($row['ct_option']).' <span class="cart-opt-qty">'.$row['ct_qty'].'</span></li>'.PHP_EOL;
+        }
+            
+        
     }
 
     if($i > 0)

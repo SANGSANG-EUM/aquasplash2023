@@ -569,66 +569,192 @@ if($od['od_pg'] == 'lg') {
     <div class="sod_right">
         <ul id="sod_bsk_tot" class="order_view_infos">
             <li class="sod_bsk_dvr">
-                <span>주문총액</span>
-                <strong><?php echo number_format($od['od_cart_price']); ?> 원</strong>
+                <span>
+                <?php if ($lang == "") { //(기본)영문
+                    echo "Order total";
+                } else if ($lang == "ko") { //국문
+                    echo "주문총액";
+                }?>
+                    
+                </span>
+                <strong>
+                    <?php echo number_format($od['od_cart_price']); ?>
+                    <?php if ($lang == "") { //(기본)영문
+                        echo "won";
+                    } else if ($lang == "ko") { //국문
+                        echo "원";
+                    }?>
+                </strong>
             </li>
             <?php if($od['od_cart_coupon'] > 0) { ?>
             <li class="sod_bsk_dvr">
-                <span>개별상품 쿠폰할인</span>
-                <strong><?php echo number_format($od['od_cart_coupon']); ?> 원</strong>
+                <span>
+                    <?php if ($lang == "") { //(기본)영문
+                        echo "Individual product coupon discount";
+                    } else if ($lang == "ko") { //국문
+                        echo "개별상품 쿠폰할인";
+                    }?>
+                    
+                </span>
+                <strong><?php echo number_format($od['od_cart_coupon']); ?>
+                    <?php if ($lang == "") { //(기본)영문
+                        echo "won";
+                    } else if ($lang == "ko") { //국문
+                        echo "원";
+                    }?>
+                </strong>
                 
             </li>
             <?php } ?>
             <?php if($od['od_coupon'] > 0) { ?>
             <li class="sod_bsk_dvr">
-                <span>주문금액 쿠폰할인</span>
-                <strong><?php echo number_format($od['od_coupon']); ?> 원</strong>
+                <span>
+                    <?php if ($lang == "") { //(기본)영문
+                        echo "Order amount coupon discount";
+                    } else if ($lang == "ko") { //국문
+                        echo "주문금액 쿠폰할인";
+                    }?>
+                    
+                </span>
+                <strong><?php echo number_format($od['od_coupon']); ?>
+                    <?php if ($lang == "") { //(기본)영문
+                        echo "won";
+                    } else if ($lang == "ko") { //국문
+                        echo "원";
+                    }?>
+                </strong>
                 
             </li>
             <?php } ?>
             <?php if ($od['od_send_cost'] > 0) { ?>
             <li class="sod_bsk_dvr">
-                <span>배송비</span>
-                <strong><?php echo number_format($od['od_send_cost']); ?> 원</strong>
-                
+                <span>
+                    <?php if ($lang == "") { //(기본)영문
+                        echo "Delivery fee";
+                    } else if ($lang == "ko") { //국문
+                        echo "배송비";
+                    }?>
+                    
+                </span>
+                <strong><?php echo number_format($od['od_send_cost']); ?> 
+                    <?php if ($lang == "") { //(기본)영문
+                        echo "won";
+                    } else if ($lang == "ko") { //국문
+                        echo "원";
+                    }?>
+                </strong>
             </li>
             <?php } ?>
             <?php if($od['od_send_coupon'] > 0) { ?>
             <li class="sod_bsk_dvr">
-                <span>배송비 쿠폰할인</span>
-                <strong><?php echo number_format($od['od_send_coupon']); ?> 원</strong>
-                
+                <span>
+                    <?php if ($lang == "") { //(기본)영문
+                        echo "Shipping fee coupon discount";
+                    } else if ($lang == "ko") { //국문
+                        echo "배송비 쿠폰할인";
+                    }?>
+                </span>
+                <strong><?php echo number_format($od['od_send_coupon']); ?>
+                    <?php if ($lang == "") { //(기본)영문
+                        echo "won";
+                    } else if ($lang == "ko") { //국문
+                        echo "원";
+                    }?>
+                </strong> 
             </li>
             <?php } ?>
             <?php if ($od['od_send_cost2'] > 0) { ?>
             <li class="sod_bsk_dvr">
-                <span>추가배송비</span>
-                <strong><?php echo number_format($od['od_send_cost2']); ?> 원</strong>
+                <span>
+                    <?php if ($lang == "") { //(기본)영문
+                        echo "Additional shipping fee";
+                    } else if ($lang == "ko") { //국문
+                        echo "추가배송비";
+                    }?>
+                </span>
+                <strong>
+                    <?php echo number_format($od['od_send_cost2']); ?>
+                    <?php if ($lang == "") { //(기본)영문
+                        echo "won";
+                    } else if ($lang == "ko") { //국문
+                        echo "원";
+                    }?>
+                    </strong>
             </li>
             <?php } ?>
             <?php if ($od['od_cancel_price'] > 0) { ?>
             <li class="sod_bsk_dvr">
-                <span>취소금액</span>
-                <strong><?php echo number_format($od['od_cancel_price']); ?> 원</strong>
-                
+                <span>
+                    <?php if ($lang == "") { //(기본)영문
+                        echo "Cancellation amount";
+                    } else if ($lang == "ko") { //국문
+                        echo "취소금액";
+                    }?>
+                </span>
+                <strong>
+                    <?php echo number_format($od['od_cancel_price']); ?>
+                    <?php if ($lang == "") { //(기본)영문
+                        echo "won";
+                    } else if ($lang == "ko") { //국문
+                        echo "원";
+                    }?>
+                    </strong>
             </li>
             <?php } ?>
             <li class="sod_bsk_cnt">
-                <span>총계</span>
-                <strong><?php echo number_format($tot_price); ?> 원</strong>
+                <span>
+                    <?php if ($lang == "") { //(기본)영문
+                        echo "Sum";
+                    } else if ($lang == "ko") { //국문
+                        echo "총계";
+                    }?>
+                </span>
+                <strong>
+                    <?php echo number_format($tot_price); ?>
+                    <?php if ($lang == "") { //(기본)영문
+                        echo "won";
+                    } else if ($lang == "ko") { //국문
+                        echo "원";
+                    }?>
+                    </strong>
             </li>
             <li class="sod_bsk_point">
-                <span>적립포인트</span>
-                <strong><?php echo number_format($tot_point); ?> 점</strong>
+                <span>
+                    <?php if ($lang == "") { //(기본)영문
+                        echo "Accumulated points";
+                    } else if ($lang == "ko") { //국문
+                        echo "적립포인트";
+                    }?>
+                </span>
+                <strong>
+                    <?php echo number_format($tot_point); ?>
+                    <?php if ($lang == "") { //(기본)영문
+                        echo "P";
+                    } else if ($lang == "ko") { //국문
+                        echo "점";
+                    }?>
+                </strong>
             </li>
         </ul>
         
         <section id="sod_fin_tot">
-            <h2>결제합계</h2>
+            <h2>
+                <?php if ($lang == "") { //(기본)영문
+                    echo "Payment total";
+                } else if ($lang == "ko") { //국문
+                    echo "결제합계";
+                }?>
+                
+            </h2>
 
             <ul>
                 <li>
-                    총 구매액
+                <?php if ($lang == "") { //(기본)영문
+                    echo "Total purchase amount";
+                } else if ($lang == "ko") { //국문
+                    echo "총 구매액";
+                }?>
+                    
                     <strong><?php echo display_price($tot_price); ?></strong>
                 </li>
                 <?php
@@ -640,12 +766,50 @@ if($od['od_pg'] == 'lg') {
                 }
                 ?>
                 <li id="alrdy">
-                    결제액
+                <?php if ($lang == "") { //(기본)영문
+                    echo "Payment amount";
+                } else if ($lang == "ko") { //국문
+                    echo "결제액";
+                }?>
+                    
                     <strong><?php echo $wanbul; ?></strong>
                     <?php if( $od['od_receipt_point'] ){    //포인트로 결제한 내용이 있으면 ?>
                     <div class="right">
-                        <p><span class="title"><i class="fa fa-angle-right" aria-hidden="true"></i> 포인트 결제</span><?php echo number_format($od['od_receipt_point']); ?> 점</p>
-                        <p><span class="title"><i class="fa fa-angle-right" aria-hidden="true"></i> 실결제</span><?php echo number_format($od['od_receipt_price']); ?> 원</p>
+                        <p>
+                            <span class="title"><i class="fa fa-angle-right" aria-hidden="true"></i> 
+                            <?php if ($lang == "") { //(기본)영문
+                                echo "Point payment";
+                            } else if ($lang == "ko") { //국문
+                                echo "포인트 결제";
+                            }?>
+                            
+                            </span>
+                        <?php echo number_format($od['od_receipt_point']); ?> 
+                        <?php if ($lang == "") { //(기본)영문
+                            echo "P";
+                        } else if ($lang == "ko") { //국문
+                            echo "점";
+                        }?>
+                        
+                        </p>
+                        <p>
+                            <span class="title">
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                <?php if ($lang == "") { //(기본)영문
+                                    echo "Actual payment";
+                                } else if ($lang == "ko") { //국문
+                                    echo "실결제";
+                                }?>
+                            
+                            </span>
+                                <?php echo number_format($od['od_receipt_price']); ?> 
+                                <?php if ($lang == "") { //(기본)영문
+                                    echo "won";
+                                } else if ($lang == "ko") { //국문
+                                    echo "원";
+                                }?>
+                                
+                        </p>
                     </div>
                     <?php } ?>
                 </li>
@@ -653,13 +817,24 @@ if($od['od_pg'] == 'lg') {
         </section>
 
         <section id="sod_fin_cancel">
-            <h2>주문취소</h2>
+            <h2>
+                <?php if ($lang == "") { //(기본)영문
+                    echo "Withdraw order";
+                } else if ($lang == "ko") { //국문
+                    echo "주문취소";
+                }?>
+                
+            </h2>
             <?php
             // 취소한 내역이 없다면
             if ($cancel_price == 0) {
                 if ($custom_cancel) {
             ?>
-            <button type="button" onclick="document.getElementById('sod_fin_cancelfrm').style.display='block';">주문 취소하기</button>
+            <button type="button" onclick="document.getElementById('sod_fin_cancelfrm').style.display='block';"><?php if ($lang == "") { //(기본)영문
+                    echo "Cancel order";
+                } else if ($lang == "ko") { //국문
+                    echo "주문 취소하기";
+                }?></button>
 
             <div id="sod_fin_cancelfrm">
                 <form method="post" action="./orderinquirycancel.php" onsubmit="return fcancel_check(this);">
@@ -667,8 +842,16 @@ if($od['od_pg'] == 'lg') {
                 <input type="hidden" name="token"  value="<?php echo $token; ?>">
 
                 <label for="cancel_memo" class="sound_only">취소사유</label>
-                <input type="text" name="cancel_memo" id="cancel_memo" required class="frm_input required" size="40" maxlength="100" placeholder="취소사유">
-                <input type="submit" value="확인" class="btn_frmline">
+                <input type="text" name="cancel_memo" id="cancel_memo" required class="frm_input required" size="40" maxlength="100" placeholder="<?php if ($lang == "") { //(기본)영문
+                    echo "Reason for cancellation";
+                } else if ($lang == "ko") { //국문
+                    echo "취소사유";
+                }?>">
+                <input type="submit" value="<?php if ($lang == "") { //(기본)영문
+                    echo "Confirm";
+                } else if ($lang == "ko") { //국문
+                    echo "확인";
+                }?>" class="btn_frmline">
 
                 </form>
             </div>
@@ -676,7 +859,13 @@ if($od['od_pg'] == 'lg') {
                 }
             } else {
             ?>
-            <p>주문 취소, 반품, 품절된 내역이 있습니다.</p>
+            <p>
+                <?php if ($lang == "") { //(기본)영문
+                    echo "There are orders canceled, returned, and out of stock.";
+                } else if ($lang == "ko") { //국문
+                    echo "주문 취소, 반품, 품절된 내역이 있습니다.";
+                }?>
+            </p>
             <?php } ?>
         </section>
     </div>
@@ -688,36 +877,84 @@ if($od['od_pg'] == 'lg') {
     preg_match("/\s{1}([^\s]+)\s?/", $od['od_bank_account'], $matchs);
     $deposit_no = trim($matchs[1]);
     ?>
-    <p>관리자가 가상계좌 테스트를 한 경우에만 보입니다.</p>
+    <p>
+    <?php if ($lang == "") { //(기본)영문
+        echo "It is only visible if the administrator has tested the virtual account.";
+    } else if ($lang == "ko") { //국문
+        echo "관리자가 가상계좌 테스트를 한 경우에만 보입니다.";
+    }?>
+    </p>
     <div class="tbl_frm01 tbl_wrap">
         <form method="post" action="http://devadmin.kcp.co.kr/Modules/Noti/TEST_Vcnt_Noti_Proc.jsp" target="_blank">
         <table>
-        <caption>모의입금처리</caption>
+        <caption>
+            <?php if ($lang == "") { //(기본)영문
+                    echo "Mock deposit processing";
+                } else if ($lang == "ko") { //국문
+                    echo "모의입금처리";
+                }?>
+        </caption>
         <colgroup>
             <col class="grid_3">
             <col>
         </colgroup>
         <tbody>
         <tr>
-            <th scope="col"><label for="e_trade_no">KCP 거래번호</label></th>
+            <th scope="col">
+                <label for="e_trade_no">
+                <?php if ($lang == "") { //(기본)영문
+                    echo "KCP transaction number";
+                } else if ($lang == "ko") { //국문
+                    echo "KCP 거래번호";
+                }?>
+                </label>
+            </th>
             <td><input type="text" name="e_trade_no" value="<?php echo $od['od_tno']; ?>"></td>
         </tr>
         <tr>
-            <th scope="col"><label for="deposit_no">입금계좌</label></th>
+            <th scope="col">
+                <label for="deposit_no">
+                <?php if ($lang == "") { //(기본)영문
+                    echo "Deposit account";
+                } else if ($lang == "ko") { //국문
+                    echo "입금계좌";
+                }?>
+                </label>
+            </th>
             <td><input type="text" name="deposit_no" value="<?php echo $deposit_no; ?>"></td>
         </tr>
         <tr>
-            <th scope="col"><label for="req_name">입금자명</label></th>
+            <th scope="col">
+                <label for="req_name">
+                <?php if ($lang == "") { //(기본)영문
+                    echo "Depositor name";
+                } else if ($lang == "ko") { //국문
+                    echo "입금자명";
+                }?>
+                </label>
+            </th>
             <td><input type="text" name="req_name" value="<?php echo $od['od_deposit_name']; ?>"></td>
         </tr>
         <tr>
-            <th scope="col"><label for="noti_url">입금통보 URL</label></th>
+            <th scope="col">
+                <label for="noti_url">
+                <?php if ($lang == "") { //(기본)영문
+                    echo "Deposit notification URL";
+                } else if ($lang == "ko") { //국문
+                    echo "입금통보 URL";
+                }?>
+                </label>
+            </th>
             <td><input type="text" name="noti_url" value="<?php echo G5_SHOP_URL; ?>/settle_kcp_common.php"></td>
         </tr>
         </tbody>
         </table>
         <div id="sod_fin_test" class="btn_confirm">
-            <input type="submit" value="입금통보 테스트" class="btn_submit">
+            <input type="submit" value="<?php if ($lang == "") { //(기본)영문
+                    echo "Deposit notification test";
+                } else if ($lang == "ko") { //국문
+                    echo "입금통보 테스트";
+                }?>" class="btn_submit">
         </div>
         </form>
     </div>

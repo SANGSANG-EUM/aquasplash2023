@@ -111,7 +111,7 @@
 /* #reg_result .reg_result_p {font-size:1.25em;margin:0 0 10px;color:#3684fa} */
 
 .btn_confirm_reg {margin-top: 40px; text-align:center}
-.reg_btn_submit {display: block; width: 100%; padding: 18px; background-color: #666; font-weight: 500; color: #fff; border-radius: 5px;}
+.reg_btn_submit {display: block; width: 100%; padding: 18px; background-color: #333; font-weight: 500; color: #fff; border-radius: 5px;}
 
 .mb_log_cate h2 {width:50%;float:left;padding:20px 0;text-align:center}
 .mb_log_cate .join {width:50%;float:left;padding:20px 0;text-align:center;background:#f7f7f7;color:#6e6e6e}
@@ -332,7 +332,7 @@
 
 .point_list .point_use {background:#f6f6f6}
 .point_list .point_use .point_num {font-size:1.25em;color:#ff4f76;font-weight:bold;float:right}
-.point_list .point_num {font-size:1.25em;color:#3a8afd;font-weight:bold;position:absolute;right:15px;top:25px}
+.point_list .point_num {font-size:1.25em;color:#35AE9D;font-weight:bold;position:absolute;right:15px;top:25px}
 .point_list .point_top {line-height:15px;margin:0 0 5px}
 .point_list .point_top:after {display:block;visibility:hidden;clear:both;content:""}
 .point_list .point_tit {font-weight:bold;float:left;font-size:1.083em;display:block}

@@ -309,7 +309,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	                    $it['it_buy_min_qty'] = 1;
 	            ?>
 	            <ul id="sit_opt_added">
-	                <li class="sit_opt_list">
+	                <li class="sit_opt_list ori">
 	                    <input type="hidden" name="io_type[<?php echo $it_id; ?>][]" value="0">
 	                    <input type="hidden" name="io_id[<?php echo $it_id; ?>][]" value="">
 	                    <input type="hidden" name="io_value[<?php echo $it_id; ?>][]" value="<?php echo $it['it_name']; ?>">
@@ -320,10 +320,10 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	                    </div>
 	                    <div class="opt_count">
 	                        <label for="ct_qty_<?php echo $i; ?>" class="sound_only">수량</label>
-							<button type="button" class="sit_qty_minus"><i class="fa fa-minus" aria-hidden="true"></i><span class="sound_only">감소</span></button>
+							<button type="button" class="sit_qty_minus"><img src="/source/img/icon-minus.png" alt=""><span class="sound_only">감소</span></button>
 	                        <input type="text" name="ct_qty[<?php echo $it_id; ?>][]" value="<?php echo $it['it_buy_min_qty']; ?>" id="ct_qty_<?php echo $i; ?>" class="num_input" size="5">
-	                        <button type="button" class="sit_qty_plus"><i class="fa fa-plus" aria-hidden="true"></i><span class="sound_only">증가</span></button>
-	                        <span class="sit_opt_prc">+0원</span>
+	                        <button type="button" class="sit_qty_plus"><img src="/source/img/icon-plus.png" alt=""><span class="sound_only">증가</span></button>
+	                        <!-- <span class="sit_opt_prc">+0원</span> -->
 	                    </div>
 	                </li>
 	            </ul>
@@ -341,7 +341,13 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	        <?php } ?>
 	
 	        <?php if($is_soldout) { ?>
-	        <p id="sit_ov_soldout">상품의 재고가 부족하여 구매할 수 없습니다.</p>
+	        <p id="sit_ov_soldout">
+				<?php if ($lang == "") { //(기본)영문
+                    echo "The product is out of stock and cannot be purchased.";
+                } else if ($lang == "ko") { //국문
+                    echo "상품의 재고가 부족하여 구매할 수 없습니다.";
+                }?>
+			</p>
 	        <?php } ?>
 	
 	        <div id="sit_ov_btn">
@@ -547,7 +553,8 @@ function fitem_submit(f)
     }
 
     if($(".sit_opt_list").length < 1) {
-        alert("상품의 선택옵션을 선택해 주십시오.hosu");
+        alert("Please select the product option.");
+        // alert("상품의 선택옵션을 선택해 주십시오.hosu");
         return false;
     }
 

@@ -27,7 +27,8 @@ else
 
 if (get_cart_count($tmp_cart_id) == 0) {    // 장바구니에 담기
     if(function_exists('add_order_post_log')) add_order_post_log('장바구니가 비어 있습니다.');
-    alert('장바구니가 비어 있습니다.\\n\\n이미 주문하셨거나 장바구니에 담긴 상품이 없는 경우입니다.', G5_SHOP_URL.'/cart.php');
+    alert('Your shopping cart is empty.\\n\\n If you have already ordered or there are no products in your shopping cart.', G5_SHOP_URL.'/cart.php');
+    // alert('장바구니가 비어 있습니다.hosu\\n\\n이미 주문하셨거나 장바구니에 담긴 상품이 없는 경우입니다.', G5_SHOP_URL.'/cart.php');
 }
 
 $sql = "select * from {$g5['g5_shop_order_table']} limit 1";
@@ -73,7 +74,8 @@ for ($i=0; $row=sql_fetch_array($result); $i++)
 
 if($i == 0) {
     if(function_exists('add_order_post_log')) add_order_post_log('장바구니가 비어 있습니다.');
-    alert('장바구니가 비어 있습니다.\\n\\n이미 주문하셨거나 장바구니에 담긴 상품이 없는 경우입니다.', G5_SHOP_URL.'/cart.php');
+    alert('Your shopping cart is empty.\\n\\n If you have already ordered or there are no products in your shopping cart.', G5_SHOP_URL.'/cart.php');
+    // alert('장바구니가 비어 있습니다.hosu\\n\\n이미 주문하셨거나 장바구니에 담긴 상품이 없는 경우입니다.', G5_SHOP_URL.'/cart.php');
 }
 
 if ($error != "")
@@ -924,7 +926,23 @@ if($is_member) {
     sql_query($sql);
 }
 
-goto_url(G5_SHOP_URL.'/orderinquiryview.php?od_id='.$od_id.'&amp;uid='.$uid);
+// 20231016 주문완료 페이지로 이동하도록 수정
+echo "
+<script language=javascript> 
+function formOK() 
+{ 
+form.submit(); 
+} 
+</script> 
+<body onload=formOK();> 
+<form name=form action=./orderinquiryview_end.php method=post> 
+<input type=hidden name=compPrice value=$i_price> 
+<input type=hidden name=compId value=$od_id> 
+<input type=hidden name=compUid value=$uid> 
+</form>
+</body>
+";
+// goto_url(G5_SHOP_URL.'/orderinquiryview.php?od_id='.$od_id.'&amp;uid='.$uid);
 ?>
 <html>
     <head>
