@@ -529,7 +529,7 @@ box-shadow:0 1px 10px rgba(0,0,0,.1)}
 .pg {text-align:center}
 .pg_page, .pg_current,.qa_page {display: inline-block; vertical-align: middle;}
 .pg a:focus, .pg a:hover {text-decoration:none}
-.pg_page,.qa_page {display: inline-block; width: 46px; height: 46px; line-height: 46px; border-radius: 5px; background-color: #f9f9f9; color: #999; font-weight: 500;}
+.pg_page,.qa_page {display: inline-block; width: clamp(30px, 10vw, 46px); height: clamp(30px, 10vw, 46px); line-height: clamp(30px, 10vw, 46px); border-radius: 5px; background-color: #f9f9f9; color: #999; font-weight: 500;}
 .pg_page:hover,.qa_page:hover {background-color:#fafafa}
 .pg_start {background: #f9f9f9 url('/source/img/icon-page_start.png') no-repeat center / 13px; color: transparent;}
 .pg_prev {background: #f9f9f9 url('/source/img/icon-page_prev.png') no-repeat center / 13px; color: transparent;}
@@ -537,7 +537,7 @@ box-shadow:0 1px 10px rgba(0,0,0,.1)}
 .pg_next {background: #f9f9f9 url('/source/img/icon-page_next.png') no-repeat center / 13px; color: transparent;}
 .pg_start:hover,.pg_prev:hover,.pg_end:hover,.pg_next:hover {background-color:#fafafa}
 
-.pg_current {display: inline-block; width: 46px; height: 46px; line-height: 46px; border-radius: 5px; background-color: #35AE9D; color: #fff; font-weight: 500;}
+.pg_current {display: inline-block; width: clamp(30px, 10vw, 46px); height: clamp(30px, 10vw, 46px); line-height: clamp(30px, 10vw, 46px); border-radius: 5px; background-color: #35AE9D; color: #fff; font-weight: 500;}
 
 /* 팁 */
 .tooltip_icon {display:inline-block;vertical-align:middle;color:#b3b5b8;border:0;font-size:1.4em;background:transparent;cursor:pointer}
@@ -603,7 +603,7 @@ box-shadow:0 1px 10px rgba(0,0,0,.1)}
 .withdrawal {display:block;padding:10px 20px;border-top:1px solid #e8e8e8;color:#c7c7c7}
 
 /* 마이페이지 list */
-#smb_my_list {float:left;width:915px}
+.mypage-in {float:left;width:915px}
 
 #smb_my_od h2 {margin:0 0 10px;font-size:1.25em}
 #smb_my_od {position:relative;margin:0 0 50px}
@@ -711,21 +711,21 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 .cart-opt-form {margin-top: 5px;}
 
 #sit_sel_option #sit_opt_added li {padding: 20px 0;}
-#sit_ov #sit_sel_option #sit_opt_added li {padding: 20px;}
+#sit_ov #sit_sel_option #sit_opt_added li {padding: 20px; padding-right: 40px; gap: 10px;}
 
 #sit_opt_added {margin:0;padding:0;border-bottom:0;list-style:none}
 #sit_opt_added li {padding: 20px; border-top: 1px solid #ddd;}
 #sit_opt_added li:last-child {border-bottom: 1px solid #ddd;}
 /* #sit_opt_added li .opt_name {font-weight:500} */
 #sit_opt_added li .opt_name .sit_opt_subj {font-size: 1rem; font-weight: 400;}
-#sit_opt_added li .opt_count {display: flex; border: 1px solid #ddd; border-radius: 5px; overflow: hidden;}
-#sit_opt_added button {width: 40px; height: 40px; border: 0;}
+#sit_opt_added li .opt_count {display: flex; border: 1px solid #ddd; border-radius: 5px; overflow: hidden; flex-shrink: 0;}
+#sit_opt_added button {width: 40px; height: 40px; border: 0; background-color: #f9f9f9; flex-shrink: 0;}
 #sit_opt_added button img {width: 9px;}
 #sit_opt_added .num_input {width: 60px; height: 40px; font-weight: 400; color: #333; text-align: center; border: 0; border-right: 1px solid #ddd; border-left: 1px solid #ddd;}
 #sit_opt_added .sit_opt_del {position:absolute; right: 0; top: 50%; transform:translateY(-50%); width: 22px; height: 22px; border-radius: 50%; background: #666 url('/source/img/icon-del_white.png') no-repeat center / 37%; border: 0;}
 .sit_opt_del {width: 22px; height: 22px; border-radius: 50%; background: #666 url('/source/img/icon-del_white.png') no-repeat center / 37%; border: 0;}
 /* #sit_opt_added .sit_opt_del:hover {color:#be334a} */
-#sit_opt_added .sit_opt_prc {position: absolute; top: 50%; transform: translateY(-50%); right: 60px; font-weight: 500; font-size: 1.125rem; color: #0f0f0f;}
+#sit_opt_added .sit_opt_prc {position: absolute; top: 50%; transform: translateY(-50%); right: 60px; font-weight: 500; font-size: 1.125rem; color: #0f0f0f; display: none;}
 #sit_opt_added .sit_opt_prc span {font-size: 1rem; font-weight: 400; color: #666;}
 
 #mod_option_frm #sit_sel_option {}
@@ -738,7 +738,7 @@ margin-top:-150px;border:1px solid #dde7e9;border-radius:3px;background:#fff;ove
 #mod_option_frm .btn_confirm .btn_close:hover {background:#f3f3f3}
 #mod_option_frm #sit_opt_added .sit_opt_del {right: 0;}
 
-#sit_opt_added .opt_name {width: 300px;}
+/* #sit_opt_added .opt_name {width: 300px;} */
 .cart-opt-form .option_wr label {width: 300px; margin: 0;}
 .cart-opt-form .sit_ov_tbl_li {gap: 80px;}
 .cart-opt-form .sit_ov_tbl_li__r {width: auto;}
@@ -1041,7 +1041,7 @@ box-shadow: 1px 2px 2px #eee;}
 #sod_addr .td_mng .mng_btn {width:100%;margin:2px 0}
 
 /* 주문내역 */
-#sod_v {margin-bottom:30px}
+/* #sod_v {margin-bottom:30px} */
 #sod_v:after {display:block;visibility:hidden;clear:both;content:''}
 #sod_v td {text-align:center}
 #sod_v td a {font-weight:bold}
@@ -1184,7 +1184,7 @@ a.btn_frmline.is-long-text{height:auto;width:160px}
 #coupon {text-align:center}
 #coupon h1 {text-align:left}
 #coupon ul:after {display:block;visibility:hidden;clear:both;content:""}
-#coupon li {padding:15px;border-bottom:1px solid #ececec;text-align:left}
+/* #coupon li {padding:15px;border-bottom:1px solid #ececec;text-align:left} */
 #coupon .cou_top {margin-bottom:10px}
 #coupon .cou_tit {font-size:1.25em;font-weight:bold}
 #coupon .cou_pri {font-size:1.25em;color:#35AE9D;font-weight:bold;float:right}
@@ -1376,3 +1376,14 @@ html.no-overflowscrolling #sc_coupon_frm, html.no-overflowscrolling #od_coupon_f
 .chk_box input[type="radio"]:checked + label {color:#305af9}
 .chk_box input[type="radio"]:checked + label span:before {width:7px;height:7px;background:#305af9;content:'';position:absolute;top:3px;left:3px;border-radius:50%}
 
+
+@media screen and (max-width:767px){
+/* product detail */
+#sit_opt_added .opt_name {width: 173px;}
+}
+
+@media screen and (max-width:480px){
+.pg_start, .pg_prev, .pg_end, .pg_next {background-size: 10px;} 
+#sit_opt_added button {width: 30px; height: 30px;}
+#sit_opt_added .num_input {width: 40px; height: 30px;}
+}

@@ -436,5 +436,9 @@ function form_check(act) {
 </script>
 <!-- } 장바구니 끝 -->
 
+<script>
+    $('.hd-snb-li').eq(1).addClass('on');
+</script>
+
 <?php
 include_once('./_tail.php');

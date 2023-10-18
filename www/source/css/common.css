@@ -82,10 +82,10 @@ select::-ms-expand {display: none;}
 /* .check_wrap input[type=checkbox]:checked + label:after{background: url("/source/img/icon-check_white.png") no-repeat center / contain} */
 
 /* select */
-.aq-select {padding: 0 15px; width: 100%;  height: 40px; border-radius: 5px; border: 1px solid #ddd; color: #333; background: #fff url("/source/img/icon-select.png") no-repeat center right 15px / 10px;}
+.aq-select {padding: 0 15px; width: 100%;  height: 48px; border-radius: 5px; border: 1px solid #ddd; color: #333; background: #fff url("/source/img/icon-select.png") no-repeat center right 15px / 10px;}
 
 /* input text */
-.aq-input {padding: 0 15px; width: 100%; height: 48px; border-radius: 5px; border: 1px solid #ddd; color: #333; background-color: #fff; box-shadow: none; margin: 0;}
+.aq-input {padding: 0 15px; width: 100%; height: 48px; border-radius: 5px; border: 1px solid #ddd; color: #333; background-color: #fff; box-shadow: none; margin: 0; font-size: 1rem;}
 .aq-input::placeholder {color: #999;}
 
 /* search */

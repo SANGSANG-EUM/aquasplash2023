@@ -39,6 +39,32 @@
   }
 
 
+  // 헤더 그림자
+  const shadowHead = () => {
+    $(window).on('scroll', function(){
+      var top = $(window).scrollTop();
+      if ($(window).width() < 1291 && top > 50) {
+        $('.header').addClass('shadow');
+      } else {
+        $('.header').removeClass('shadow');
+      }
+    });
+
+  }
+
+
+  // 모바일 헤더
+  const moHead = () => {
+    $('.mo-btn').on('click', function(){
+      if ($('.header').hasClass('open')) {
+        $('.header').removeClass('open');
+      } else {
+        $('.header').addClass('open');
+      }
+    })
+  }
+
+
   // [plugin-Swiper] main visual
   const mainVisualTimebar = (state) => {
     if (state == 'init') {
@@ -139,8 +165,12 @@
   // 메인 섹션2 컬러렌즈 버튼
   const mainCardBtn = () => {
     $('.mainsec2-li-btn').on('click', function () {
-      $('.mainsec2-li').removeClass('on');
-      $(this).parents('.mainsec2-li').addClass('on');
+      if ($(window).width() > 1023) {
+        $('.mainsec2-li').removeClass('on');
+        $(this).parents('.mainsec2-li').addClass('on');
+      } else {
+        $('.mainsec2-li').addClass('on');
+      }
     });
   }
 
@@ -215,15 +245,29 @@
     });
   }
 
+  // 상품 상세페이지 썸네일 슬라이드
+  const prdDetail = () => {
+    $('.tab_con').find('li').eq(0).addClass('on');
+
+    $('.sit_in_tab_li a').on('click', function(){
+      let prdTablink = $(this).attr('href'); 
+      $('.tab_con').find('li').removeClass('on');
+      $(prdTablink).addClass('on');
+    });
+  }
+
 
   // document ready
   $(document).ready(function () {
     mobileHeight();
     menuActive();
+    shadowHead();
+    moHead();
     mainVisualSlide();
     mainWheel();
     mainCardBtn();
     mainPrdSlider();
     colorCate();
     prdThumbSlide();
+    prdDetail();
   }); // document ready end

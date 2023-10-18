@@ -131,12 +131,45 @@ if ($is_admin) {
 }
 
 include_once(G5_PATH.'/include/sub_visual.php');
+
+$product_ca = substr($ca_id, 0, 4);
+$proDep1 = substr($product_ca, 0, 2);
 ?>
+
+<script>
+$(document).ready(function() {
+    var proDep1 = <?php echo json_encode($proDep1); ?>;
+
+	// $('.depth1-li').removeClass('on');
+    if (proDep1 == '10') {
+        $('.depth1-li').eq(0).addClass('on');
+    } else if (proDep1 == '20') {
+        $('.depth1-li').eq(1).addClass('on');
+    } else if (proDep1 == '30') {
+        $('.depth1-li').eq(2).addClass('on');
+    }
+});
+</script>
 
 <div class="container">
 
     <!-- sub visual { -->
-        <?php sub_visual('colour1', 'back'); ?>
+    <?php 
+    if ($product_ca == '1010') {
+        sub_visual('colour1', 'back');
+    } else if ($product_ca == '1020') {
+        sub_visual('colour2', 'back');
+    } else if ($product_ca == '1030') {
+        sub_visual('colour3', 'back');
+    } else if ($product_ca == '1040') {
+        sub_visual('colour4', 'back');
+    } else if ($product_ca == '20') {
+        sub_visual('clear', 'back');
+    } else if ($product_ca == '30') {
+        sub_visual('mps', '');
+    }
+    ?>
+
     <!-- } sub visual -->
 
     <div class="wrapper">
@@ -284,6 +317,16 @@ include_once(G5_SHOP_PATH.'/settle_naverpay.inc.php');
 
     </div>
 </div>
+
+<script>
+$(document).ready(function () {
+    $('.colour1_vs.back').find('.sub-vs-back').attr('onclick', 'location.href="/shop/list-1010";');
+    $('.colour2_vs.back').find('.sub-vs-back').attr('onclick', 'location.href="/shop/list-1020";');
+    $('.colour3_vs.back').find('.sub-vs-back').attr('onclick', 'location.href="/shop/list-1030";');
+    $('.colour4_vs.back').find('.sub-vs-back').attr('onclick', 'location.href="/shop/list-1040";');
+    $('.clear_vs.back').find('.sub-vs-back').attr('onclick', 'location.href="/shop/list-20";');
+})
+</script>
 
 <?php
 // 하단 HTML

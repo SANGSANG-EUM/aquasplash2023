@@ -28,7 +28,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	
 	            if($img) {
 	                // 썸네일
-	                $thumb = get_it_thumbnail($it['it_img'.$i], 140, 82);
+	                $thumb = get_it_thumbnail($it['it_img'.$i], 300, 150);
 	                $thumbnails[] = $thumb;
 	                $big_img_count++;
 	
@@ -65,8 +65,40 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	    <!-- } 상품이미지 미리보기 끝 -->
 	
 	    <!-- 상품 요약정보 및 구매 시작 { -->
-	    <section id="sit_ov" class="2017_renewal_itemform">
-	        <h2 id="sit_title"><span class="sit_title_cate colour1">1 Colour</span> <span><?php echo stripslashes($it['it_name']); ?></span><span class="sound_only">
+	    <section id="sit_ov" class="2017_renewal_itemform
+			<?php 
+        	if ($product_ca == '1010') {
+        	    echo 'colour1';
+        	} else if ($product_ca == '1020') {
+        	    echo 'colour2';
+        	} else if ($product_ca == '1030') {
+        	    echo 'colour3';
+        	} else if ($product_ca == '1040') {
+        	    echo 'colour4';
+        	} else if ($product_ca == '20') {
+        	    echo 'clear';
+        	} else if ($product_ca == '30') {
+        	    echo 'MPS';
+        	}
+        	?>">
+	        <h2 id="sit_title"><span class="sit_title_cate">
+			<?php 
+        	if ($product_ca == '1010') {
+        	    echo '1 Colour';
+        	} else if ($product_ca == '1020') {
+        	    echo '2 Colour';
+        	} else if ($product_ca == '1030') {
+        	    echo '3 Colour';
+        	} else if ($product_ca == '1040') {
+        	    echo '4 Colour';
+        	} else if ($product_ca == '20') {
+        	    echo 'Clear';
+        	} else if ($product_ca == '30') {
+        	    echo 'MPS';
+        	}
+        	?>
+			</span> 
+			<span><?php echo stripslashes($it['it_name']); ?></span><span class="sound_only">
 				<?php if ($lang == "") { //(기본)영문
                     echo "Summary information and purchase";
                 } else if ($lang == "ko") { //국문

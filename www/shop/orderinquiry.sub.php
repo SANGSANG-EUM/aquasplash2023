@@ -17,17 +17,47 @@ if(defined('G5_THEME_SHOP_PATH')) {
 <!-- 주문 내역 목록 시작 { -->
 <?php if (!$limit) { ?>총 <?php echo $cnt; ?> 건<?php } ?>
 
-<div class="tbl_head03 tbl_wrap">
+<div id="od_wrap" class="tbl_head03 tbl_wrap">
     <table>
     <thead>
     <tr>
-        <th scope="col">주문서번호</th>
-        <th scope="col">주문일시</th>
-        <th scope="col">상품수</th>
-        <th scope="col">주문금액</th>
-        <th scope="col">입금액</th>
-        <th scope="col">미입금액</th>
-        <th scope="col">상태</th>
+        <th scope="col">
+          <?php if ($lang == "") { //(기본)영문
+            echo "Order Number/Date";
+          } else if ($lang == "ko") { //국문
+            echo "주문서번호";
+          }?>
+        </th>
+        <!--  업체와 협의 필요
+        <th scope="col">
+          <?php if ($lang == "") { //(기본)영문
+            echo "Product information";
+          } else if ($lang == "ko") { //국문
+            echo "상품정보";
+          }?>
+        </th>
+        -->
+        <th scope="col">
+          <?php if ($lang == "") { //(기본)영문
+            echo "Qty";
+          } else if ($lang == "ko") { //국문
+            echo "상품수";
+          }?>
+        </th>
+        <th scope="col">
+          <?php if ($lang == "") { //(기본)영문
+            echo "Order amount";
+          } else if ($lang == "ko") { //국문
+            echo "주문금액";
+          }?>
+        </th>
+        <th scope="col">
+          <?php if ($lang == "") { //(기본)영문
+            echo "Order Status";
+          } else if ($lang == "ko") { //국문
+            echo "상태";
+          }?>
+        </th>
     </tr>
     </thead>
     <tbody>
@@ -42,37 +72,65 @@ if(defined('G5_THEME_SHOP_PATH')) {
     {
         $uid = md5($row['od_id'].$row['od_time'].$row['od_ip']);
 
-        switch($row['od_status']) {
+        if ($lang == "") { //(기본)영문
+          switch($row['od_status']) {
             case '주문':
-                $od_status = '<span class="status_01">입금확인중</span>';
+                $od_status = '<span class="od_status status_01">Waiting for deposit</span>';
                 break;
             case '입금':
-                $od_status = '<span class="status_02">입금완료</span>';
+                $od_status = '<span class="od_status status_02">Payment completed</span>';
                 break;
             case '준비':
-                $od_status = '<span class="status_03">상품준비중</span>';
+                $od_status = '<span class="od_status status_03">Preparing for delivery</span>';
                 break;
             case '배송':
-                $od_status = '<span class="status_04">상품배송</span>';
+                $od_status = '<span class="od_status status_04">In transit</span>';
                 break;
             case '완료':
-                $od_status = '<span class="status_05">배송완료</span>';
+                $od_status = '<span class="od_status status_05">Delivered</span>';
                 break;
             default:
-                $od_status = '<span class="status_06">주문취소</span>';
+                $od_status = '<span class="od_status status_06">withdraw</span>';
                 break;
+          }
+        } else if ($lang == "ko") { //국문
+          switch($row['od_status']) {
+            case '주문':
+                $od_status = '<span class="od_status status_01">입금확인중</span>';
+                break;
+            case '입금':
+                $od_status = '<span class="od_status status_02">입금완료</span>';
+                break;
+            case '준비':
+                $od_status = '<span class="od_status status_03">상품준비중</span>';
+                break;
+            case '배송':
+                $od_status = '<span class="od_status status_04">상품배송</span>';
+                break;
+            case '완료':
+                $od_status = '<span class="od_status status_05">배송완료</span>';
+                break;
+            default:
+                $od_status = '<span class="od_status status_06">주문취소</span>';
+                break;
+          }
         }
     ?>
 
     <tr>
-        <td>
-            <a href="<?php echo G5_SHOP_URL; ?>/orderinquiryview.php?od_id=<?php echo $row['od_id']; ?>&amp;uid=<?php echo $uid; ?>"><?php echo $row['od_id']; ?></a>
+        <td class="od_inq-idx">
+          <a href="<?php echo G5_SHOP_URL; ?>/orderinquiryview.php?od_id=<?php echo $row['od_id']; ?>&amp;uid=<?php echo $uid; ?>" class="od_id">
+            <?php echo $row['od_id']; ?>
+          </a>
+          <a href="<?php echo G5_SHOP_URL; ?>/orderinquiryview.php?od_id=<?php echo $row['od_id']; ?>&amp;uid=<?php echo $uid; ?>" class="od_date">
+            <?php echo date("Y.m.d", strtotime($row['od_time'])) ?>
+          </a>
         </td>
-        <td><?php echo substr($row['od_time'],2,14); ?> (<?php echo get_yoil($row['od_time']); ?>)</td>
+        <!--  업체와 협의 필요
+        <td class=""></td>
+        -->
         <td class="td_numbig"><?php echo $row['od_cart_count']; ?></td>
-        <td class="td_numbig text_right"><?php echo display_price($row['od_cart_price'] + $row['od_send_cost'] + $row['od_send_cost2']); ?></td>
-        <td class="td_numbig text_right"><?php echo display_price($row['od_receipt_price']); ?></td>
-        <td class="td_numbig text_right"><?php echo display_price($row['od_misu']); ?></td>
+        <td class="td_numbig"><?php echo display_price($row['od_cart_price'] + $row['od_send_cost'] + $row['od_send_cost2']); ?></td>
         <td><?php echo $od_status; ?></td>
     </tr>
 

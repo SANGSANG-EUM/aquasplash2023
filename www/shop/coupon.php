@@ -44,9 +44,33 @@ add_stylesheet('<link rel="stylesheet" href="'.EUM_CSS_URL.'/mypage.css">', 0);
 <div class="container">
   <div id="coupon" class="sb_container">
     <div class="wrapper">
-      <div class="sb_top">
-        <p class="sb-title">Coupon</p>
+    <div class="sb_top">
+        <p class="sb-title">
+          <?php if ($lang == "") { //(기본)영문
+              echo "My page";
+          } else if ($lang == "ko") { //국문
+              echo "마이페이지";
+          }?>
+        </p>
       </div>
+
+      <?php include G5_THEME_SHOP_PATH.'/mypage_top.php'; ?>
+
+      <div class="mypage-body">
+        <!-- 마이페이지 메뉴 시작 { -->
+        <?php include G5_THEME_SHOP_PATH.'/mypage_menu.php'; ?>
+        <script>
+        $('.my-coupon').addClass('active');
+        </script>
+        <!-- } 마이페이지 메뉴 끝 -->
+          <div class="mypage-in">
+            <p class="mypage-in-tit">
+            <?php if ($lang == "") { //(기본)영문
+                echo "Coupon";
+            } else if ($lang == "ko") { //국문
+                echo "쿠폰";
+            }?>
+            </p>
 
       <div class="cou_wrap">
         <ul>
@@ -105,7 +129,8 @@ add_stylesheet('<link rel="stylesheet" href="'.EUM_CSS_URL.'/mypage.css">', 0);
           }
 
           if(!$cp_count)
-              echo '<li class="empty_li">사용할 수 있는 쿠폰이 없습니다.</li>';
+              echo '<li class="empty_li">There are no coupons available.</li>';
+              // echo '<li class="empty_li">사용할 수 있는 쿠폰이 없습니다.hosu</li>';
           ?>
         </ul>
       </div>
@@ -120,10 +145,11 @@ add_stylesheet('<link rel="stylesheet" href="'.EUM_CSS_URL.'/mypage.css">', 0);
           }?>
         </a>
       </div>
+      </div>
 
     </div>
   </div>
 </div>
 
 <?php
-include_once(G5_PATH.'/tail.sub.php');
+include_once(G5_PATH.'/tail.php');

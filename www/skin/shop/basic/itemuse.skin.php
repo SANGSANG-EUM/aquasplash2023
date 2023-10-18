@@ -13,7 +13,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 
     <div class="sit_use_top">
         <div class="sit_use_star">
-            <?php if ($star_score) { ?>
+            <?php// if ($star_score) { ?>
             <h4>
                 <?php if ($lang == "") { //(기본)영문
                     echo "Total Review";
@@ -22,15 +22,17 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
                 }?>
                 <!-- <span>(총 <strong><?php //echo $total_count; ?></strong> 건 상품평 기준)</span> -->
             </h4>
-            <img src="/source/img/s_star<?php echo $star_score?>.png" alt="" class="sit_star">
-            <span class="sit_use_num">
-            <?php 
-            $sql = "select (SUM(is_score) / COUNT(*)) as score from {$g5['g5_shop_item_use_table']} where it_id = '$it_id' and is_confirm = 1 ";
-            $row = sql_fetch($sql);
-            echo round($row['score'], 1);
-            ?>
-            <?php } ?>
-            </span>
+            <div class="sit_use_score">
+                <img src="/source/img/s_star<?php echo $star_score?>.png" alt="" class="sit_star">
+                <span class="sit_use_num">
+                <?php
+                $sql = "select (SUM(is_score) / COUNT(*)) as score from {$g5['g5_shop_item_use_table']} where it_id = '$it_id' and is_confirm = 1 ";
+                $row = sql_fetch($sql);
+                echo round($row['score'], 1);
+                ?>
+                <?php //} ?>
+                </span>
+            </div>
         </div>
         <div id="sit_use_wbtn">
             <a href="<?php echo $itemuse_form; ?>" class="btn02 itemuse_form " onclick="return false;">

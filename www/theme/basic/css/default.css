@@ -429,12 +429,12 @@ box-shadow:2px 2px 3px 0px rgba(0,0,0,0.2)}
 .sv_nojs .sv {display:block}
 
 /* 페이징 */
-.pg_wrap {margin:40px 0 0;text-align:center}
+.pg_wrap {margin: 20px 0 0;text-align:center}
 .pg_wrap:after {display:block;visibility:hidden;clear:both;content:""} 
 .pg {text-align:center}
 .pg_page, .pg_current,.qa_page {display: inline-block; vertical-align: middle;}
 .pg a:focus, .pg a:hover {text-decoration:none}
-.pg_page,.qa_page {display: inline-block; width: 46px; height: 46px; line-height: 46px; border-radius: 5px; background-color: #f9f9f9; color: #999; font-weight: 500;}
+.pg_page,.qa_page {display: inline-block; width: clamp(30px, 10vw, 46px); height: clamp(30px, 10vw, 46px); line-height: clamp(30px, 10vw, 46px); border-radius: 5px; background-color: #f9f9f9; color: #999; font-weight: 500;}
 .pg_page:hover,.qa_page:hover {background-color:#fafafa}
 .pg_start {background: #f9f9f9 url('/source/img/icon-page_start.png') no-repeat center / 13px; color: transparent;}
 .pg_prev {background: #f9f9f9 url('/source/img/icon-page_prev.png') no-repeat center / 13px; color: transparent;}
@@ -442,7 +442,7 @@ box-shadow:2px 2px 3px 0px rgba(0,0,0,0.2)}
 .pg_next {background: #f9f9f9 url('/source/img/icon-page_next.png') no-repeat center / 13px; color: transparent;}
 .pg_start:hover,.pg_prev:hover,.pg_end:hover,.pg_next:hover {background-color:#fafafa}
 
-.pg_current {display: inline-block; width: 46px; height: 46px; line-height: 46px; border-radius: 5px; background-color: #35AE9D; color: #fff; font-weight: 500;}
+.pg_current {display: inline-block; width: clamp(30px, 10vw, 46px); height: clamp(30px, 10vw, 46px); line-height: clamp(30px, 10vw, 46px); border-radius: 5px; background-color: #35AE9D; color: #fff; font-weight: 500;}
 
 /* cheditor 이슈 */
 .cheditor-popup-window *, .cheditor-popup-window :after, .cheditor-popup-window :before {
@@ -454,3 +454,8 @@ box-sizing:content-box;
 /* Mobile화면으로 */
 #device_change {display:block;margin:0.3em;padding:0.5em 0;border:1px solid #eee;border-radius:2em;background:#fff;color:#000;font-size:2em;text-decoration:none;text-align:center}
 
+
+
+@media screen and (max-width:480px){
+.pg_start, .pg_prev, .pg_end, .pg_next {background-size: 10px;} 
+}

@@ -86,18 +86,67 @@ if (!$is_member)
     }
 }
 
-$g5['title'] = '주문내역조회';
+if ($lang == "") { //(기본)영문
+  $g5['title'] = "Order details";
+} else if ($lang == "ko") { //국문
+  $g5['title'] = "주문내역조회";
+}
 include_once('./_head.php');
+
+add_stylesheet('<link rel="stylesheet" href="'.EUM_CSS_URL.'/mypage.css">', 0);
 ?>
 
 <!-- 주문 내역 시작 { -->
-<div id="sod_v">
-    <?php
-    $limit = " limit $from_record, $rows ";
-    include "./orderinquiry.sub.php";
-    ?>
+<div class="container">
+  <div id="sod_v" class="sb_container">
+    <div class="wrapper">
+      <div class="sb_top">
+        <p class="sb-title">
+          <?php if ($lang == "") { //(기본)영문
+              echo "My page";
+          } else if ($lang == "ko") { //국문
+              echo "마이페이지";
+          }?>
+        </p>
+      </div>
 
-    <?php echo get_paging($config['cf_write_pages'], $page, $total_page, "{$_SERVER['SCRIPT_NAME']}?$qstr&amp;page="); ?>
+      <?php include G5_THEME_SHOP_PATH.'/mypage_top.php'; ?>
+
+      <div class="mypage-body">
+        <!-- 마이페이지 메뉴 시작 { -->
+        <?php include G5_THEME_SHOP_PATH.'/mypage_menu.php'; ?>
+        <script>
+        $('.my-order').addClass('active');
+        </script>
+        <!-- } 마이페이지 메뉴 끝 -->
+        <div class="mypage-in">
+        <p class="mypage-in-tit">
+        <?php if ($lang == "") { //(기본)영문
+            echo "Order details";
+        } else if ($lang == "ko") { //국문
+            echo "주문내역조회";
+        }?>
+        </p>
+        <?php
+        $limit = " limit $from_record, $rows ";
+        include "./orderinquiry.sub.php";
+        ?>
+        <?php echo get_paging($config['cf_write_pages'], $page, $total_page, "{$_SERVER['SCRIPT_NAME']}?$qstr&amp;page="); ?>
+        
+          <div id="sod_ws_back" class="sod_back">
+            <a href="<?php echo G5_SHOP_URL ?>/mypage.php" class="sod_back-btn">
+              <img src="/source/img/icon-back_white.png" alt="">
+              <?php if ($lang == "") { //(기본)영문
+                echo "Back";
+              } else if ($lang == "ko") { //국문
+                echo "돌아가기";
+              }?>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <!-- } 주문 내역 끝 -->
 

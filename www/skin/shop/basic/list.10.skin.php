@@ -12,15 +12,57 @@ include_once(G5_PATH.'/include/sub_visual.php');
 
 
 
-<div class="container">
+<div class="container sub_contents">
 
-  <!-- sub visual { -->
-    <?php sub_visual('colour1', 'back'); ?>
-  <!-- } sub visual -->
+<!-- sub visual { -->
+    <?php 
+    $current_url = $_SERVER['REQUEST_URI'];
+    if (preg_match('/\/shop\/list-(\d+)/', $current_url, $matches)) {
+        if ($matches[1] == '1010') {
+            sub_visual('colour1', 'back');
+        } else if ($matches[1] == '1020') {
+            sub_visual('colour2', 'back');
+        } else if ($matches[1] == '1030') {
+            sub_visual('colour3', 'back');
+        } else if ($matches[1] == '1040') {
+            sub_visual('colour4', 'back');
+        } else if ($matches[1] == '20') {
+            sub_visual('clear', '');
+        } else if ($matches[1] == '30') {
+            sub_visual('mps', '');
+        }
+    }
+    ?>
+<!-- } sub visual -->
 
 <div class="wrapper">
 
-<p class="prd-list-tit prd-list-tit--1">1 Colour</p>
+<p class="prd-list-tit 
+<?php if ($matches[1] == '1010') {
+    echo 'prd-list-tit--1';
+} else if ($matches[1] == '1020') {
+    echo 'prd-list-tit--2';
+} else if ($matches[1] == '1030') {
+    echo 'prd-list-tit--3';
+} else if ($matches[1] == '1040') {
+    echo 'prd-list-tit--4';
+}
+?>">
+<?php if ($matches[1] == '1010') {
+    echo '1 Colour';
+} else if ($matches[1] == '1020') {
+    echo '2 Colour';
+} else if ($matches[1] == '1030') {
+    echo '3 Colour';
+} else if ($matches[1] == '1040') {
+    echo '4 Colour';
+} else if ($matches[1] == '20') {
+    echo 'CLEAR';
+} else if ($matches[1] == '30') {
+    echo 'MPS';
+}
+?>
+</p>
 
 <!-- 상품진열 10 시작 { -->
 <?php
@@ -176,7 +218,8 @@ foreach((array) $list as $row){
 
 if ($i >= 1) echo "</ul>\n";
 
-if ($i === 0) echo "<p class=\"sct_noitem\">등록된 상품이 없습니다.</p>\n";
+if ($i === 0) echo "<p class=\"sct_noitem\">There is no registered product.</p>\n";
+// if ($i === 0) echo "<p class=\"sct_noitem\">등록된 상품이 없습니다.hosu</p>\n";
 ?>
 <!-- } 상품진열 10 끝 -->
 

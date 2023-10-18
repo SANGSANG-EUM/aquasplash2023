@@ -10,30 +10,44 @@ if ($config['cf_cert_use'] && ($config['cf_cert_simple'] || $config['cf_cert_ipi
 
 <!-- 회원정보 입력/수정 시작 { -->
 <div class="container">
-<div class="register mbskin">
+<div class="register register-edit sb_container">
   <div class="wrapper">
+
+  <div class="sb_top">
+        <p class="sb-title">
+          <?php if ($lang == "") { //(기본)영문
+              echo "My page";
+          } else if ($lang == "ko") { //국문
+              echo "마이페이지";
+          }?>
+        </p>
+      </div>
+
+      <?php include G5_THEME_SHOP_PATH.'/mypage_top.php'; ?>
+
+      <div class="mypage-body">
+        <!-- 마이페이지 메뉴 시작 { -->
+        <?php include G5_THEME_SHOP_PATH.'/mypage_menu.php'; ?>
+        <script>
+        $('.my-information').addClass('active');
+        </script>
+        <!-- } 마이페이지 메뉴 끝 -->
+          <div class="mypage-in">
+            <p class="mypage-in-tit">
+            <?php if ($lang == "") { //(기본)영문
+                echo "Modifying information";
+            } else if ($lang == "ko") { //국문
+                echo "회원정보변경";
+            }?>
+            </p>
+
     <div class="mbskin_box">
-      <div class="member-tit-wr">
-      <p class="member-tit">
-      <?php if ($lang == "") { //(기본)영문
-          echo "Join";
-      } else if ($lang == "ko") { //국문
-          echo "회원가입";
-      }?>
-      </p>
-      <p class="member-subtit">
-      <?php if ($lang == "") { //(기본)영문
-          echo "(Corporate member 혹은 Individual member)";
-      } else if ($lang == "ko") { //국문
-          echo "(기업회원 혹은 일반회원)";
-      }?>
-      </p>
-    </div>
 	<form id="fregisterform" name="fregisterform" action="<?php echo $register_action_url ?>" onsubmit="return fregisterform_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
 	<input type="hidden" name="w" value="<?php echo $w ?>">
 	<input type="hidden" name="url" value="<?php echo $urlencode ?>">
-	<input type="hidden" name="agree" value="<?php echo $agree ?>">
-	<input type="hidden" name="agree2" value="<?php echo $agree2 ?>">
+    <!-- 20231012 회원가입 약관 페이지 스킵 -->
+	<!-- <input type="hidden" name="agree" value="<?php //echo $agree ?>">
+	<input type="hidden" name="agree2" value="<?php //echo $agree2 ?>"> -->
 	<input type="hidden" name="cert_type" value="<?php echo $member['mb_certify']; ?>">
 	<input type="hidden" name="cert_no" value="">
 	<?php if (isset($member['mb_sex'])) {  ?><input type="hidden" name="mb_sex" value="<?php echo $member['mb_sex'] ?>"><?php }  ?>
@@ -41,31 +55,242 @@ if ($config['cf_cert_use'] && ($config['cf_cert_simple'] || $config['cf_cert_ipi
 	<input type="hidden" name="mb_nick_default" value="<?php echo get_text($member['mb_nick']) ?>">
 	<input type="hidden" name="mb_nick" value="<?php echo get_text($member['mb_nick']) ?>">
 	<?php }  ?>
+
+    <table class="inquiry_tb">
+        <tbody>
+            <tr>
+                <td>
+                    <p>
+                    <?php if ($lang == "") { //(기본)영문
+                        echo "ID";
+                    } else if ($lang == "ko") { //국문
+                        echo "아이디";
+                    }?> 
+                    <span class="label_req">*</span>
+                    </p>
+                </td>
+                <td>
+                    <div class="inquiry_content">
+                    <input type="text" name="mb_id" value="<?php echo $member['mb_id'] ?>" id="reg_mb_id" <?php echo $required ?> <?php echo $readonly ?> class="frm_input full_input <?php echo $required ?> <?php echo $readonly ?> aq-input" minlength="3" maxlength="20" placeholder="<?php if ($lang == "") { //(기본)영문
+                        echo "Please enter your ID.";
+                    } else if ($lang == "ko") { //국문
+                        echo "아이디를 입력해주세요.";
+                    }?> ">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>
+                    <?php if ($lang == "") { //(기본)영문
+                        echo "Password";
+                    } else if ($lang == "ko") { //국문
+                        echo "비밀번호";
+                    }?> 
+                    <span class="label_req">*</span>
+                    </p>
+                </td>
+                <td>
+                    <div class="inquiry_content">
+                    <input type="password" name="mb_password" id="reg_mb_password" <?php echo $required ?> class="frm_input full_input <?php echo $required ?> aq-input" minlength="3" maxlength="20" placeholder="<?php if ($lang == "") { //(기본)영문
+                        echo "Please enter your password.";
+                    } else if ($lang == "ko") { //국문
+                        echo "비밀번호를 입력해주세요.";
+                    }?>">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>
+                    <?php if ($lang == "") { //(기본)영문
+                        echo "Confirm Password";
+                    } else if ($lang == "ko") { //국문
+                        echo "비밀번호 확인";
+                    }?> 
+                    <span class="label_req">*</span>
+                    </p>
+                </td>
+                <td>
+                    <div class="inquiry_content">
+                    <input type="password" name="mb_password_re" id="reg_mb_password_re" <?php echo $required ?> class="frm_input full_input <?php echo $required ?> aq-input" minlength="3" maxlength="20" placeholder="<?php if ($lang == "") { //(기본)영문
+                        echo "Please enter your password.";
+                    } else if ($lang == "ko") { //국문
+                        echo "비밀번호를 한번 더 입력해주세요.";
+                    }?>">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>
+                    <?php if ($lang == "") { //(기본)영문
+                        echo "Name";
+                    } else if ($lang == "ko") { //국문
+                        echo "이름";
+                    }?>
+                    <span class="label_req">*</span>
+                    <?php echo $desc_name ?>
+                    </p>
+                </td>
+                <td>
+                    <div class="inquiry_content">
+                    <input type="text" id="reg_mb_name" name="mb_name" value="<?php echo get_text($member['mb_name']) ?>" <?php echo $required ?> <?php echo $name_readonly; ?> class="frm_input full_input <?php echo $required ?> <?php echo $name_readonly ?> aq-input" size="10" placeholder="<?php if ($lang == "") { //(기본)영문
+                        echo "Please enter your Name.";
+                    } else if ($lang == "ko") { //국문
+                        echo "이름을 입력해주세요.";
+                    }?>">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>
+                    <?php if ($lang == "") { //(기본)영문
+                        echo "Date of Birth";
+                    } else if ($lang == "ko") { //국문
+                        echo "생년월일";
+                    }?> 
+                    <span class="label_req">*</span>
+                    </p>
+                </td>
+                <td>
+                    <div class="inquiry_content">
+                        <div class="reg-input-wr">
+                            <input type="hidden" name="mb_birth" value="<?php echo $mb['mb_birth'] ?>">
+                            <select name="yy" id="year" class="aq-select"></select>
+                            <select name="mm" id="month" class="aq-select"></select>
+                            <select name="dd" id="day" class="aq-select"></select>
+                        </div>
+                        <script>
+                            $(document).ready(function(){            
+                                var now = new Date();
+                                var year = now.getFullYear();
+                                var mon = (now.getMonth() + 1) > 9 ? ''+(now.getMonth() + 1) : '0'+(now.getMonth() + 1); 
+                                var day = (now.getDate()) > 9 ? ''+(now.getDate()) : '0'+(now.getDate());           
+                                //년도 selectbox만들기               
+                                for(var i = 1900 ; i <= year ; i++) {
+                                    $('#year').append('<option value="' + i + '">' + i + '</option>');    
+                                }
+                            
+                                // 월별 selectbox 만들기            
+                                for(var i=1; i <= 12; i++) {
+                                    var mm = i > 9 ? i : "0"+i ;            
+                                    $('#month').append('<option value="' + mm + '">' + mm + '</option>');    
+                                }
+                            
+                                // 일별 selectbox 만들기
+                                for(var i=1; i <= 31; i++) {
+                                    var dd = i > 9 ? i : "0"+i ;            
+                                    $('#day').append('<option value="' + dd + '">' + dd+ '</option>');    
+                                }
+                                $("#year  > option[value="+year+"]").attr("selected", "true");        
+                                $("#month  > option[value="+mon+"]").attr("selected", "true");    
+                                $("#day  > option[value="+day+"]").attr("selected", "true");    
+                            
+                            
+                                $('input[name=mb_birth]').val(year + '년 ' + mon + '월 ' + day + '일' );
+                            
+                                $('.reg-li--birth select').on('change', function(){
+                                    let birth1 = $('#year').val();
+                                    let birth2 = $('#month').val();
+                                    let birth3 = $('#day').val();
+                                    $('input[name=mb_birth]').val(birth1 + '년 ' + birth2 + '월 ' + birth3 + '일' );
+                                });
+                            });
+                        </script>
+                    </div>
+                </td>
+            </tr>
+            <?php if ($config['cf_use_tel']) {  ?>
+            <tr>
+                <td>
+                    <p>
+                    <?php if ($lang == "") { //(기본)영문
+                        echo "Phone number";
+                    } else if ($lang == "ko") { //국문
+                        echo "연락처";
+                    }?> 
+                    <span class="label_req">*</span>
+                    </p>
+                </td>
+                <td>
+                    <div class="inquiry_content">
+                    <?php if ($config['cf_req_tel']) { ?> <?php } ?>
+                    <input type="text" name="mb_tel" value="<?php echo get_text($member['mb_tel']) ?>" id="reg_mb_tel" <?php echo $config['cf_req_tel']?"required":""; ?>      class="frm_input full_input <?php echo $config['cf_req_tel']?"required":""; ?> aq-input" maxlength="20" placeholder="<?php if ($lang == "") { //(기본)영문
+                        echo "Please enter your phone number.";
+                    } else if ($lang == "ko") { //국문
+                        echo "연락처를 입력해주세요.";
+                    }?> " onKeyup="this.value=this.value.replace(/[^0-9]/g,'')";>
+                    </div>
+                </td>
+            </tr>
+            <?php }  ?>
+            
+            <tr>
+                <td>
+                    <?php if ($config['cf_use_email_certify']) {  ?>
+                    <button type="button" class="tooltip_icon"><i class="fa fa-question-circle-o" aria-hidden="true"></i><span class="sound_only">설명보기</span></button>
+                    <span class="tooltip">
+                    <?php if ($w=='') { echo "E-mail 로 발송된 내용을 확인한 후 인증하셔야 회원가입이 완료됩니다."; }  ?>
+                    <?php if ($w=='u') { echo "E-mail 주소를 변경하시면 다시 인증하셔야 합니다."; }  ?>
+                    </span>
+                    <?php }  ?>
+                    <p>
+                    <?php if ($lang == "") { //(기본)영문
+                        echo "E-mail";
+                    } else if ($lang == "ko") { //국문
+                        echo "이메일";
+                    }?> 
+                    <span class="label_req">*</span>
+                    </p>
+                </td>
+                <td>
+                    <div class="inquiry_content email">
+                    <input type="hidden" name="old_email" value="<?php echo $member['mb_email'] ?>">
+                    <input type="hidden" name="mb_email" value="<?php echo isset($member['mb_email'])?$member['mb_email']:''; ?>" id="reg_mb_email" required class="frm_input email full_input required" size="70" maxlength="100" placeholder="">
+                    <div class="reg-input-wr">
+                    <input type="text" id="regEmail1" class="aq-input">
+                    @
+                    <input type="text" id="regEmail2" class="aq-input">
+                    </div>
+                    <script>
+                        let mbEmail = $('input[name="mb_email"]').val().split('@');
+                        let mbEmail1 = mbEmail[0];
+                        let mbEmail2 = mbEmail[1];
+                        $('#regEmail1').val(mbEmail1);
+                        $('#regEmail2').val(mbEmail2);
+
+                        $('.inquiry_content.email input').on('change', function(){
+                            let email1 = $('#regEmail1').val();
+                            let email2 = $('#regEmail2').val();
+                            $('input[name=mb_email]').val(email1+'@'+email2);
+                        });
+                    </script>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="info-edit-catpcha"><?php echo captcha_html(); ?></div>
+
+    <div class="btn_confirm">
+        <button type="submit" id="btn_submit" class="btn_submit btn-edit" accesskey="s">
+                <?php if ($lang == "") { //(기본)영문
+                    echo "Confirm";
+                } else if ($lang == "ko") { //국문
+                    echo "수정완료";
+                }?>
+        </button>
+    </div>
+
+    </div>
 	
 	<div id="register_form" class="form_01">   
-	    <div class="register_form_inner">
-	        <ul>
-	            <li>
-	                <label for="reg_mb_id">
-	                    아이디 <span class="label_req">*</span>
-	                    <button type="button" class="tooltip_icon"><i class="fa fa-question-circle-o" aria-hidden="true"></i><span class="sound_only">설명보기</span></button>
-	                    <span class="tooltip">영문자, 숫자, _ 만 입력 가능. 최소 3자이상 입력하세요.</span>
-	                </label>
-	                <input type="text" name="mb_id" value="<?php echo $member['mb_id'] ?>" id="reg_mb_id" <?php echo $required ?> <?php echo $readonly ?> class="frm_input full_input <?php echo $required ?> <?php echo $readonly ?>" minlength="3" maxlength="20" placeholder="아이디">
-	                <span id="msg_mb_id"></span>
-	            </li>
-	            <li class="half_input left_input margin_input">
-	                <label for="reg_mb_password">비밀번호 (필수)</label>
-	                <input type="password" name="mb_password" id="reg_mb_password" <?php echo $required ?> class="frm_input full_input <?php echo $required ?>" minlength="3" maxlength="20" placeholder="비밀번호">
-	            </li>
-	            <li class="half_input left_input">
-	                <label for="reg_mb_password_re">비밀번호 확인 (필수)</label>
-	                <input type="password" name="mb_password_re" id="reg_mb_password_re" <?php echo $required ?> class="frm_input full_input <?php echo $required ?>" minlength="3" maxlength="20" placeholder="비밀번호 확인">
-	            </li>
-	        </ul>
-	    </div>
-	
-	    <div class="tbl_frm01 tbl_wrap register_form_inner">
+
+      <!-- 하단 개인정보 입력 및 기타 개인 설정은 삭제 -->
+	    <div class="tbl_frm01 tbl_wrap register_form_inner noshow">
 	        <h2>개인정보 입력</h2>
 	        <ul>
 				<li>
@@ -111,10 +336,6 @@ if ($config['cf_cert_use'] && ($config['cf_cert_simple'] || $config['cf_cert_ipi
 	                </div>
 				<?php } ?>
 				</li>
-	            <li>
-	                <label for="reg_mb_name">이름 (필수)<?php echo $desc_name ?></label>
-	                <input type="text" id="reg_mb_name" name="mb_name" value="<?php echo get_text($member['mb_name']) ?>" <?php echo $required ?> <?php echo $name_readonly; ?> class="frm_input full_input <?php echo $required ?> <?php echo $name_readonly ?>" size="10" placeholder="이름">
-	            </li>
 	            <?php if ($req_nick) {  ?>
 	            <li>
 	                <label for="reg_mb_nick">
@@ -128,22 +349,30 @@ if ($config['cf_cert_use'] && ($config['cf_cert_simple'] || $config['cf_cert_ipi
                     <span id="msg_mb_nick"></span>	                
 	            </li>
 	            <?php }  ?>
-	
-	            <li>
-	                <label for="reg_mb_email">E-mail (필수)
-	                
-	                <?php if ($config['cf_use_email_certify']) {  ?>
-	                <button type="button" class="tooltip_icon"><i class="fa fa-question-circle-o" aria-hidden="true"></i><span class="sound_only">설명보기</span></button>
-					<span class="tooltip">
-	                    <?php if ($w=='') { echo "E-mail 로 발송된 내용을 확인한 후 인증하셔야 회원가입이 완료됩니다."; }  ?>
-	                    <?php if ($w=='u') { echo "E-mail 주소를 변경하시면 다시 인증하셔야 합니다."; }  ?>
-	                </span>
-	                <?php }  ?>
-					</label>
 
-	                <input type="hidden" name="old_email" value="<?php echo $member['mb_email'] ?>">
-	                <input type="text" name="mb_email" value="<?php echo isset($member['mb_email'])?$member['mb_email']:''; ?>" id="reg_mb_email" required class="frm_input email full_input required" size="70" maxlength="100" placeholder="E-mail">
-	            </li>
+              <?php
+                function generate_user_nick() {
+                    global $g5, $config, $member;
+ 
+                    // 다음 닉네임을 생성합니다.
+                    $new_user_num = 1;
+ 
+                    // 그누보드 환경 설정 파일 불러오기
+                    include_once('../../../config.php');
+ 
+                    $sql = "SELECT MAX(CAST(SUBSTRING(mb_nick, 5) AS UNSIGNED)) AS max_user_num FROM {$g5['member_table']}";
+                    $row = sql_fetch($sql);
+ 
+                    if ($row && $row['max_user_num']) {
+                    $new_user_num = $row['max_user_num'] + 1;
+                    }
+ 
+                    // 형식에 맞는 닉네임 생성
+                    $new_nick = 'user' . str_pad($new_user_num, 4, '0', STR_PAD_LEFT);
+ 
+                    return $new_nick;
+                }
+                ?>
 	
 	            <?php if ($config['cf_use_homepage']) {  ?>
 	            <li>
@@ -152,13 +381,7 @@ if ($config['cf_cert_use'] && ($config['cf_cert_simple'] || $config['cf_cert_ipi
 	            </li>
 	            <?php }  ?>
 	
-	            <li>
-	            <?php if ($config['cf_use_tel']) {  ?>
 	            
-	                <label for="reg_mb_tel">전화번호<?php if ($config['cf_req_tel']) { ?> (필수)<?php } ?></label>
-	                <input type="text" name="mb_tel" value="<?php echo get_text($member['mb_tel']) ?>" id="reg_mb_tel" <?php echo $config['cf_req_tel']?"required":""; ?> class="frm_input full_input <?php echo $config['cf_req_tel']?"required":""; ?>" maxlength="20" placeholder="전화번호">
-	            <?php }  ?>
-				</li>
 				<li>
 	            <?php if ($config['cf_use_hp'] || ($config["cf_cert_use"] && ($config['cf_cert_hp'] || $config['cf_cert_simple']))) {  ?>
 	                <label for="reg_mb_hp">휴대폰번호<?php if (!empty($hp_required)) { ?> (필수)<?php } ?><?php echo $desc_phone ?></label>
@@ -190,7 +413,7 @@ if ($config['cf_cert_use'] && ($config['cf_cert_simple'] || $config['cf_cert_ipi
 	        </ul>
 	    </div>
 	
-	    <div class="tbl_frm01 tbl_wrap register_form_inner">
+	    <div class="tbl_frm01 tbl_wrap register_form_inner noshow">
 	        <h2>기타 개인설정</h2>
 	        <ul>
 	            <?php if ($config['cf_use_signature']) {  ?>
@@ -306,22 +529,17 @@ gif, jpg, png파일만 가능하며 용량 <?php echo number_format($config['cf_
 	            </li>
 	            <?php }  ?>
 	
-	            <li class="is_captcha_use">
-	                자동등록방지
-	                <?php echo captcha_html(); ?>
-	            </li>
+	            
 	        </ul>
 	    </div>
-	</div>
-	<div class="btn_confirm">
-	    <a href="<?php echo G5_URL ?>" class="btn_close">취소</a>
-	    <button type="submit" id="btn_submit" class="btn_submit" accesskey="s"><?php echo $w==''?'회원가입':'정보수정'; ?></button>
 	</div>
 	</form>
 </div>
 </div>
 </div>
 </div>
+
+
 <script>
 $(function() {
     $("#reg_zip_find").css("display", "inline-block");
@@ -390,6 +608,7 @@ $(function() {
 // submit 최종 폼체크
 function fregisterform_submit(f)
 {
+
     // 회원아이디 검사
     if (f.w.value == "") {
         var msg = reg_mb_id_check();
@@ -402,21 +621,24 @@ function fregisterform_submit(f)
 
     if (f.w.value == "") {
         if (f.mb_password.value.length < 3) {
-            alert("비밀번호를 3글자 이상 입력하십시오.");
+            alert("Please enter a password of at least 3 characters.");
+            // alert("비밀번호를 3글자 이상 입력하십시오. hosu");
             f.mb_password.focus();
             return false;
         }
     }
 
     if (f.mb_password.value != f.mb_password_re.value) {
-        alert("비밀번호가 같지 않습니다.");
+        alert("The passwords are not the same.");
+        // alert("비밀번호가 같지 않습니다. hosu");
         f.mb_password_re.focus();
         return false;
     }
 
     if (f.mb_password.value.length > 0) {
         if (f.mb_password_re.value.length < 3) {
-            alert("비밀번호를 3글자 이상 입력하십시오.");
+            alert("Please enter a password of at least 3 characters.");
+            // alert("비밀번호를 3글자 이상 입력하십시오. hosu");
             f.mb_password_re.focus();
             return false;
         }
@@ -425,7 +647,8 @@ function fregisterform_submit(f)
     // 이름 검사
     if (f.w.value=="") {
         if (f.mb_name.value.length < 1) {
-            alert("이름을 입력하십시오.");
+            alert("Please enter your name.");
+            // alert("이름을 입력하십시오. hosu");
             f.mb_name.focus();
             return false;
         }
