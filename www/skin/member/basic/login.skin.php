@@ -120,7 +120,7 @@ $ch_id_save_chk = "checked";
     
                 <!-- 주문하기, 신청하기 -->
                 <?php if (preg_match("/orderform.php/", $url)) { ?>
-            <section id="mb_login_notmb">
+            <!-- <section id="mb_login_notmb">
                 <h2>비회원 구매</h2>
                 <p>비회원으로 주문하시는 경우 포인트는 지급하지 않습니다.</p>
                 <div id="guest_privacy">
@@ -148,10 +148,10 @@ $ch_id_save_chk = "checked";
                     f.submit();
                 }
                 </script>
-            </section>
+            </section> -->
             <?php } else if (preg_match("/orderinquiry.php$/", $url)) { ?>
             <div id="mb_login_od_wr">
-                <h2>비회원 주문조회 </h2>
+                <h2>비회원 주문조회</h2>
                 <fieldset id="mb_login_od">
                     <legend>비회원 주문조회</legend>
                     <form name="forderinquiry" method="post" action="<?php echo urldecode($url); ?>" autocomplete="off">

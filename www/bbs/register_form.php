@@ -96,7 +96,8 @@ if ($w == "") {
         }
 
         if (!$pass_check)
-            alert('비밀번호가 틀립니다.');
+            alert('The password is incorrect.');
+            // alert('비밀번호가 틀립니다.hosu');
     }
 
     $g5['title'] = '회원 정보 수정';
@@ -155,7 +156,13 @@ $agree2 = isset($_REQUEST['agree2']) ? preg_replace('#[^0-9]#', '', $_REQUEST['a
 if ($config['cf_use_addr'])
     add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
 
-include_once($member_skin_path.'/register_form.skin.php');
+// 20231016 회원가입 및 회원수정 내용 분리
+// include_once($member_skin_path.'/register_form.skin.php');
+if($w == ""){ // 신규가입이라면...
+	include_once($member_skin_path.'/register_form.skin.php');
+}else{ // 회원이 정보수정을 하는 상태라면
+	include_once($member_skin_path.'/register_form_edit.skin.php');
+}
 
 run_event('register_form_after', $w, $agree, $agree2);
 

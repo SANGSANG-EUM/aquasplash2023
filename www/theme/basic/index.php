@@ -130,7 +130,7 @@ include_once(G5_THEME_PATH.'/head.php');
                   echo "";
                 }?>
                 </p>
-                <a href="" class="main-link">
+                <a href="/shop/list-1010" class="main-link">
                 <span>
                 <?php if ($lang == "") { //(기본)영문
                   echo "Learn More";
@@ -161,7 +161,7 @@ include_once(G5_THEME_PATH.'/head.php');
                     echo "";
                 }?>
                 </p>
-                <a href="" class="main-link"><span>
+                <a href="/shop/list-1020" class="main-link"><span>
                 <?php if ($lang == "") { //(기본)영문
                   echo "Learn More";
                 } else if ($lang == "ko") { //국문
@@ -190,7 +190,7 @@ include_once(G5_THEME_PATH.'/head.php');
                     echo "";
                   }?>
                 </p>
-                <a href="" class="main-link"><span>
+                <a href="/shop/list-1030" class="main-link"><span>
                 <?php if ($lang == "") { //(기본)영문
                   echo "Learn More";
                 } else if ($lang == "ko") { //국문
@@ -219,7 +219,7 @@ include_once(G5_THEME_PATH.'/head.php');
                   echo "";
                 }?>
                 </p>
-                <a href="" class="main-link"><span>
+                <a href="/shop/list-1040" class="main-link"><span>
                 <?php if ($lang == "") { //(기본)영문
                   echo "Learn More";
                 } else if ($lang == "ko") { //국문
@@ -1479,7 +1479,7 @@ include_once(G5_THEME_PATH.'/head.php');
                     echo "";
                 }?>
               </p>
-              <a href="" class="main-link"><span>
+              <a href="/shop/list-20" class="main-link"><span>
                 <?php if ($lang == "") { //(기본)영문
                   echo "Learn More";
                 } else if ($lang == "ko") { //국문
@@ -1509,7 +1509,7 @@ include_once(G5_THEME_PATH.'/head.php');
                     echo "";
                 }?>
               </p>
-              <a href="" class="main-link"><span>
+              <a href="/shop/1696577552" class="main-link"><span>
                 <?php if ($lang == "") { //(기본)영문
                   echo "Learn More";
                 } else if ($lang == "ko") { //국문

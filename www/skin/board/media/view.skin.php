@@ -202,9 +202,9 @@ if (!$is_admin && $view['mb_id'] != 'admin') {
                 <span>
                 <?php 
                 if($Lang == "") { //(기본)영문
-                  if (count($list) == 0) { echo "Prev"; } 
+                  echo "Prev";
                 } else if ($Lang == "ko") { //국문
-                  if (count($list) == 0) { echo "이전"; } 
+                  echo "이전";
                 }
                 ?>
                 </span>
@@ -215,9 +215,9 @@ if (!$is_admin && $view['mb_id'] != 'admin') {
             <a href="<?php echo $list_href ?>" class="bo_v_back_btn">
               <?php 
               if($Lang == "") { //(기본)영문
-                if (count($list) == 0) { echo "List"; } 
+                echo "List";
               } else if ($Lang == "ko") { //국문
-                if (count($list) == 0) { echo "목록"; } 
+                echo "목록";
               }
               ?>
             </a>
@@ -228,9 +228,9 @@ if (!$is_admin && $view['mb_id'] != 'admin') {
                 <span>
                   <?php 
               if($Lang == "") { //(기본)영문
-                if (count($list) == 0) { echo "Next"; } 
+                echo "Next";
               } else if ($Lang == "ko") { //국문
-                if (count($list) == 0) { echo "다음"; } 
+                echo "다음";
               }
               ?>
                 </span>

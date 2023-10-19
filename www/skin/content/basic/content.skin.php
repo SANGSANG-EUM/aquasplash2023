@@ -5,13 +5,17 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 add_stylesheet('<link rel="stylesheet" href="'.$content_skin_url.'/style.css">', 0);
 ?>
 
-<article id="ctt" class="ctt_<?php echo $co_id; ?>">
-    <header>
-        <h1><?php echo $g5['title']; ?></h1>
-    </header>
-
-    <div id="ctt_con">
-        <?php echo $str; ?>
-    </div>
-
-</article>
+<div class="container">
+    <article id="ctt" class="ctt_<?php echo $co_id; ?> sb_container">
+    
+        <div class="wrapper">
+            <header>
+                <h2 class="ctt-tit"><?php echo $g5['title']; ?></h2>
+            </header>
+            <div id="ctt_con">
+                <?php echo $str; ?>
+            </div>
+        </div>
+    
+    </article>
+</div>

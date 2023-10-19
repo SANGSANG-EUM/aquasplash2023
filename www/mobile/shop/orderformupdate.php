@@ -36,13 +36,16 @@ if(get_session('ss_direct'))
 // 결제등록 완료 체크
 if($od_settle_case != '무통장' && $od_settle_case != 'KAKAOPAY') {
     if($default['de_pg_service'] == 'kcp' && ($post_tran_cd === '' || $post_enc_info === '' || $post_enc_data === ''))
-        alert('결제등록 요청 후 주문해 주십시오.', $page_return_url);
+        alert('Please place your order after requesting payment registration.', $page_return_url);
+        // alert('결제등록 요청 후 주문해 주십시오.hosu', $page_return_url);
 
     if($default['de_pg_service'] == 'lg' && ! $post_lgd_paykey)
-        alert('결제등록 요청 후 주문해 주십시오.', $page_return_url);
+        alert('Please place your order after requesting payment registration.', $page_return_url);
+        // alert('결제등록 요청 후 주문해 주십시오.hosu', $page_return_url);
 
     if($default['de_pg_service'] == 'inicis' && ! $post_p_hash)
-        alert('결제등록 요청 후 주문해 주십시오.', $page_return_url);
+        alert('Please place your order after requesting payment registration.', $page_return_url);
+        // alert('결제등록 요청 후 주문해 주십시오.hosu', $page_return_url);
 }
 
 // 장바구니가 비어있는가?
@@ -52,8 +55,10 @@ else
     $tmp_cart_id = get_session('ss_cart_id');
 
 if (get_cart_count($tmp_cart_id) == 0) {    // 장바구니에 담기
-    if(function_exists('add_order_post_log')) add_order_post_log('장바구니가 비어 있습니다.');
-    alert('장바구니가 비어 있습니다.\\n\\n이미 주문하셨거나 장바구니에 담긴 상품이 없는 경우입니다.', G5_SHOP_URL.'/cart.php');
+    if(function_exists('add_order_post_log')) add_order_post_log('Your shopping cart is empty.');
+    // if(function_exists('add_order_post_log')) add_order_post_log('장바구니가 비어 있습니다.hosu');
+    alert('Your shopping cart is empty.\\n\\nIf you have already ordered or there are no products in your shopping cart.', G5_SHOP_URL.'/cart.php');
+    // alert('장바구니가 비어 있습니다.\\n\\n이미 주문하셨거나 장바구니에 담긴 상품이 없는 경우입니다.hosu', G5_SHOP_URL.'/cart.php');
 }
 
 $sql = "select * from {$g5['g5_shop_order_table']} limit 1";
@@ -94,17 +99,22 @@ for ($i=0; $row=sql_fetch_array($result); $i++)
     }
     // 장바구니 수량이 재고수량보다 많다면 오류
     if ($row['ct_qty'] > $it_stock_qty)
-        $error .= "{$row['ct_option']} 의 재고수량이 부족합니다. 현재고수량 : $it_stock_qty 개\\n\\n";
+        $error .= "{$row['ct_option']} is out of stock. 
+        Current stock quantity : $it_stock_qty pcs\\n\\n";
+        // $error .= "{$row['ct_option']} 의 재고수량이 부족합니다.hosu 현재고수량 : $it_stock_qty 개\\n\\n";
 }
 
 if($i == 0) {
-    if(function_exists('add_order_post_log')) add_order_post_log('장바구니가 비어 있습니다.');
-    alert('장바구니가 비어 있습니다.\\n\\n이미 주문하셨거나 장바구니에 담긴 상품이 없는 경우입니다.', G5_SHOP_URL.'/cart.php');
+    if(function_exists('add_order_post_log')) add_order_post_log('Your shopping cart is empty.');
+    // if(function_exists('add_order_post_log')) add_order_post_log('장바구니가 비어 있습니다.hosu');
+    alert('Your shopping cart is empty.\\n\\nIf you have already ordered or there are no products in your shopping cart.', G5_SHOP_URL.'/cart.php');
+    // alert('장바구니가 비어 있습니다.hosu\\n\\n이미 주문하셨거나 장바구니에 담긴 상품이 없는 경우입니다.', G5_SHOP_URL.'/cart.php');
 }
 
 if ($error != "")
 {
-    $error .= "다른 고객님께서 {$od_name}님 보다 먼저 주문하신 경우입니다. 불편을 끼쳐 죄송합니다.";
+    $error .= "This is a case where another customer placed an order before {$od_name}. We apologize for the inconvenience.";
+    // $error .= "다른 고객님께서 {$od_name}님 보다 먼저 주문하신 경우입니다. 불편을 끼쳐 죄송합니다.hosu";
     if(function_exists('add_order_post_log')) add_order_post_log($error);
     alert($error, $page_return_url);
 }
@@ -325,8 +335,10 @@ if (($i_temp_point > (int)$temp_point || $i_temp_point < 0) && $config['cf_use_p
 if ($od_temp_point)
 {
     if ($member['mb_point'] < $od_temp_point) {
-        if(function_exists('add_order_post_log')) add_order_post_log('회원님의 포인트가 부족하여 포인트로 결제 할 수 없습니다.');
-        alert('회원님의 포인트가 부족하여 포인트로 결제 할 수 없습니다.', $page_return_url);
+        if(function_exists('add_order_post_log')) add_order_post_log('You cannot pay with points because you do not have enough points.');
+        alert('You cannot pay with points because you do not have enough points.', $page_return_url);
+        // if(function_exists('add_order_post_log')) add_order_post_log('회원님의 포인트가 부족하여 포인트로 결제 할 수 없습니다.hosu');
+        // alert('회원님의 포인트가 부족하여 포인트로 결제 할 수 없습니다.hosu', $page_return_url);
     }
 }
 
@@ -695,7 +707,8 @@ if(! $result || ! (isset($exists_order['od_id']) && $od_id && $exists_order['od_
     // 주문삭제
     sql_query(" delete from {$g5['g5_shop_order_table']} where od_id = '$od_id' ", false);
 
-    die('<p>고객님의 주문 정보를 처리하는 중 오류가 발생해서 주문이 완료되지 않았습니다.</p><p>'.strtoupper($od_pg).'를 이용한 전자결제(신용카드, 계좌이체, 가상계좌 등)은 자동 취소되었습니다.');
+    die('<p>An error occurred while processing your order information, so your order was not completed.</p><p>Electronic payments (credit card, bank transfer, virtual account, etc.) using '.strtoupper($od_pg).' were automatically canceled.');
+    // die('<p>고객님의 주문 정보를 처리하는 중 오류가 발생해서 주문이 완료되지 않았습니다.</p><p>'.strtoupper($od_pg).'를 이용한 전자결제(신용카드, 계좌이체, 가상계좌 등)은 자동 취소되었습니다.hosu');
 }
 
 // 장바구니 상태변경
@@ -753,7 +766,8 @@ if(!$result) {
     // 주문삭제
     sql_query(" delete from {$g5['g5_shop_order_table']} where od_id = '$od_id' ");
 
-    die('<p>고객님의 주문 정보를 처리하는 중 오류가 발생해서 주문이 완료되지 않았습니다.</p><p>'.strtoupper($od_pg).'를 이용한 전자결제(신용카드, 계좌이체, 가상계좌 등)은 자동 취소되었습니다.');
+    die('<p>An error occurred while processing your order information, so your order was not completed.</p><p>Electronic payments (credit card, bank transfer, virtual account, etc.) using '.strtoupper($od_pg).' were automatically canceled.');
+    // die('<p>고객님의 주문 정보를 처리하는 중 오류가 발생해서 주문이 완료되지 않았습니다.</p><p>'.strtoupper($od_pg).'를 이용한 전자결제(신용카드, 계좌이체, 가상계좌 등)은 자동 취소되었습니다.hosu');
 }
 
 // 회원이면서 포인트를 사용했다면 포인트 테이블에 사용을 추가
@@ -992,4 +1006,20 @@ if( $is_noti_pay ){
     return;
 }
 
-goto_url(G5_SHOP_URL.'/orderinquiryview.php?od_id='.$od_id.'&amp;uid='.$uid);
+// 20231019 주문완료 페이지로 이동하도록 수정
+echo "
+<script language=javascript> 
+function formOK() 
+{ 
+form.submit(); 
+} 
+</script> 
+<body onload=formOK();> 
+<form name=form action=/shop/orderinquiryview_end.php method=post> 
+<input type=hidden name=compPrice value=$i_price> 
+<input type=hidden name=compId value=$od_id> 
+<input type=hidden name=compUid value=$uid> 
+</form>
+</body>
+";
+// goto_url(G5_SHOP_URL.'/orderinquiryview.php?od_id='.$od_id.'&amp;uid='.$uid);

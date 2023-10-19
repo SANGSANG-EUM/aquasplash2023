@@ -209,11 +209,18 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                           </div>
                         </div>
                         <label for="bf_file_1" class="btn_file">
-                        <?php if ($lang == "") { //(기본)영문
-                          echo "File Attachment";
-                        } else if ($lang == "ko") { //국문
-                            echo "파일첨부";
-                        }?>
+                        <span>
+                          <?php if ($lang == "") { //(기본)영문
+                            echo "File Attachment";
+                          } else if ($lang == "ko") { //국문
+                              echo "파일첨부";
+                          }?>
+                        </span>
+                        <img src="/source/img/icon-upload.png" alt="<?php if ($lang == "") { //(기본)영문
+                            echo "File Attachment";
+                          } else if ($lang == "ko") { //국문
+                              echo "파일첨부";
+                          }?>">
                       </label>
                         <input type="file" name="bf_file[]" id="bf_file_1" onchange="checkSize(this)" class="inq_file">
                       </div>

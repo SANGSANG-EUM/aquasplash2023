@@ -3,6 +3,8 @@ if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가
 
 if (!defined("_ORDERINQUIRY_")) exit; // 개별 페이지 접근 불가
 
+include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
+
 // 테마에 orderinquiry.sub.php 있으면 include
 if(defined('G5_THEME_SHOP_PATH')) {
     $theme_inquiry_file = G5_THEME_SHOP_PATH.'/orderinquiry.sub.php';
@@ -13,6 +15,69 @@ if(defined('G5_THEME_SHOP_PATH')) {
     }
 }
 ?>
+
+<div class="od-sch-box">
+  <form action="" class="od-sch-form">
+    <div class="od-sch-btns">
+      <!-- 클릭되어 활성화 된 od-sch-btn 에 active 클래스 붙이기 -->
+      <button type="button" class="od-sch-btn">
+        <?php if ($lang == "") { //(기본)영문
+          echo "Today";
+        } else if ($lang == "ko") { //국문
+          echo "오늘";
+        }?>
+      </button>
+      <button type="button" class="od-sch-btn">
+        <?php if ($lang == "") { //(기본)영문
+          echo "7 days";
+        } else if ($lang == "ko") { //국문
+          echo "7일";
+        }?>
+      </button>
+      <button type="button" class="od-sch-btn">
+        <?php if ($lang == "") { //(기본)영문
+          echo "15 days";
+        } else if ($lang == "ko") { //국문
+          echo "15일";
+        }?>
+      </button>
+      <button type="button" class="od-sch-btn">
+        <?php if ($lang == "") { //(기본)영문
+          echo "1 month";
+        } else if ($lang == "ko") { //국문
+          echo "1달";
+        }?>
+      </button>
+      <button type="button" class="od-sch-btn">
+        <?php if ($lang == "") { //(기본)영문
+          echo "3 months";
+        } else if ($lang == "ko") { //국문
+          echo "3달";
+        }?>
+      </button>
+    </div>
+    <div class="od-sch-date-wr">
+      <?php if ($lang == "") { ?>
+      <input type="text" class="aq-input od-sch-date1_en">
+      ~
+      <input type="text" class="aq-input od-sch-date2_en">
+      <? } else if ($lang == "ko") {?>
+      <input type="text" class="aq-input od-sch-date1_ko">
+      ~
+      <input type="text" class="aq-input od-sch-date2_ko">
+      <? } ?>
+    </div>
+    <div class="od-sch-submit">
+      <button type="submit">
+        <?php if ($lang == "") { //(기본)영문
+          echo "Search";
+        } else if ($lang == "ko") { //국문
+          echo "검색";
+        }?>
+      </button>
+    </div>
+  </form>
+</div>
 
 <!-- 주문 내역 목록 시작 { -->
 <?php if (!$limit) { ?>총 <?php echo $cnt; ?> 건<?php } ?>
@@ -121,10 +186,38 @@ if(defined('G5_THEME_SHOP_PATH')) {
         <td class="od_inq-idx">
           <a href="<?php echo G5_SHOP_URL; ?>/orderinquiryview.php?od_id=<?php echo $row['od_id']; ?>&amp;uid=<?php echo $uid; ?>" class="od_id">
             <?php echo $row['od_id']; ?>
+            <span class="od_inq-mo">(<?php echo date("Y.m.d", strtotime($row['od_time'])) ?>)</span>
           </a>
           <a href="<?php echo G5_SHOP_URL; ?>/orderinquiryview.php?od_id=<?php echo $row['od_id']; ?>&amp;uid=<?php echo $uid; ?>" class="od_date">
             <?php echo date("Y.m.d", strtotime($row['od_time'])) ?>
           </a>
+          <div class="od_inq-mo od_inq_txtwr">
+            <p class="od_inq-txt">
+              <span>
+                (
+                  <?php echo $row['od_cart_count']; ?>
+                  <?php if ($lang == "") { //(기본)영문
+                    echo "pcs";
+                  } else if ($lang == "ko") { //국문
+                    echo "개";
+                  }?>
+                )
+              </span>
+              <span>
+              <?php echo display_price($row['od_cart_price'] + $row['od_send_cost'] + $row['od_send_cost2']); ?>
+              <?php if ($lang == "") { //(기본)영문
+                echo "won";
+              } else if ($lang == "ko") { //국문
+                echo "원";
+              }?>
+              </span>
+            </p>
+            <p class="od_inq-txt">
+              <span>
+              <?php echo $od_status; ?>
+              </span>
+            </p>
+          </div>
         </td>
         <!--  업체와 협의 필요
         <td class=""></td>
@@ -149,3 +242,36 @@ if(defined('G5_THEME_SHOP_PATH')) {
     </table>
 </div>
 <!-- } 주문 내역 목록 끝 -->
+
+
+<script>
+  $(function() {
+    $(".od-sch-date1_en, .od-sch-date2_en").datepicker({
+        changeMonth: true,
+        changeYear: true,
+        dateFormat: "yy.mm.dd",
+        showButtonPanel: true,
+        yearRange: "c-99:c+99",
+        maxDate: "+0d",
+        prevText: 'Prev',
+        nextText: 'Next',
+        closeText: "Close",
+        currentText: "Today",
+        monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+        dayNamesShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+        dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+        showMonthAfterYear: true
+    });
+
+    $(".od-sch-date1_ko, .od-sch-date2_ko").datepicker({
+        changeMonth: true,
+        changeYear: true,
+        dateFormat: "yy.mm.dd",
+        showButtonPanel: true,
+        yearRange: "c-99:c+99",
+        maxDate: "+0d",
+    });
+});
+</script>

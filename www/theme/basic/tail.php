@@ -49,19 +49,27 @@ if(G5_COMMUNITY_USE === false) {
             Copyright © VP OPTICS. All Rights Reserved.
           </div>
           <div class="foot-link-wr">
-            <a href="" class="foot-link">
-              <?php if ($lang == "") { //(기본)영문
-              echo "Legal Notice";
-            } else if ($lang == "ko") { //국문
-              echo "";
-            }?>
-            </a>
-            <a href="" class="foot-link">
-              <?php if ($lang == "") { //(기본)영문
-              echo "Privacy Policy";
-            } else if ($lang == "ko") { //국문
-              echo "";
-            }?>
+            
+            <?php if ($lang == "") {?>
+              <a href="/content/terms_en" class="foot-link">
+              Legal Notice
+              </a>
+            <?} else if ($lang == "ko") {?>
+              <a href="/content/terms_ko" class="foot-link">
+              법적고지
+              </a>
+            <? } ?>
+
+            <?php if ($lang == "") {?> 
+              <a href="/content/privacy_en" class="foot-link">
+              Privacy Policy
+              </a>
+            <?} else if ($lang == "ko") {?> 
+              <a href="/content/privacy_ko" class="foot-link">
+              개인정보처리방침
+              </a>
+            <? } ?>
+          
             </a>
             <a href="https://www.vpoptics.com/" class="foot-link color" target="_blank">VP optics</a>
           </div>

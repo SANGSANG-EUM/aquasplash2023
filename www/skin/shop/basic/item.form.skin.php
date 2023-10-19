@@ -3,11 +3,11 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0);
+
 ?>
 
 
-
-<div id="sit_ov_from">
+<div id="sit_ov_from" class="">
 	<form name="fitem" method="post" action="<?php echo $action_url; ?>" onsubmit="return fitem_submit(this);">
 	<input type="hidden" name="it_id[]" value="<?php echo $it_id; ?>">
 	<input type="hidden" name="sw_direct">
@@ -32,7 +32,8 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	                $thumbnails[] = $thumb;
 	                $big_img_count++;
 	
-	                echo '<a href="'.G5_SHOP_URL.'/largeimage.php?it_id='.$it['it_id'].'&amp;no='.$i.'" target="_blank" class="popup_item_image">'.$img.'</a>';
+	                echo '<a href="javascript:void(0);">'.$img.'</a>';
+	                // echo '<a href="'.G5_SHOP_URL.'/largeimage.php?it_id='.$it['it_id'].'&amp;no='.$i.'" target="_blank" class="popup_item_image">'.$img.'</a>';
 	            }
 	        }
 	
@@ -65,22 +66,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	    <!-- } 상품이미지 미리보기 끝 -->
 	
 	    <!-- 상품 요약정보 및 구매 시작 { -->
-	    <section id="sit_ov" class="2017_renewal_itemform
-			<?php 
-        	if ($product_ca == '1010') {
-        	    echo 'colour1';
-        	} else if ($product_ca == '1020') {
-        	    echo 'colour2';
-        	} else if ($product_ca == '1030') {
-        	    echo 'colour3';
-        	} else if ($product_ca == '1040') {
-        	    echo 'colour4';
-        	} else if ($product_ca == '20') {
-        	    echo 'clear';
-        	} else if ($product_ca == '30') {
-        	    echo 'MPS';
-        	}
-        	?>">
+	    <section id="sit_ov" class="2017_renewal_itemform">
 	        <h2 id="sit_title"><span class="sit_title_cate">
 			<?php 
         	if ($product_ca == '1010') {
@@ -122,7 +108,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	            <span class="">사용후기 <?php echo $it['it_use_cnt']; ?> 개</span>
 	            
 	            <div id="sit_btn_opt">
-	            	<span id="btn_wish"><i class="fa fa-heart-o" aria-hidden="true"></i><span class="sound_only">위시리스트</span><span class="btn_wish_num"><?php echo get_wishlist_count_by_item($it['it_id']); ?></span></span>
+	            	<span id="btn_wish"><span class="sound_only">위시리스트</span><span class="btn_wish_num"><?php echo get_wishlist_count_by_item($it['it_id']); ?></span></span>
 	            	<button type="button" class="btn_sns_share"><i class="fa fa-share-alt" aria-hidden="true"></i><span class="sound_only">sns 공유</span></button>
 	            	<div class="sns_area">
 	            		<?php echo $sns_share_links; ?>
@@ -384,7 +370,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	
 	        <div id="sit_ov_btn">
 	            <?php if ($is_orderable) { ?>
-				<a href="javascript:item_wish(document.fitem, '<?php echo $it['it_id']; ?>');" class="sit_btn_wish"><img src="/source/img/icon-heart_detail.png" alt=""><span class="sound_only">
+				<a href="javascript:item_wish(document.fitem, '<?php echo $it['it_id']; ?>');" class="sit_btn_wish"><img src="/source/img/icon-heart_detail.png" alt="" class="detail_wish_normal"><img src="/source/img/icon-heart_detail_on.png" alt="" class="detail_wish_on"><span class="sound_only">
 				<?php if ($lang == "") { //(기본)영문
                     echo "Wish List";
                 } else if ($lang == "ko") { //국문
@@ -508,12 +494,14 @@ function fsubmit_check(f)
 {
     // 판매가격이 0 보다 작다면
     if (document.getElementById("it_price").value < 0) {
-        alert("전화로 문의해 주시면 감사하겠습니다.");
+        alert("We would appreciate it if you could contact us by phone.");
+        // alert("전화로 문의해 주시면 감사하겠습니다.hosu");
         return false;
     }
 
     if($(".sit_opt_list").length < 1) {
-        alert("상품의 선택옵션을 선택해 주십시오.");
+        alert("Please select the product option.");
+        // alert("상품의 선택옵션을 선택해 주십시오.hosu");
         return false;
     }
 
@@ -527,19 +515,22 @@ function fsubmit_check(f)
         val = $(this).val();
 
         if(val.length < 1) {
-            alert("수량을 입력해 주십시오.");
+            alert("Please enter the quantity.");
+            // alert("수량을 입력해 주십시오.hosu");
             result = false;
             return false;
         }
 
         if(val.replace(/[0-9]/g, "").length > 0) {
-            alert("수량은 숫자로 입력해 주십시오.");
+            alert("Please enter the quantity in numbers.");
+            // alert("수량은 숫자로 입력해 주십시오.hosu");
             result = false;
             return false;
         }
 
         if(parseInt(val.replace(/[^0-9]/g, "")) < 1) {
-            alert("수량은 1이상 입력해 주십시오.");
+            alert("Please enter at least 1 quantity.");
+            // alert("수량은 1이상 입력해 주십시오.hosu");
             result = false;
             return false;
         }
@@ -554,12 +545,14 @@ function fsubmit_check(f)
     }
 
     if(min_qty > 0 && sum_qty < min_qty) {
-        alert("선택옵션 개수 총합 "+number_format(String(min_qty))+"개 이상 주문해 주십시오.");
+        alert("Please order a total of "+number_format(String(min_qty))+" or more options.");
+        // alert("선택옵션 개수 총합 "+number_format(String(min_qty))+"개 이상 주문해 주십시오.hosu");
         return false;
     }
 
     if(max_qty > 0 && sum_qty > max_qty) {
-        alert("선택옵션 개수 총합 "+number_format(String(max_qty))+"개 이하로 주문해 주십시오.");
+        alert("Please order a total of "+number_format(String(max_qty))+" or less options.");
+        // alert("선택옵션 개수 총합 "+number_format(String(max_qty))+"개 이하로 주문해 주십시오.hosu");
         return false;
     }
 
@@ -580,7 +573,8 @@ function fitem_submit(f)
 
     // 판매가격이 0 보다 작다면
     if (document.getElementById("it_price").value < 0) {
-        alert("전화로 문의해 주시면 감사하겠습니다.");
+        alert("We would appreciate it if you could contact us by phone.");
+        // alert("전화로 문의해 주시면 감사하겠습니다.hosu");
         return false;
     }
 
@@ -600,19 +594,22 @@ function fitem_submit(f)
         val = $(this).val();
 
         if(val.length < 1) {
-            alert("수량을 입력해 주십시오.");
+            alert("Please enter the quantity.");
+            // alert("수량을 입력해 주십시오.hosu");
             result = false;
             return false;
         }
 
         if(val.replace(/[0-9]/g, "").length > 0) {
-            alert("수량은 숫자로 입력해 주십시오.");
+            alert("Please enter the quantity in numbers.");
+            // alert("수량은 숫자로 입력해 주십시오.hosu");
             result = false;
             return false;
         }
 
         if(parseInt(val.replace(/[^0-9]/g, "")) < 1) {
-            alert("수량은 1이상 입력해 주십시오.");
+            alert("Please enter at least 1 quantity.");
+            // alert("수량은 1이상 입력해 주십시오.hosu");
             result = false;
             return false;
         }
@@ -627,12 +624,14 @@ function fitem_submit(f)
     }
 
     if(min_qty > 0 && sum_qty < min_qty) {
-        alert("선택옵션 개수 총합 "+number_format(String(min_qty))+"개 이상 주문해 주십시오.");
+        alert("Please order a total of "+number_format(String(min_qty))+" or more options.");
+        // alert("선택옵션 개수 총합 "+number_format(String(min_qty))+"개 이상 주문해 주십시오.hosu");
         return false;
     }
 
     if(max_qty > 0 && sum_qty > max_qty) {
-        alert("선택옵션 개수 총합 "+number_format(String(max_qty))+"개 이하로 주문해 주십시오.");
+        alert("Please order a total of "+number_format(String(max_qty))+" or less options.");
+        // alert("선택옵션 개수 총합 "+number_format(String(max_qty))+"개 이하로 주문해 주십시오.hosu");
         return false;
     }
 

@@ -24,7 +24,13 @@ if(!$ckey || $ckey != $key)
     alert('올바른 방법으로 이용해 주십시오.', G5_URL);
 ?>
 
-<p class="rg_em_p">메일인증을 받지 못한 경우 회원정보의 메일주소를 변경 할 수 있습니다.</p>
+<p class="rg_em_p">
+<?php if ($lang == "") { //(기본)영문
+    echo "If you do not receive email verification, you can change the email address in your member information.";
+} else if ($lang == "ko") { //국문
+    echo "메일인증을 받지 못한 경우 회원정보의 메일주소를 변경 할 수 있습니다.";
+}?>
+</p>
 
 <form method="post" name="fregister_email" action="<?php echo G5_HTTPS_BBS_URL.'/register_email_update.php'; ?>" onsubmit="return fregister_email_submit(this);">
 <input type="hidden" name="mb_id" value="<?php echo $mb_id; ?>">
@@ -37,7 +43,13 @@ if(!$ckey || $ckey != $key)
         <td><input type="text" name="mb_email" id="reg_mb_email" required class="frm_input email required" size="30" maxlength="100" value="<?php echo $mb['mb_email']; ?>"></td>
     </tr>
     <tr>
-        <th scope="row">자동등록방지</th>
+        <th scope="row">
+        <?php if ($lang == "") { //(기본)영문
+            echo "Automatic registration prevention";
+        } else if ($lang == "ko") { //국문
+            echo "자동등록방지";
+        }?>
+        </th>
         <td><?php echo captcha_html(); ?></td>
     </tr>
     </table>
@@ -45,7 +57,13 @@ if(!$ckey || $ckey != $key)
 
 <div class="btn_confirm">
     <input type="submit" id="btn_submit" class="btn_submit" value="인증메일변경">
-    <a href="<?php echo G5_URL ?>" class="btn_cancel">취소</a>
+    <a href="<?php echo G5_URL ?>" class="btn_cancel">
+    <?php if ($lang == "") { //(기본)영문
+        echo "Cancel";
+    } else if ($lang == "ko") { //국문
+        echo "취소";
+    }?>
+    </a>
 </div>
 
 </form>

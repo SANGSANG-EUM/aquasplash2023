@@ -1,7 +1,7 @@
 <?php
 if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가
 include_once(G5_LIB_PATH.'/thumbnail.lib.php');
-include_once(EUM_INCLUDE_PATH.'/sub_top.php');
+include_once(G5_PATH.'/include/sub_visual.php');
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0);
@@ -10,10 +10,13 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 <script src="<?php echo G5_JS_URL; ?>/viewimageresize.js"></script>
 
 <div id="faq_view" class="sub faq">
-  <?php sub_top($sb_menus, 'cs', 'faq'); ?>
 
   <!-- sub contents { -->
-  <div class="container sub_contents">
+    <div class="container sub_contents">
+
+    <!-- sub visual { -->
+    <?php sub_visual('community', 'back'); ?>
+    <!-- } sub visual -->
     <div class="wrapper">
 
       <!-- 게시물 읽기 시작 { -->

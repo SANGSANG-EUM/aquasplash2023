@@ -33,10 +33,17 @@ if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가
 <input type="hidden" name="comm_free_mny"     value="<?php echo $comm_free_mny; ?>">        <!-- 비과세 금액 -->
 <?php } ?>
 
+
 <div id="display_pay_button" class="btn_confirm">
+<?php if ($lang == "") {?> 
+    <span id="show_req_btn"><input type="button" name="submitChecked" onClick="pay_approval();" value="Payment registration request" class="btn_submit"></span>
+    <span id="show_pay_btn" style="display:none;"><input type="button" onClick="forderform_check();" value="Place an order" class="btn_submit"></span>
+    <a href="<?php echo G5_SHOP_URL; ?>" class="btn_cancel">Cancel</a>
+<?} else if ($lang == "ko") {?> 
     <span id="show_req_btn"><input type="button" name="submitChecked" onClick="pay_approval();" value="결제등록요청" class="btn_submit"></span>
     <span id="show_pay_btn" style="display:none;"><input type="button" onClick="forderform_check();" value="주문하기" class="btn_submit"></span>
     <a href="<?php echo G5_SHOP_URL; ?>" class="btn_cancel">취소</a>
+<?}?>
 </div>
 
 <?php

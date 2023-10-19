@@ -1,7 +1,8 @@
 $(function() {
     $("button.coupon_download").on("click", function() {
         if(g5_is_member != "1") {
-            alert("회원 로그인 후 이용해 주십시오.");
+            alert("Please use after logging in as a member.");
+            // alert("회원 로그인 후 이용해 주십시오.hosu");
             return false;
         }
 
@@ -9,7 +10,8 @@ $(function() {
         var cz_id = $this.data("cid");
 
         if($this.hasClass("disabled")) {
-            alert("이미 다운로드하신 쿠폰입니다.");
+            alert("This coupon has already been downloaded.");
+            // alert("이미 다운로드하신 쿠폰입니다.hosu");
             return false;
         }
 
@@ -30,7 +32,8 @@ $(function() {
                 }
 
                 $this.attr("disabled", false);
-                alert("쿠폰이 발급됐습니다.");
+                alert("A coupon has been issued.");
+                // alert("쿠폰이 발급됐습니다.hosu");
             }
         });
     });

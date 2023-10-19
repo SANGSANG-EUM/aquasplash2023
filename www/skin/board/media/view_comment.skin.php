@@ -286,7 +286,7 @@ var char_max = parseInt(<?php echo $comment_max ?>); // 최대
         <header style="z-index:<?php echo $cmt_sv; ?>">
           <div class="bo_vc_winfo">
             <h2><?php echo get_text($list[$i]['wr_name']); ?>님의 <?php if ($cmt_depth) { ?><span class="sound_only">댓글의</span><?php } ?> 댓글</h2>
-            <span class="bo_vc_name"><?php echo $list[$i]['wr_name'] ?></span>
+            <span class="bo_vc_name"><?php echo preg_replace('/(?<=.{2})./u','*',$list[$i]['wr_name']) ?></span>
             <span class="bo_vc_time"><?php echo date("Y.m.d", strtotime($list[$i]['datetime'])) ?></span>
           </div>
 
@@ -338,13 +338,14 @@ var char_max = parseInt(<?php echo $comment_max ?>); // 최대
       </div>
     </article>
     <?php } ?>
-    <?php if ($i == 0) { //댓글이 없다면 ?><p id="bo_vc_empty">
+    <?php if ($i == 0) { //댓글이 없다면 ?>
+      <p id="bo_vc_empty">
       <?php if ($lang == "") { //(기본)영문
         echo "There are no registered comments.";
       } else if ($lang == "ko") { //국문
         echo "등록된 댓글이 없습니다.";
       }?>
-    </p>
+      </p>
     <?php } else { ?>
       <button type="button" class="reply-more">Learn More +</button>
     <?php } ?>

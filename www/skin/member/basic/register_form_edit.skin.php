@@ -10,17 +10,17 @@ if ($config['cf_cert_use'] && ($config['cf_cert_simple'] || $config['cf_cert_ipi
 
 <!-- 회원정보 입력/수정 시작 { -->
 <div class="container">
-<div class="register register-edit sb_container">
+<div id="reg_edit" class="register register-edit sb_container">
   <div class="wrapper">
 
   <div class="sb_top">
-        <p class="sb-title">
+        <a href="/shop/mypage.php" class="sb-title">
           <?php if ($lang == "") { //(기본)영문
               echo "My page";
           } else if ($lang == "ko") { //국문
               echo "마이페이지";
           }?>
-        </p>
+        </a>
       </div>
 
       <?php include G5_THEME_SHOP_PATH.'/mypage_top.php'; ?>
@@ -275,15 +275,20 @@ if ($config['cf_cert_use'] && ($config['cf_cert_simple'] || $config['cf_cert_ipi
 
     <div class="info-edit-catpcha"><?php echo captcha_html(); ?></div>
 
-    <div class="btn_confirm">
+    <div id="sod_ws_back" class="sod_back btn_confirm">
+        <a href="https://aquasplash.eumsvr.com/shop/mypage.php" class="sod_back-btn">
+        <img src="/source/img/icon-back_white.png" alt="">
+        Back
+        </a>
         <button type="submit" id="btn_submit" class="btn_submit btn-edit" accesskey="s">
-                <?php if ($lang == "") { //(기본)영문
-                    echo "Confirm";
-                } else if ($lang == "ko") { //국문
-                    echo "수정완료";
-                }?>
+        <?php if ($lang == "") { //(기본)영문
+            echo "Confirm";
+        } else if ($lang == "ko") { //국문
+            echo "수정완료";
+        }?>
         </button>
     </div>
+    
 
     </div>
 	

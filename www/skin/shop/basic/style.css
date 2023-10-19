@@ -519,7 +519,7 @@
 #sit_pvi {width: 570px;}
 #sit_pvi_big {position: relative; height: 328px; border-radius: 5px; overflow: hidden;}
 #sit_pvi_big a {display:none}
-#sit_pvi_big a.visible {display:block}
+#sit_pvi_big a.visible {display:block; cursor: default;}
 #sit_pvi_big #popup_item_image {display:inline-block;position:absolute;bottom:0;right:0;width:43px;height:43px;line-height:43px;background:#fff;color:#8c9195;border:1px solid #e0e0e0;font-size:1.4em; display: none;}
 #sit_pvi_big img {position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); object-fit: cover; width: 100%; height: 100%;}
 /* #sit_pvi_thumb {float:left;margin:0;padding:0;list-style:none;text-align:center} */
@@ -621,6 +621,9 @@ background:url('img/select_arrow.png') no-repeat 96% 50%/* 화살표 아이콘 �
 #sit_btn_alm {float:left;display:inline-block;width:186px;height:50px;margin-left:5px;line-height:50px;margin-bottom:10px;font-weight:bold;font-size:1.25em;background:#d50c0c;border-radius:3px;color:#fff;border:0;text-align:center}
 .sit_btn_wish {display: flex; align-items: center; justify-content: center; width: 60px; height: 60px; border-radius: 5px; background-color: #f9f9f9;}
 .sit_btn_wish img {width: 30.5%;}
+.sit_btn_wish .detail_wish_on {display: none;}
+.sit_btn_wish.on .detail_wish_normal {display: none;}
+.sit_btn_wish.on .detail_wish_on {display: block;}
 
 /* 상품 상세보기 - 다른 상품 보기 */
 #sit_siblings {clear:both;width:100%;border-top:1px solid #f1f3f6;background:#fff;text-align:center;position:relative}

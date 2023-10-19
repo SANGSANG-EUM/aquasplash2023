@@ -298,7 +298,21 @@ include_once(G5_SHOP_PATH.'/settle_naverpay.inc.php');
 <script src="<?php echo G5_JS_URL; ?>/shop.js?ver=<?php echo G5_JS_VER; ?>"></script>
 <?php } ?>
 
-<div id="sit">
+<div id="sit" class="<?php 
+        	if ($product_ca == '1010') {
+        	    echo 'colour1';
+        	} else if ($product_ca == '1020') {
+        	    echo 'colour2';
+        	} else if ($product_ca == '1030') {
+        	    echo 'colour3';
+        	} else if ($product_ca == '1040') {
+        	    echo 'colour4';
+        	} else if ($product_ca == '20') {
+        	    echo 'clear';
+        	} else if ($product_ca == '30') {
+        	    echo 'MPS';
+        	}
+        	?>">
 
     <?php
     // 상품 구입폼

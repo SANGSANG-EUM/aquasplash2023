@@ -14,7 +14,8 @@ if ($w == 's') {
 
     if (!check_password($wr_password, $wr['wr_password'])) {
         run_event('password_is_wrong', 'bbs', $wr, $qstr);
-        alert('비밀번호가 틀립니다.');
+        alert('The password is incorrect.');
+        // alert('비밀번호가 틀립니다.hosu');
     }
 
     // 세션에 아래 정보를 저장. 하위번호는 비밀번호없이 보아야 하기 때문임.
@@ -36,7 +37,8 @@ if ($w == 's') {
 
     if (!check_password($wr_password, $wr['wr_password'])){
         run_event('password_is_wrong', 'bbs', $wr, $qstr);
-        alert('비밀번호가 틀립니다.');
+        alert('The password is incorrect.');
+        // alert('비밀번호가 틀립니다.hosu');
     }
 
     // 세션에 아래 정보를 저장. 하위번호는 비밀번호없이 보아야 하기 때문임.

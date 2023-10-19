@@ -116,7 +116,7 @@ if(!sql_num_rows($result))
                     <input type="hidden" class="io_price" value="<?php echo $row['io_price']; ?>">
                     <input type="hidden" class="io_stock" value="<?php echo $it_stock_qty; ?>">
                     <div class="opt_name">
-                        <span class="sit_opt_subj"><?php echo $row['ct_option']; ?></span>
+                        <span class="sit_opt_subj"><?php echo $row['ct_option']; ?>(+<?php echo $row['io_price']; ?>)</span>
                     </div>
                     <div class="opt_count">
                         <button type="button" class="sit_qty_minus"><img src="/source/img/icon-minus.png" alt=""><span class="sound_only">감소</span></button>

@@ -2,7 +2,8 @@
 include_once('./_common.php');
 
 if ($is_guest)
-    alert('로그인 한 회원만 접근하실 수 있습니다.', G5_BBS_URL.'/login.php');
+    alert('Only logged in members have access.', G5_BBS_URL.'/login.php');
+    // alert('로그인 한 회원만 접근하실 수 있습니다.hosu', G5_BBS_URL.'/login.php');
 
 $url = isset($_GET['url']) ? clean_xss_tags($_GET['url']) : '';
 

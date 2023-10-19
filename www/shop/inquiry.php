@@ -42,13 +42,13 @@ add_stylesheet('<link rel="stylesheet" href="'.EUM_CSS_URL.'/mypage.css">', 0);
       <p style="font-size: 18px; font-weight: 500; color: #f00">※본 페이지 개발 필요 (확인 후 해당 p태그 삭제)</p>
 
       <div class="sb_top">
-        <p class="sb-title">
+        <a href="/shop/mypage.php" class="sb-title">
           <?php if ($lang == "") { //(기본)영문
               echo "My page";
           } else if ($lang == "ko") { //국문
               echo "마이페이지";
           }?>
-        </p>
+        </a>
       </div>
 
       <?php include G5_THEME_SHOP_PATH.'/mypage_top.php'; ?>

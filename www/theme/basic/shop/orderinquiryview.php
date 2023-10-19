@@ -158,6 +158,102 @@ add_stylesheet('<link rel="stylesheet" href="'.EUM_CSS_URL.'/mypage.css">', 0);
                           <div class="sod_opt"><?php echo get_text($opt['ct_option']); ?></div>
                         </div>
                       </div>
+                      <div class="sod_prd_mo">
+                        <div class="sod_prd_txtwr">
+                          <p class="sod_prd_txt">
+                            <?php if ($lang == "") { //(기본)영문
+                              echo "Qty";
+                            } else if ($lang == "ko") { //국문
+                              echo "수량";
+                            }?>
+                            :
+                            <?php echo number_format($opt['ct_qty']); ?>
+                          </p>
+                          <p class="sod_prd_txt">
+                          <?php if ($lang == "") { //(기본)영문
+                            echo "";
+                          } else if ($lang == "ko") { //국문
+                            echo "각";
+                          }?>
+                          <?php echo number_format($opt_price); ?>
+                          <?php if ($lang == "") { //(기본)영문
+                            echo "won(ea)";
+                          } else if ($lang == "ko") { //국문
+                            echo "원";
+                          }?>
+                          </p>
+                          <p class="sod_prd_txt">
+                          <?php if ($lang == "") { //(기본)영문
+                            echo "Point";
+                          } else if ($lang == "ko") { //국문
+                            echo "포인트";
+                          }?>
+                          :
+                          <?php echo number_format($point); ?>
+                          </p>
+                          <p class="sod_prd_txt">
+                          <?php if ($lang == "") { //(기본)영문
+                            echo "Shipping fee";
+                          } else if ($lang == "ko") { //국문
+                            echo "배송비";
+                          }?>
+                          :
+                          <?php echo $ct_send_cost; ?>
+                          </p>
+                          <p class="sod_prd_txt">
+                          <?php if ($lang == "") { //(기본)영문
+                            echo "Subtotal";
+                          } else if ($lang == "ko") { //국문
+                            echo "소계";
+                          }?>
+                          :
+                          <?php echo number_format($sell_price); ?>
+                          <?php if ($lang == "") { //(기본)영문
+                            echo "won";
+                          } else if ($lang == "ko") { //국문
+                            echo "원";
+                          }?>
+                          </p>
+                          <p class="sod_prd_txt">
+                          <?php if ($lang == "") { //(기본)영문
+                            echo "Status";
+                          } else if ($lang == "ko") { //국문
+                            echo "상태";
+                          }?>
+                          :
+                          <?php 
+                          switch($opt['ct_status'])
+                          {
+                            case '주문':
+                              $opt_status_text = 'Order';
+                              break;
+                            case '입금':
+                              $opt_status_text = 'Deposit';
+                              break;
+                            case '준비':
+                              $opt_status_text = 'Ready';
+                              break;
+                            case '배송':
+                              $opt_status_text = 'Delivery';
+                              break;
+                            case '완료':
+                              $opt_status_text = 'Completion';
+                              break;
+                            case '취소':
+                              $opt_status_text = 'Cancel';
+                              break;
+                            case '반품':
+                              $opt_status_text = 'Return';
+                              break;
+                            case '품절':
+                              $opt_status_text = 'Sold out';
+                              break;
+                          }
+                          echo $opt_status_text;
+                          ?>  
+                          </p>
+                        </div>
+                      </div>
                     </td>
                     <td headers="th_itqty" class="td_mngsmall"><?php echo number_format($opt['ct_qty']); ?></td>
                     <td headers="th_itprice" class="td_numbig"><?php echo number_format($opt_price); ?></td>
@@ -1029,32 +1125,39 @@ add_stylesheet('<link rel="stylesheet" href="'.EUM_CSS_URL.'/mypage.css">', 0);
                   echo "주문 취소하기";
               }?>
             </button>
-            <div id="sod_cancel_pop">	
-              <div id="sod_fin_cancelfrm">
-                <h2>
+            <div id="sod_cancel_pop" class="aq-pop-wr">	
+              <div class="aq-pop-dim"></div>
+              <div id="sod_fin_cancelfrm" class="aq-pop">
+                <button type="button" class="aq-pop-close sod_cls_btn">
+                  <img src="/source/img/icon-close.png" alt="닫기">
+              </button>
+              <div class="aq-pop-top">
+                <h2 class="aq-pop-tit">
                 <?php if ($lang == "") { //(기본)영문
                     echo "Withdraw order";
                 } else if ($lang == "ko") { //국문
                     echo "주문취소";
                 }?>
                 </h2>
-                <form method="post" action="./orderinquirycancel.php" onsubmit="return fcancel_check(this);">
-                <input type="hidden" name="od_id" value="<?php echo $od['od_id']; ?>">
-                <input type="hidden" name="token" value="<?php echo $token; ?>">
-
-                <label for="cancel_memo" class="sound_only">취소사유</label>
-                <input type="text" name="cancel_memo" id="cancel_memo" required class="frm_input required" size="40" maxlength="100" placeholder="<?php if ($lang == "") { //(기본)영문
-                    echo "Reason for cancellation";
-                } else if ($lang == "ko") { //국문
-                    echo "취소사유";
-                }?>">
-                <input type="submit" value="<?php if ($lang == "") { //(기본)영문
-                    echo "Confrim";
-                } else if ($lang == "ko") { //국문
-                    echo "확인";
-                }?>" class="btn_frmline">
-                </form>
-                <button class="sod_cls_btn"><span class="sound_only">닫기</span><i class="fa fa-times" aria-hidden="true"></i></button>
+              </div>
+                <div class="">
+                  <form method="post" action="./orderinquirycancel.php" onsubmit="return fcancel_check(this);">
+                  <input type="hidden" name="od_id" value="<?php echo $od['od_id']; ?>">
+                  <input type="hidden" name="token" value="<?php echo $token; ?>">
+                  <label for="cancel_memo" class="sound_only">취소사유</label>
+                  <input type="text" name="cancel_memo" id="cancel_memo" required class="frm_input required aq-input" size="40" maxlength="100" placeholder="<?php if ($lang == "") { //(기본)영문
+                      echo "Reason for cancellation";
+                  } else if ($lang == "ko") { //국문
+                      echo "취소사유";
+                  }?>">
+                  <input type="submit" value="<?php if ($lang == "") { //(기본)영문
+                      echo "Confrim";
+                  } else if ($lang == "ko") { //국문
+                      echo "확인";
+                  }?>" class="btn_frmline">
+                  </form>
+                </div>
+                <!-- <button class="sod_cls_btn"><span class="sound_only">닫기</span><i class="fa fa-times" aria-hidden="true"></i></button> -->
               </div>
               <div class="sod_fin_bg"></div>
             </div>
@@ -1124,7 +1227,7 @@ add_stylesheet('<link rel="stylesheet" href="'.EUM_CSS_URL.'/mypage.css">', 0);
       <?php } ?>
 
       <div id="sod_ws_back" class="sod_back">
-        <a href="<?php echo G5_SHOP_URL ?>/mypage.php" class="sod_back-btn">
+        <a href="<?php echo G5_SHOP_URL ?>/orderinquiry.php" class="sod_back-btn">
           <img src="/source/img/icon-back_white.png" alt="">
           <?php if ($lang == "") { //(기본)영문
             echo "Back";
@@ -1167,7 +1270,8 @@ $(function() {
 
 function fcancel_check(f)
 {
-    if(!confirm("주문을 정말 취소하시겠습니까?"))
+    if(!confirm("Are you sure you want to cancel your order?"))
+    // if(!confirm("주문을 정말 취소하시겠습니까?hosu"))
         return false;
 
     var memo = f.cancel_memo.value;

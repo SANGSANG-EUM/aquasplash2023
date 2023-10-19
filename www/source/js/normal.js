@@ -151,12 +151,12 @@
       if (e.originalEvent.wheelDelta >= 0) {
         $("html, body").stop().animate({
           scrollTop: -win_h
-        }, 1000);
+        }, 500);
         return false;
       } else if (e.originalEvent.wheelDelta < 0) {
         $("html, body").stop().animate({
           scrollTop: +win_h
-        }, 1000);
+        }, 500);
         return false;
       }
     });

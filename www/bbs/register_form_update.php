@@ -597,7 +597,7 @@ if ($w == '') {
 
     if ($old_email != $mb_email && $config['cf_use_email_certify']) {
         set_session('ss_mb_id', '');
-        alert('회원 정보가 수정 되었습니다.\n\nE-mail 주소가 변경되었으므로 다시 인증하셔야 합니다.', G5_URL);
+        alert('Member information has been modified.\n\nSince your e-mail address has changed, you must authenticate again.', G5_URL);
     } else {
         echo '
         <!doctype html>
@@ -613,10 +613,35 @@ if ($w == '') {
         <input type="hidden" name="is_update" value="1">
         </form>
         <script>
-        alert("회원 정보가 수정 되었습니다.");
+        alert("Member information has been modified.");
         document.fregisterupdate.submit();
         </script>
         </body>
         </html>';
     }
+
+    // if ($old_email != $mb_email && $config['cf_use_email_certify']) {
+    //     set_session('ss_mb_id', '');
+    //     alert('회원 정보가 수정 되었습니다.hosu\n\nE-mail 주소가 변경되었으므로 다시 인증하셔야 합니다.', G5_URL);
+    // } else {
+    //     echo '
+    //     <!doctype html>
+    //     <html lang="ko">
+    //     <head>
+    //     <meta charset="utf-8">
+    //     <title>회원정보수정</title>
+    //     <body>
+    //     <form name="fregisterupdate" method="post" action="'.G5_HTTP_BBS_URL.'/register_form.php">
+    //     <input type="hidden" name="w" value="u">
+    //     <input type="hidden" name="mb_id" value="'.$mb_id.'">
+    //     <input type="hidden" name="mb_password" value="'.$tmp_password.'">
+    //     <input type="hidden" name="is_update" value="1">
+    //     </form>
+    //     <script>
+    //     alert("회원 정보가 수정 되었습니다.hosu");
+    //     document.fregisterupdate.submit();
+    //     </script>
+    //     </body>
+    //     </html>';
+    // }
 }

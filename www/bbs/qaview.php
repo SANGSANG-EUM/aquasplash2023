@@ -5,7 +5,8 @@ include_once(G5_EDITOR_LIB);
 $qa_id = isset($_REQUEST['qa_id']) ? (int) $_REQUEST['qa_id'] : 0;
 
 if($is_guest)
-    alert('회원이시라면 로그인 후 이용해 보십시오.', './login.php?url='.urlencode(G5_BBS_URL.'/qaview.php?qa_id='.$qa_id));
+    alert('If you are a member, please log in and use it.', './login.php?url='.urlencode(G5_BBS_URL.'/qaview.php?qa_id='.$qa_id));
+    // alert('회원이시라면 로그인 후 이용해 보십시오.hosu', './login.php?url='.urlencode(G5_BBS_URL.'/qaview.php?qa_id='.$qa_id));
 
 $qaconfig = get_qa_config();
 $content = '';
@@ -28,7 +29,8 @@ if(is_file($skin_file)) {
     $view = sql_fetch($sql);
 
     if(!(isset($view['qa_id']) && $view['qa_id']))
-        alert('게시글이 존재하지 않습니다.\\n삭제되었거나 자신의 글이 아닌 경우입니다.');
+        alert('The thread does not exist.\\nIf it has been deleted or is not your post.');
+        // alert('게시글이 존재하지 않습니다.\\n삭제되었거나 자신의 글이 아닌 경우입니다.hosu');
 
     $subject_len = G5_IS_MOBILE ? $qaconfig['qa_mobile_subject_len'] : $qaconfig['qa_subject_len'];
 

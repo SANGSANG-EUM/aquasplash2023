@@ -11,7 +11,8 @@ jQuery(function($){
         var item = $el.closest(".sit_option").find("label").eq(eq).text();
         
         if(!val) {
-            alert(item+"을(를) 선택해 주십시오.");
+            alert("Please select" +item);
+            // alert(item+"을(를) 선택해 주십시오.hosu");
             return false;
         }
 
@@ -19,18 +20,20 @@ jQuery(function($){
 
         // 재고체크
         if(parseInt(info[2]) < 1) {
-            alert(info[0]+"은(는) 재고가 부족하여 구매할 수 없습니다.");
+            alert(info[0]+"is not available for purchase due to lack of stock.");
+            // alert(info[0]+"은(는) 재고가 부족하여 구매할 수 없습니다.hosu");
             return false;
         }
 
         var id = item+chr(30)+info[0];
-        var option = item+":"+info[0];
+        var option = item+ " : " +info[0];
         var price = info[1];
         var stock = info[2];
 
         // 금액 음수 체크
         if(parseInt(price) < 0) {
-            alert("구매금액이 음수인 상품은 구매할 수 없습니다.");
+            alert("Products with a negative purchase amount cannot be purchased.");
+            // alert("구매금액이 음수인 상품은 구매할 수 없습니다.hosu");
             return false;
         }
 
@@ -80,7 +83,7 @@ jQuery(function($){
                     opt += "<input type=\"hidden\" class=\"io_price\" value=\""+price+"\">";
                     opt += "<input type=\"hidden\" class=\"io_stock\" value=\""+stock+"\">";
                     opt += "<div class=\"opt_name\">";
-                    opt += "<span class=\"sit_opt_subj\">"+option+"</span>";
+                    opt += "<span class=\"sit_opt_subj\">"+option+"("+opt_prc+")</span>";
                     opt += "</div>";
                     opt += "<div class=\"opt_count\">";
                     opt += "<button type=\"button\" class=\"sit_qty_minus\"><img src=\"/source/img/icon-minus.png\" alt=\"\"><span class=\"sound_only\">감소</span></button>";

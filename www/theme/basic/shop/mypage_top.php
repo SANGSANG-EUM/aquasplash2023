@@ -18,34 +18,40 @@ add_stylesheet('<link rel="stylesheet" href="'.EUM_CSS_URL.'/mypage.css">', 0);
 <div class="mypage-top-wr">
   <div class="mypage-top mypage-info">
     <div class="mypage-info-in">
-      <p class="mypage-info-txt1"><?php echo $member['mb_name']; ?>,</p>
-      <p class="mypage-info-txt2">
-        <?php if ($lang == "") { //(기본)영문
-                            echo "Thank you for visiting.";
-                        } else if ($lang == "ko") { //국문
-                            echo "";
-                        }?>
-      </p>
+      <a href="/shop/mypage.php">
+        <p class="mypage-info-txt1"><?php echo $member['mb_name']; ?>,</p>
+        <p class="mypage-info-txt2">
+          <?php if ($lang == "") { //(기본)영문
+                              echo "Thank you for visiting.";
+                          } else if ($lang == "ko") { //국문
+                              echo "";
+                          }?>
+        </p>
+      </a>
     </div>
     <div class="mypage-info-in">
-      <p class="mypage-info-txt3">
-        <?php if ($lang == "") { //(기본)영문
-                            echo "Mileage";
-                        } else if ($lang == "ko") { //국문
-                            echo "마일리지";
-                        }?>
-      </p>
-      <p class="mypage-info-txt4"><b><?php echo number_format($member['mb_point']); ?></b>P</p>
+      <a href="/bbs/point.php">
+        <p class="mypage-info-txt3">
+          <?php if ($lang == "") { //(기본)영문
+                              echo "Mileage";
+                          } else if ($lang == "ko") { //국문
+                              echo "마일리지";
+                          }?>
+        </p>
+        <p class="mypage-info-txt4"><b><?php echo number_format($member['mb_point']); ?></b>P</p>
+      </a>
     </div>
     <div class="mypage-info-in">
-      <p class="mypage-info-txt3">
-        <?php if ($lang == "") { //(기본)영문
-                            echo "Coupon";
-                        } else if ($lang == "ko") { //국문
-                            echo "쿠폰";
-                        }?>
-      </p>
-      <p class="mypage-info-txt4"><b><?php echo number_format($cp_count); ?></b></p>
+      <a href="/shop/coupon.php">
+        <p class="mypage-info-txt3">
+          <?php if ($lang == "") { //(기본)영문
+                              echo "Coupon";
+                          } else if ($lang == "ko") { //국문
+                              echo "쿠폰";
+                          }?>
+        </p>
+        <p class="mypage-info-txt4"><b><?php echo number_format($cp_count); ?></b></p>
+      </a>
     </div>
   </div>
   <div class="mypage-top mypage-status">

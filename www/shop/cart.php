@@ -199,6 +199,37 @@ include_once('./_head.php');
                             <input type="hidden" name="it_name[<?php echo $i; ?>]" value="<?php echo get_text($row['it_name']); ?>">
                             <?php echo $it_name.$mod_options; ?>
                         </div>
+                        <div class="sod_info_mo">
+                            <div class="sod_info_txtwr">
+                            <?php if ($lang == "") { ?> 
+                                <p class="sod_info_txt">
+                                    <?php echo number_format($row['ct_price']); ?> won(ea)
+                                </p>
+                                <p class="sod_info_txt">
+                                    Qty : <?php echo number_format($sum['qty']); ?>
+                                </p>
+                                <p class="sod_info_txt">
+                                    Amount : <?php echo number_format($sell_price); ?>
+                                </p>
+                                <p class="sod_info_txt">
+                                    Mileage : <?php echo number_format($point); ?>
+                                </p>
+                            <? } else if ($lang == "ko") { ?>
+                                <p class="sod_info_txt">
+                                    각 <?php echo number_format($row['ct_price']); ?>원
+                                </p>
+                                <p class="sod_info_txt">
+                                    수량 : <?php echo number_format($sum['qty']); ?>
+                                </p>
+                                <p class="sod_info_txt">
+                                    소계 : <?php echo number_format($sell_price); ?>
+                                </p>
+                                <p class="sod_info_txt">
+                                    포인트 : <?php echo number_format($point); ?>
+                                </p>
+                            <? } ?>
+                            </div>
+                        </div>
                     </td>
                     <!-- <td class="td_numbig">Selling Price</td> -->
                     <td class="td_numbig"><?php echo number_format($row['ct_price']); ?></td>

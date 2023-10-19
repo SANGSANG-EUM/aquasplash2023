@@ -631,7 +631,7 @@ function get_price($it)
 // 포인트 표시
 function display_point($point)
 {
-    return number_format($point, 0).'점';
+    return number_format($point, 0).'P';
 }
 
 
@@ -1418,7 +1418,7 @@ function set_cart_id($direct)
             set_session('ss_cart_direct', $tmp_cart_id);
         }
     } else {
-        // 비회장바구니 cart id 쿠키설정
+        // 비회원장바구니 cart id 쿠키설정
         if($default['de_guest_cart_use']) {
             $tmp_cart_id = preg_replace('/[^a-z0-9_\-]/i', '', get_cookie('ck_guest_cart_id'));
             if($tmp_cart_id) {
@@ -1437,7 +1437,7 @@ function set_cart_id($direct)
             }
         }
 
-        // 보관된 회장바구니 자료 cart id 변경
+        // 보관된 회원장바구니 자료 cart id 변경
         if($member['mb_id'] && $tmp_cart_id) {
             $sql = " update {$g5['g5_shop_cart_table']}
                         set od_id = '$tmp_cart_id'
@@ -2070,9 +2070,9 @@ function shop_member_cert_check($id, $type)
                 // 본인확인체크
                 if($row['ca_cert_use'] && !$member['mb_certify']) {
                     if($member['mb_id'])
-                        $msg = '회정보 수정에서 본인확인 후 이용해 주십시오.';
+                        $msg = '회원정보 수정에서 본인확인 후 이용해 주십시오.';
                     else
-                        $msg = '본인확인된 로그인 회만 이용할 수 있습니다.';
+                        $msg = '본인확인된 로그인 회원만 이용할 수 있습니다.';
 
                     break;
                 }
@@ -2080,9 +2080,9 @@ function shop_member_cert_check($id, $type)
                 // 성인인증체크
                 if($row['ca_adult_use'] && !$member['mb_adult']) {
                     if($member['mb_id'])
-                        $msg = '본인확인으로 성인인증된 회만 이용할 수 있습니다.\\n회정보 수정에서 본인확인을 해주십시오.';
+                        $msg = '본인확인으로 성인인증된 회원만 이용할 수 있습니다.\\n회원정보 수정에서 본인확인을 해주십시오.';
                     else
-                        $msg = '본인확인으로 성인인증된 회만 이용할 수 있습니다.';
+                        $msg = '본인확인으로 성인인증된 회원만 이용할 수 있습니다.';
 
                     break;
                 }
@@ -2105,17 +2105,17 @@ function shop_member_cert_check($id, $type)
             // 본인확인체크
             if($ca['ca_cert_use'] && !$member['mb_certify']) {
                 if($member['mb_id'])
-                    $msg = '회정보 수정에서 본인확인 후 이용해 주십시오.';
+                    $msg = '회원정보 수정에서 본인확인 후 이용해 주십시오.';
                 else
-                    $msg = '본인확인된 로그인 회만 이용할 수 있습니다.';
+                    $msg = '본인확인된 로그인 회원만 이용할 수 있습니다.';
             }
 
             // 성인인증체크
             if($ca['ca_adult_use'] && !$member['mb_adult']) {
                 if($member['mb_id'])
-                    $msg = '본인확인으로 성인인증된 회만 이용할 수 있습니다.\\n회정보 수정에서 본인확인을 해주십시오.';
+                    $msg = '본인확인으로 성인인증된 회원만 이용할 수 있습니다.\\n회원정보 수정에서 본인확인을 해주십시오.';
                 else
-                    $msg = '본인확인으로 성인인증된 회만 이용할 수 있습니다.';
+                    $msg = '본인확인으로 성인인증된 회원만 이용할 수 있습니다.';
             }
 
             break;
@@ -2393,9 +2393,9 @@ function save_order_point($ct_status="완료")
     $sql = " select * from {$g5['g5_shop_cart_table']} where ct_status = '$ct_status' and ct_point_use = '0' and ct_time <= '$beforedays' ";
     $result = sql_query($sql);
     for ($i=0; $row=sql_fetch_array($result); $i++) {
-        // 회 ID 를 얻는다.
+        // 회원 ID 를 얻는다.
         $od_row = sql_fetch("select od_id, mb_id from {$g5['g5_shop_order_table']} where od_id = '{$row['od_id']}' ");
-        if ($od_row['mb_id'] && $row['ct_point'] > 0) { // 회이면서 포인트가 0보다 크다면
+        if ($od_row['mb_id'] && $row['ct_point'] > 0) { // 회원이면서 포인트가 0보다 크다면
             $po_point = $row['ct_point'] * $row['ct_qty'];
             $po_content = "주문번호 {$od_row['od_id']} ({$row['ct_id']}) 배송완료";
             insert_point($od_row['mb_id'], $po_point, $po_content, "@delivery", $od_row['mb_id'], "{$od_row['od_id']},{$row['ct_id']}");

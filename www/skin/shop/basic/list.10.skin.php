@@ -8,6 +8,13 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_SKIN_URL.'/style.css">', 
 add_javascript('<script src="'.G5_JS_URL.'/shop.list.action.js"></script>', 10);
 
 include_once(G5_PATH.'/include/sub_visual.php');
+
+// 찜버튼 css 추가용 코드
+$qq = sql_query("select it_id from {$g5['g5_shop_wish_table']} where mb_id = '{$member['mb_id']}' ");
+$wishArr = array();
+while($row_wish = sql_fetch_array($qq)) {
+    $wishArr[] = $row_wish['it_id'];
+}
 ?>
 
 
@@ -120,8 +127,12 @@ foreach((array) $list as $row){
         </a>\n";
     }
 
+    if( in_array($row['it_id'], $wishArr)) {
     // 찜하면 on 클래스 추가
+    echo "<button type=\"button\" class=\"list-item-wish btn_wish on\" title=\"찜하기\" data-it_id=\"{$row['it_id']}\"></button>\n";
+    } else {
     echo "<button type=\"button\" class=\"list-item-wish btn_wish\" title=\"찜하기\" data-it_id=\"{$row['it_id']}\"></button>\n";
+    };
     
     //if ( !$is_soldout ){    // 품절 상태가 아니면 출력합니다.
        // echo "<div class=\"sct_btn list-10-btn\">
@@ -236,4 +247,15 @@ $(function (){
         $('.sct_sns_wrap').hide();
 	});
 });			
+</script>
+
+<script>
+    // 상품리스트 찜하기 버튼 클릭시 클래스 변경
+    $('.list-item-wish').on('click', function(){
+        $(this).addClass('on');
+    });
+
+    $(document).ready(function () {
+    $('.sub-vs-back').attr('onclick', 'location.href="/sub/colour";');
+})
 </script>

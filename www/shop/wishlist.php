@@ -34,13 +34,13 @@ add_stylesheet('<link rel="stylesheet" href="'.EUM_CSS_URL.'/mypage.css">', 0);
   <div id="sod_ws" class="sb_container">
     <div class="wrapper">
       <div class="sb_top">
-        <p class="sb-title">
+        <a href="/shop/mypage.php" class="sb-title">
           <?php if ($lang == "") { //(기본)영문
               echo "My page";
           } else if ($lang == "ko") { //국문
               echo "마이페이지";
           }?>
-        </p>
+        </a>
       </div>
 
       <?php include G5_THEME_SHOP_PATH.'/mypage_top.php'; ?>
@@ -112,8 +112,14 @@ add_stylesheet('<link rel="stylesheet" href="'.EUM_CSS_URL.'/mypage.css">', 0);
                   </li>
                   <?php
                   }
-                  if ($i == 0)
+                  if ($i == 0) {
+                    if($lang == "") { //(기본)영문
+                      echo '<li class="empty_table">Your inventory is empty.</li>'; 
+                    } else if ($lang == "ko") { //국문
                       echo '<li class="empty_table">보관함이 비었습니다.</li>';
+                    }
+                  }
+                      
                   ?>
                   </ul>
               </div>

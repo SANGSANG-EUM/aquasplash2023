@@ -209,13 +209,16 @@ if($is_kakaopay_use) {
                         switch($row['ct_send_cost'])
                         {
                             case 1:
-                                $ct_send_cost = '착불';
+                                $ct_send_cost = 'Cash on delivery';
+                                // $ct_send_cost = '착불hosu';
                                 break;
                             case 2:
-                                $ct_send_cost = '무료';
+                                $ct_send_cost = 'Free';
+                                // $ct_send_cost = '무료hosu';
                                 break;
                             default:
-                                $ct_send_cost = '선불';
+                                $ct_send_cost = 'Prepayment';
+                                // $ct_send_cost = '선불hosu';
                                 break;
                         }
         
@@ -224,7 +227,8 @@ if($is_kakaopay_use) {
                             $sendcost = get_item_sendcost($row['it_id'], $sum['price'], $sum['qty'], $s_cart_id);
         
                             if($sendcost == 0)
-                                $ct_send_cost = '무료';
+                                $ct_send_cost = 'Free';
+                                // $ct_send_cost = '무료hosu';
                         }
                     ?>
         
@@ -243,8 +247,7 @@ if($is_kakaopay_use) {
                                 <?php } ?>
                                 <?php echo $it_name; ?>
                                 <?php echo $cp_button; ?>
-        
-                             </div>
+                            </div>
                         </td>
                         <td class="td_numbig "><?php echo number_format($row['ct_price']); ?></td>
                         <td class="td_num"><?php echo number_format($sum['qty']); ?></td>
@@ -1170,7 +1173,8 @@ if($is_kakaopay_use) {
                         }
     
                         if ($multi_settle == 0)
-                            echo '<p>결제할 방법이 없습니다.<br>운영자에게 알려주시면 감사하겠습니다.</p>';
+                            echo '<p>There is no way to pay.<br>Please let the operator know.</p>';
+                            // echo '<p>결제할 방법이 없습니다.<br>운영자에게 알려주시면 감사하겠습니다.hosu</p>';
                         ?>
                     </section>
                 </div>
@@ -1286,7 +1290,8 @@ $(function() {
         var sell_price;
 
         if(parseInt(price) == 0) {
-            if(!confirm(subj+"쿠폰의 할인 금액은 "+price+"원입니다.\n쿠폰을 적용하시겠습니까?")) {
+            if(!confirm(subj+"The discount amount of the coupon is "+price+" won.\nWould you like to apply coupon?")) {
+            // if(!confirm(subj+"쿠폰의 할인 금액은 "+price+"원입니다.\n쿠폰을 적용하시겠습니까?hosu")) {
                 return false;
             }
         }
@@ -1309,12 +1314,14 @@ $(function() {
 
         if(cp_dup) {
             var it_name = $("input[name='it_name["+cp_dup_idx+"]']").val();
-            if(!confirm(subj+ "쿠폰은 "+it_name+"에 사용되었습니다.\n"+it_name+"의 쿠폰을 취소한 후 적용하시겠습니까?")) {
+            if(!confirm(subj+ "Coupon was used for "+it_name+".\nWould you like to cancel and apply the coupon for “+it_name+”?")) {
+            // if(!confirm(subj+ "쿠폰은 "+it_name+"에 사용되었습니다.\n"+it_name+"의 쿠폰을 취소한 후 적용하시겠습니까?")) {
                 return false;
             } else {
                 coupon_cancel($cp_dup_el);
                 $("#cp_frm").remove();
-                $cp_dup_el.find(".cp_btn").text("적용").focus();
+                $cp_dup_el.find(".cp_btn").text("Apply").focus();
+                // $cp_dup_el.find(".cp_btn").text("적용hosu").focus();
                 $cp_dup_el.find(".cp_cancel").remove();
             }
         }
@@ -1323,7 +1330,8 @@ $(function() {
         sell_price = parseInt($cp_row_el.find("input[name^=it_price]").val());
         sell_price = sell_price - parseInt(price);
         if(sell_price < 0) {
-            alert("쿠폰할인금액이 상품 주문금액보다 크므로 쿠폰을 적용할 수 없습니다.");
+            alert("The coupon cannot be applied because the coupon discount amount is greater than the product order amount.");
+            // alert("쿠폰할인금액이 상품 주문금액보다 크므로 쿠폰을 적용할 수 없습니다.hosu");
             return false;
         }
         $s_el.text(number_format(String(sell_price)));
@@ -1347,7 +1355,8 @@ $(function() {
         coupon_cancel($(this).closest("tr"));
         calculate_total_price();
         $("#cp_frm").remove();
-        $(this).closest("tr").find(".cp_btn").text("적용").focus();
+        $(this).closest("tr").find(".cp_btn").text("Apply").focus();
+        // $(this).closest("tr").find(".cp_btn").text("적용hosu").focus();
         $(this).remove();
     });
 
@@ -1359,7 +1368,8 @@ $(function() {
         var $this = $(this);
         var price = parseInt($("input[name=org_od_price]").val()) - parseInt($("input[name=item_coupon]").val());
         if(price <= 0) {
-            alert('상품금액이 0원이므로 쿠폰을 사용할 수 없습니다.');
+            alert('Since the product price is 0 won, the coupon cannot be used.');
+            // alert('상품금액이 0원이므로 쿠폰을 사용할 수 없습니다.');
             return false;
         }
         $.post(
@@ -1381,13 +1391,15 @@ $(function() {
         var od_price = parseInt($("input[name=org_od_price]").val()) - item_coupon;
 
         if(price == 0) {
-            if(!confirm(subj+"쿠폰의 할인 금액은 "+price+"원입니다.\n쿠폰을 적용하시겠습니까?")) {
+            if(!confirm(subj+"The discount amount of the coupon is "+price+" won.\nWould you like to apply coupon?")) {
+            // if(!confirm(subj+"쿠폰의 할인 금액은 "+price+"원입니다.\n쿠폰을 적용하시겠습니까?hosu")) {
                 return false;
             }
         }
 
         if(od_price - price <= 0) {
-            alert("쿠폰할인금액이 주문금액보다 크므로 쿠폰을 적용할 수 없습니다.");
+            alert("The coupon cannot be applied because the coupon discount amount is greater than the order amount.");
+            // alert("쿠폰할인금액이 주문금액보다 크므로 쿠폰을 적용할 수 없습니다.hosu");
             return false;
         }
 
@@ -1438,7 +1450,8 @@ $(function() {
         $("#od_coupon_btn").text("Find Coupons").focus();
         // $("#od_coupon_btn").text("쿠폰적용hosu").focus();
         $(this).remove();
-        $("#sc_coupon_btn").text("쿠폰적용");
+        $("#sc_coupon_btn").text("Find Coupons");
+        // $("#sc_coupon_btn").text("쿠폰적용hosu");
         $("#sc_coupon_cancel").remove();
     });
 
@@ -1464,7 +1477,8 @@ $(function() {
         var send_cost = parseInt($("input[name=od_send_cost]").val());
 
         if(parseInt(price) == 0) {
-            if(!confirm(subj+"쿠폰의 할인 금액은 "+price+"원입니다.\n쿠폰을 적용하시겠습니까?")) {
+            if(!confirm(subj+"The discount amount of the coupon is "+price+" won.\nWould you like to apply coupon?")) {
+            // if(!confirm(subj+"쿠폰의 할인 금액은 "+price+"원입니다.\n쿠폰을 적용하시겠습니까?hosu")) {
                 return false;
             }
         }
@@ -1731,42 +1745,51 @@ function forderform_check(f)
     errfld = "";
     var deffld = "";
 
-    check_field(f.od_name, "주문하시는 분 이름을 입력하십시오.");
+    check_field(f.od_name, "Please enter the name of the person ordering.");
+    // check_field(f.od_name, "주문하시는 분 이름을 입력하십시오.hosu");
     if (typeof(f.od_pwd) != 'undefined')
     {
         clear_field(f.od_pwd);
         if( (f.od_pwd.value.length<3) || (f.od_pwd.value.search(/([^A-Za-z0-9]+)/)!=-1) )
-            error_field(f.od_pwd, "회원이 아니신 경우 주문서 조회시 필요한 비밀번호를 3자리 이상 입력해 주십시오.");
+            error_field(f.od_pwd, "If you are not a member, please enter a password of at least 3 characters required to view your order.");
+            // error_field(f.od_pwd, "회원이 아니신 경우 주문서 조회시 필요한 비밀번호를 3자리 이상 입력해 주십시오.hosu");
     }
     check_field(f.od_tel, "Please enter the phone number of the person ordering.");
     // check_field(f.od_tel, "주문하시는 분 전화번호를 입력하십시오.hosu");
     check_field(f.od_addr1, "Please use the address search to enter the address of the person ordering.");
     // check_field(f.od_addr1, "주소검색을 이용하여 주문하시는 분 주소를 입력하십시오.hosu");
-    //check_field(f.od_addr2, " 주문하시는 분의 상세주소를 입력하십시오.");
+    //check_field(f.od_addr2, " 주문하시는 분의 상세주소를 입력하십시오.hosu");
     check_field(f.od_zip, "");
 
     clear_field(f.od_email);
     if(f.od_email.value=='' || f.od_email.value.search(/(\S+)@(\S+)\.(\S+)/) == -1)
-        error_field(f.od_email, "E-mail을 바르게 입력해 주십시오.");
+        error_field(f.od_email, "Please enter your e-mail address correctly.");
+        // error_field(f.od_email, "E-mail을 바르게 입력해 주십시오.hosu");
 
     if (typeof(f.od_hope_date) != "undefined")
     {
         clear_field(f.od_hope_date);
         if (!f.od_hope_date.value)
-            error_field(f.od_hope_date, "희망배송일을 선택하여 주십시오.");
+            error_field(f.od_hope_date, "Please select your desired delivery date.");
+            // error_field(f.od_hope_date, "희망배송일을 선택하여 주십시오.hosu");
     }
 
-    check_field(f.od_b_name, "받으시는 분 이름을 입력하십시오.");
-    check_field(f.od_b_tel, "받으시는 분 전화번호를 입력하십시오.");
-    check_field(f.od_b_addr1, "주소검색을 이용하여 받으시는 분 주소를 입력하십시오.");
+    check_field(f.od_b_name, "Please enter the recipient's name.");
+    // check_field(f.od_b_name, "받으시는 분 이름을 입력하십시오.hosu");
+    check_field(f.od_b_tel, "Please enter the recipient's phone number.");
+    // check_field(f.od_b_tel, "받으시는 분 전화번호를 입력하십시오.hosu");
+    check_field(f.od_b_addr1, "Please use the address search to enter the recipient's address.");
+    // check_field(f.od_b_addr1, "주소검색을 이용하여 받으시는 분 주소를 입력하십시오.hosu");
     //check_field(f.od_b_addr2, "받으시는 분의 상세주소를 입력하십시오.");
     check_field(f.od_b_zip, "");
 
     var od_settle_bank = document.getElementById("od_settle_bank");
     if (od_settle_bank) {
         if (od_settle_bank.checked) {
-            check_field(f.od_bank_account, "계좌번호를 선택하세요.");
-            check_field(f.od_deposit_name, "입금자명을 입력하세요.");
+            check_field(f.od_bank_account, "Please select an account number.");
+            // check_field(f.od_bank_account, "계좌번호를 선택하세요.hosu");
+            check_field(f.od_deposit_name, "Please enter the name of the depositor.");
+            // check_field(f.od_deposit_name, "입금자명을 입력하세요.hosu");
         }
     }
 
@@ -1795,7 +1818,8 @@ function forderform_check(f)
     }
     if (!settle_check)
     {
-        alert("결제방식을 선택하십시오.");
+        alert("Please select a payment method.");
+        // alert("결제방식을 선택하십시오.hosu");
         return false;
     }
 
@@ -1816,25 +1840,29 @@ function forderform_check(f)
         if (f.od_temp_point.value)
         {
             if (temp_point > od_price) {
-                alert("상품 주문금액(배송비 제외) 보다 많이 포인트결제할 수 없습니다.");
+                alert("Points cannot be paid more than the product order amount (excluding shipping costs).");
+                // alert("상품 주문금액(배송비 제외) 보다 많이 포인트결제할 수 없습니다.hosu");
                 f.od_temp_point.select();
                 return false;
             }
 
             if (temp_point > <?php echo (int)$member['mb_point']; ?>) {
-                alert("회원님의 포인트보다 많이 결제할 수 없습니다.");
+                alert("You cannot pay more than your points.");
+                // alert("회원님의 포인트보다 많이 결제할 수 없습니다.hosu");
                 f.od_temp_point.select();
                 return false;
             }
 
             if (temp_point > max_point) {
-                alert(max_point + "점 이상 결제할 수 없습니다.");
+                alert("You cannot pay more than" +max_point+"points.");
+                // alert(max_point + "점 이상 결제할 수 없습니다.hosu");
                 f.od_temp_point.select();
                 return false;
             }
 
             if (parseInt(parseInt(temp_point / point_unit) * point_unit) != temp_point) {
-                alert("포인트를 "+String(point_unit)+"점 단위로 입력하세요.");
+                alert("Enter the point as "+String(point_unit)+" point unit.");
+                // alert("포인트를 "+String(point_unit)+"점 단위로 입력하세요.hosu");
                 f.od_temp_point.select();
                 return false;
             }
@@ -1851,7 +1879,8 @@ function forderform_check(f)
     if (document.getElementById("od_settle_iche")) {
         if (document.getElementById("od_settle_iche").checked) {
             if (tot_price < 150) {
-                alert("계좌이체는 150원 이상 결제가 가능합니다.");
+                alert("Account transfers are available for payments of 150 won or more.");
+                // alert("계좌이체는 150원 이상 결제가 가능합니다.hosu");
                 return false;
             }
         }
@@ -1860,7 +1889,8 @@ function forderform_check(f)
     if (document.getElementById("od_settle_card")) {
         if (document.getElementById("od_settle_card").checked) {
             if (tot_price < 1000) {
-                alert("신용카드는 1000원 이상 결제가 가능합니다.");
+                alert("Credit cards are available for payments of 1,000 won or more.");
+                // alert("신용카드는 1000원 이상 결제가 가능합니다.hosu");
                 return false;
             }
         }
@@ -1869,7 +1899,8 @@ function forderform_check(f)
     if (document.getElementById("od_settle_hp")) {
         if (document.getElementById("od_settle_hp").checked) {
             if (tot_price < 350) {
-                alert("휴대폰은 350원 이상 결제가 가능합니다.");
+                alert("Mobile phones can be paid for over 350 won.");
+                // alert("휴대폰은 350원 이상 결제가 가능합니다.hosu");
                 return false;
             }
         }

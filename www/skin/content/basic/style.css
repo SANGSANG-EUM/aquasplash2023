@@ -1,10 +1,14 @@
 @charset "utf-8";
 
 /* 내용관리 */
-#ctt {margin:10px 0;padding:20px;background:#fff}
+#ctt {margin-top: 20px; background:#fff}
 .ctt_admin {text-align:right}
 #ctt header h1 {position:absolute;font-size:0;line-height:0;overflow:hidden}
-#ctt_con {padding:10px 0;line-height:1.6em}
+/* #ctt_con {padding:10px 0;line-height:1.6em} */
 #ctt_con img{max-width:100%;height:auto}
 .ctt_img {text-align:center}
+.sb_container {padding-top: clamp(70px, calc(3vw + 50px), 100px); min-height: calc(100vh - 90px); padding-bottom: clamp(50px, 6vw, 100px);}
+.ctt-tit {padding-bottom: min(2vw, 40px); font-size: clamp(1.8rem, 4vw, 3.6rem);}
+.area_box {padding: clamp(10px, 2vw, 20px) 0 !important;}
+
 
